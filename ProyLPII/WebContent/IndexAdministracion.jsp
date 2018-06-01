@@ -29,14 +29,14 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
-                        Start Bootstrap
+                        Restaurant Jaen
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="Graficos.jsp" target="form" class="link1">Administracion</a>
                 </li>
                 <li>
-                    <a href="#">Shortcuts</a>
+                    <a href="ListaUsuario.jsp" target="form" class="link1">Usuario</a>
                 </li>
                 <li>
                     <a href="#">Overview</a>
@@ -59,12 +59,15 @@
        
        
         <!-- Page Content -->
+<!--        <div>
+        	 <img src="" alt="">
+        </div>-->
+		<div class="container-fluid">              
+			<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Ver Menu</a>
+		</div>
         <div id="page-content-wrapper">
-            <div class="container-fluid">              
-                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Ver Menu</a>
-            </div>
+            <iframe  style="width: 100%; height: 500px;border: 0" name="form"></iframe> 
         </div>
-        <!-- /#page-content-wrapper -->
 
     </div>
     <!-- /#wrapper -->
@@ -76,8 +79,6 @@
     <!-- Menu Toggle Script -->
     <script>
 		var cont=0;
-		
-	
     $("#menu-toggle").click(function(e) {
 		if(cont==0){
 			cont++;
@@ -90,10 +91,9 @@
 			$("#wrapper").toggleClass("toggled");
 			$(this).html('Ver Menu');
 		}
-		
-        
 	
     });
+
     </script>
 
 </body>
