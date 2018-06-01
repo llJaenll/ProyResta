@@ -12,7 +12,7 @@
       <link rel="stylesheet" href="css/estiloLogin.css">
 </head>
 <body>
-  <form>
+  <form action="ServletLogin">
 	<div class="svgContainer">
 		<div>
 			<svg class="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
@@ -116,8 +116,10 @@
 	</div>
 	<div class="inputGroup inputGroup3">
 		<button id="login">Log in</button>
-	</div>	
+	</div>
+	${msj}	
 </form>
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
 
     <script  src="js/login.js"></script>

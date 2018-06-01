@@ -42,12 +42,12 @@ public class ServletLogin extends HttpServlet {
 				if(u!=null) {
 					
 					//éxito
-					request.setAttribute("msj", "Buena esa");
-					request.getRequestDispatcher("/loginAdministracion.jsp").forward(request, response);
+					request.setAttribute("msj", "Sus credenciales son correctas!");
+					request.getRequestDispatcher("/Login.jsp").forward(request, response);
 					
 				}else {
 					request.setAttribute("msj", "Credenciales Invalidas");
-					request.getRequestDispatcher("/loginAdministracion.jsp").forward(request, response);
+					request.getRequestDispatcher("/Login.jsp").forward(request, response);
 					
 					
 					
