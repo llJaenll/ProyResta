@@ -17,7 +17,7 @@
 		<div>
 			<svg class="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
 				<defs>
-					<circle id="armMaskPath" cx="100" cy="100" r="100"/>	
+					<circle id="armMaskPath" cx="100" cy="100" r="100"/>
 				</defs>
 				<clipPath id="armMask">
 					<use xlink:href="#armMaskPath" overflow="visible"/>
