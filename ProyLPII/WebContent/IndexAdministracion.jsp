@@ -39,19 +39,19 @@
                     <a href="ListaUsuario.jsp" target="form" class="link1">Usuario</a>
                 </li>
                 <li>
-                    <a href="#">Overview</a>
+                    <a href="#">proceso</a>
                 </li>
                 <li>
-                    <a href="#">Events</a>
+                    <a href="#">proceso</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="#">proceso</a>
                 </li>
                 <li>
-                    <a href="#">Services</a>
+                    <a href="#">proceso</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="#">proceso</a>
                 </li>
             </ul>
         </div>

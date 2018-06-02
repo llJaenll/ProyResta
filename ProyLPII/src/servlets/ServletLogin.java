@@ -43,11 +43,11 @@ public class ServletLogin extends HttpServlet {
 					
 					//éxito
 					request.setAttribute("msj", "Sus credenciales son correctas!");
-					request.getRequestDispatcher("/Login.jsp").forward(request, response);
+					request.getRequestDispatcher("/IndexAdministracion.jsp").forward(request, response);
 					
 				}else {
 					request.setAttribute("msj", "Credenciales Invalidas");
-					request.getRequestDispatcher("/Login.jsp").forward(request, response);
+					request.getRequestDispatcher("/IndexAdministracion.jsp").forward(request, response);
 					
 					
 					
