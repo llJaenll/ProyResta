@@ -47,7 +47,7 @@ public class ServletLogin extends HttpServlet {
 					
 				}else {
 					request.setAttribute("msj", "Credenciales Invalidas");
-					request.getRequestDispatcher("/IndexAdministracion.jsp").forward(request, response);
+					request.getRequestDispatcher("/Login.jsp").forward(request, response);
 					
 					
 					
