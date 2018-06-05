@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
+ <!-- Bootstrap core CSS -->
+    <link href="util/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   
       <link rel="stylesheet" href="css/estiloLogin.css">
 </head>
@@ -117,12 +118,17 @@
 	<div class="inputGroup inputGroup3">
 		<button id="login">Log in</button>
 	</div>
-	${msj}	
+	<div class="alert alert-danger" role="alert">
+	  <strong>${msj}</strong>
+	</div>
+
+	
 </form>
-
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
-
+    <script src="util/jquery/jquery.min.js"></script>
+    <script src="util/bootstrap/js/bootstrap.bundle.min.js"></script>
+  	<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
     <script  src="js/login.js"></script>
+    
 
 
 </body>
