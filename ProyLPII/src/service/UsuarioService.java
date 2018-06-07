@@ -49,7 +49,7 @@ public class UsuarioService implements UsuarioDAO{
 		return dao.listarTipoUsaurio();
 	}
 	@Override
-	public List<UsuarioTipoDTO> listarUsuarioTipo() {
+	public List<UsuarioDTO> listarUsuarioTipo() {
 		// TODO Auto-generated method stub
 		return dao.listarUsuarioTipo();
 	}

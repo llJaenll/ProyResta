@@ -26,7 +26,7 @@ public interface UsuarioDAO {
 		
 		public List<TipoUsuarioDTO> listarTipoUsaurio(); 
 		
-		public List<UsuarioTipoDTO> listarUsuarioTipo();
+		public List<UsuarioDTO> listarUsuarioTipo();
 		
 		public UsuarioDTO buscarUsuarioTipo(int codigo);
 		

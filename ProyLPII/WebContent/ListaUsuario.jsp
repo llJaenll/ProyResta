@@ -13,7 +13,7 @@
 <body>
 <div class="container">
 <h1>Lista de Usuarios</h1>
-<table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+<table id="tablaClientes" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -25,14 +25,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Jaen Pierre Rumiche Riveros</td>
-                <td>12345678</td>
-                <td>123456789</td>
-                <td>Administrador</td>
-                <td>JP001</td>
-                <td>20/05/2018</td>
-            </tr>
+       
+       
+       
         </tbody>
         <tfoot>
             <tr>
@@ -58,11 +53,30 @@
 
 <script>
 $(document).ready(function() {
-    $('#example').DataTable( {
-        "language": {
+
+    var tabla = $('#tablaClientes').DataTable({
+        ajax:{
+        	method:"POST",
+        	url:"Listar",
+        	dataSrc:"datos"
+        },
+        columns: [ 
+        	{"data":"nom_Usu"}, 
+        	{"data":"dni_Usu"},
+        	{"data":"telf_Usu"},
+        	{"data":"Id_TipoUsu"},
+        	{"data":"usuario"},
+        	{"data":"fechIng_Usu"}
+        ],
+        
+    	"language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
         }
+    
+    
     } );
+    
+    
 } );
 </script>
 	
