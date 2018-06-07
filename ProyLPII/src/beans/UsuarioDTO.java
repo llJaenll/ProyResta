@@ -5,6 +5,7 @@ public class UsuarioDTO extends ObjetoPersonaDTO {
 	private String dni,usuario,contraseña;
 	private int tipoUsuario;
 	private int estado;
+	String tipoU;
 	
 
 	public UsuarioDTO(int codigo, String nombre, String apePat, String apeMat, String telefono, String fecha, String dni,
@@ -15,6 +16,16 @@ public class UsuarioDTO extends ObjetoPersonaDTO {
 		this.contraseña = contraseña;
 		this.tipoUsuario = tipoUsuario;
 	}
+	
+	public UsuarioDTO(int codigo,
+			String tipoU, String nombre, String apePat, String apeMat, String telefono, String fecha, String dni, String usuario, String contraseña) {
+		super(codigo, nombre, apePat, apeMat, telefono, fecha);
+		this.tipoU = tipoU;
+		this.dni = dni;
+		this.usuario = usuario;
+		this.contraseña = contraseña;
+	}
+
 
 	public UsuarioDTO(int codigo,int tipoUsuario, String nombre, String apePat, String apeMat, String dni, String telefono, String fecha,
 			 int estado,String usuario, String contraseña) {
@@ -65,9 +76,14 @@ public class UsuarioDTO extends ObjetoPersonaDTO {
 	public void setEstado(int estado) {
 		this.estado = estado;
 	}
-	
-	
-	
+
+	public String getTipoU() {
+		return tipoU;
+	}
+
+	public void setTipoU(String tipoU) {
+		this.tipoU = tipoU;
+	}
 
 	
 	

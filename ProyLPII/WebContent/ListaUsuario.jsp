@@ -6,8 +6,10 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap4.min.css">
 <body>
@@ -21,7 +23,8 @@
                 <th>Teléfono</th>
                 <th>Tipo de Usuario</th>
                 <th>Usuario</th>
-                <th>Fecha de Ingreso</th>      
+                <th>Fecha de Ingreso</th>
+                <th>Acciones</th>    
             </tr>
         </thead>
         <tbody>
@@ -37,6 +40,7 @@
                 <th>Tipo de Usuario</th>
                 <th>Usuario</th>
                 <th>Fecha de Ingreso</th>  
+                <th>Acciones</th>
             </tr>
         </tfoot>
     </table>
@@ -66,7 +70,8 @@ $(document).ready(function() {
         	{"data":"telf_Usu"},
         	{"data":"Id_TipoUsu"},
         	{"data":"usuario"},
-        	{"data":"fechIng_Usu"}
+        	{"data":"fechIng_Usu"},
+        	{"data":"acciones"}
         ],
         
     	"language": {
@@ -76,8 +81,44 @@ $(document).ready(function() {
     
     } );
     
+    $(document).on('click','.eliminar',function(){
+    	
+    	var idUsuario = $(this).attr('id');
+    	var row = $(this).parent().parent();
+    	var r = confirm("¿Seguro que desea eliminar al cliente?");
+    	
+    	if (r==true) {
+			
+    		$.ajax({
+    			
+    			url:"EliminarUsuario",
+    			method:"POST",
+    			data:{"action":"eliminar","idUsuario":idUsuario},
+    			success: function(data){
+    				alert("El usuario fue eliminado");
+    				row.remove();
+    			},
+    			error: function (error){
+    				alert("Error al ejecutar el procedimiento");
+    			}
+    			
+    			
+    			
+    		});
+    		
+    		
+    		
+		}
+    	
+    	
+    	
+    	
+    	
+    	
+    });
     
-} );
+    
+});
 </script>
 	
 </body>

@@ -21,7 +21,7 @@ import service.UsuarioService;
  * Servlet implementation class Listar
  */
 @WebServlet("/Listar")
-public class Listar extends HttpServlet {
+public class ListarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -38,15 +38,21 @@ public class Listar extends HttpServlet {
 		
 		com.google.gson.JsonObject gson = new JsonObject();
 		JsonArray array = new JsonArray();
-		
+	
 		for (UsuarioDTO usuarioDTO : lista) {
 			JsonObject item = new JsonObject();
 			item.addProperty("nom_Usu", usuarioDTO.getNombre());
 			item.addProperty("dni_Usu", usuarioDTO.getDni());
 			item.addProperty("telf_Usu", usuarioDTO.getTelefono());
-			item.addProperty("Id_TipoUsu", usuarioDTO.getTipoUsuario());
+			item.addProperty("Id_TipoUsu", usuarioDTO.getTipoU());
 			item.addProperty("usuario", usuarioDTO.getUsuario());
 			item.addProperty("fechIng_Usu", usuarioDTO.getFecha());
+			item.addProperty("acciones", "<button type='button' name='actualizar' id='"+
+							usuarioDTO.getCodigo()+"' class='btn btn-info btn-xs actualizar' title='Actualizar'>"
+							+ "<span class='fas fa-user-edit'></span></button>&nbsp"
+							+ "<button type='button' name='eliminar' id='"+
+							usuarioDTO.getCodigo()+"' class='btn btn-danger btn-xs eliminar' title='Eliminar'>"
+							+ "<span class='fas fa-trash-alt'></span></button>");
 			array.add(item);
 		}
 		

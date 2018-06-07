@@ -24,8 +24,28 @@ public class MYSQLUsuarioDAO implements UsuarioDAO {
 
 	@Override
 	public int eliminar(int codigo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int rs = 0;
+		Connection con = null;
+		PreparedStatement pst = null;
+		
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "{call usp_EliminarUsuario(?)}";
+			pst = con.prepareStatement(sql);
+			
+			pst.setInt(1, codigo);
+			rs = pst.executeUpdate();
+		}catch(Exception e){
+			System.out.println("Error en la sentencia => "+e.getMessage());  
+		}finally {
+			try {
+				if(pst!=null)pst.close();
+				if(con!=null)con.close();
+			} catch (SQLException e2) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return rs;
 	}
 
 	@Override
@@ -93,14 +113,14 @@ public class MYSQLUsuarioDAO implements UsuarioDAO {
 		
 		try {
 			con = MySQLConexion.getConexion();
-			String sql = "select * from Usuario where Id_estado=1";
+			String sql = "{call usp_usuarioTipo()}";
 		    pst = con.prepareStatement(sql);
 		    
 		    rs = pst.executeQuery();
 			
 		    while(rs.next()){
-		    	UsuarioDTO u = new UsuarioDTO(rs.getInt(1),rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), 
-		    			                rs.getString(6),rs.getString(7),rs.getString(8),rs.getInt(9), rs.getString(10), rs.getString(11));
+		    	UsuarioDTO u = new UsuarioDTO(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), 
+		    			                rs.getString(6),rs.getString(7),rs.getString(8), rs.getString(9), rs.getString(10));
                 lista.add(u);		    
 		    }
 		    

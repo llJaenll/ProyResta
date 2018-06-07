@@ -1,9 +1,9 @@
 -- ELIMINAR SI EXISTE LA BD
-drop database if exists dbrestaurante;
+drop database if exists DBRestaurante;
 -- CREAR BD
-create database dbrestaurante;
+create database DBRestaurante;
 -- USAR BD
-use dbrestaurante;
+use DBRestaurante;
 
 -- ////////////////////////////////////////////////////////////////////////////////////
 -- CREACIÓN DE TABLAS
@@ -35,12 +35,14 @@ create table Usuario(
 	fechIng_Usu timestamp default current_timestamp,
 	Id_Estado int not null,
     usuario varchar(10),
-    contrase�a varchar(10),
+    contraseña varchar(10),
 	constraint pk_Usuario primary key(Id_Usu),
 	constraint fk_Id_Estado foreign key(Id_Estado) references Estado(Id_Estado),
 	constraint fk_TipoUsu foreign key(Id_TipoUsu) references Tipo_Usuario(Id_TipoUsu),
 	constraint uq_dni_Usu unique(dni_Usu)
 );
+
+
 -- ------------------------------------------------------------------------------------ 
 drop table if exists Tipo_Categoria; 
 create table Tipo_Categoria(
@@ -102,7 +104,7 @@ CREATE TABLE Motorizado(
     constraint pk_IdMot primary key(id_Motor),
     constraint fk_IdEstado foreign key(id_Estado) references Estado(Id_Estado)
    -- usuario varchar(10),
-   -- contrase�a varchar(10),
+   -- contraseña varchar(10),
 );
 
 drop table if exists Delivery;      
@@ -162,7 +164,7 @@ create procedure usp_InsertarUsuario(
 	xdni_Usu char(8),
 	xtelf_Usu char(9),
 	xUsuario varchar(10),
-	xContrase�a varchar(10)
+	xContraseña varchar(10)
 )
     begin
 		Insert into Usuario values(
@@ -176,7 +178,7 @@ create procedure usp_InsertarUsuario(
 			null,
 			1,
 			xUsuario,
-			xContrase�a
+			xContraseña
 		);
     end $$
 DELIMITER ;
@@ -215,7 +217,7 @@ create procedure usp_ActualizarUsuario(
 	xdni_Usu char(8),
 	xtelf_Usu char(9),
 	xusuario varchar(10),
-	xcontrase�a varchar(10)
+	xcontraseña varchar(10)
 )
 	begin 
 		Update usuario
@@ -226,7 +228,7 @@ create procedure usp_ActualizarUsuario(
 				dni_Usu = xdni_Usu,
 				telf_Usu = xtelf_Usu,
                 usuario=xusuario,
-				contrase�a =xcontrase�a
+				contraseña =xcontraseña
                 where Id_Usu=xid_usuario;
 	end $$
 DELIMITER ;
@@ -271,15 +273,17 @@ drop procedure if exists usp_validarIngreso;
 DELIMITER $$
 create procedure usp_validarIngreso(
 	xUsuario varchar(10),
-	xContrase�a varchar(10)
+	xContraseña varchar(10)
 )
 	begin 
 		select 
 			* 
         from usuario
-        where usuario=xUsuario and contrase�a=xContrase�a;
+        where usuario=xUsuario and contraseña=xContraseña;
 	end $$
 DELIMITER ;
+
+
  --  ------------------------------------------------------------------------- 
 drop procedure if exists usp_usuarioTipo;
 Delimiter $$
@@ -292,12 +296,14 @@ create procedure usp_usuarioTipo()
 			u.apePat_Usu,
 			u.apeMat_Usu,
 			u.telf_Usu,
-			u.dni_Usu,u.usuario,u.contrase�a
+            u.fechIng_Usu,
+			u.dni_Usu,u.usuario,u.contraseña
 			from usuario u
 			inner join tipo_usuario tu on u.Id_TipoUsu=tu.Id_TipoUsu 
             where id_estado=1;
 	end $$
 DELIMITER ;
+
  --  -------------------------------------------------------------------------		
 drop procedure if exists usp_buscarusuarioTipo;
 Delimiter $$
@@ -310,7 +316,7 @@ create procedure usp_buscarusuarioTipo(cod int)
 			u.apePat_Usu,
 			u.apeMat_Usu,
 			u.telf_Usu,
-			u.dni_Usu,u.usuario,u.contrase�a
+			u.dni_Usu,u.usuario,u.contraseña
 			from usuario u
 			inner join tipo_usuario tu on u.Id_TipoUsu=tu.Id_TipoUsu
 			where u.id_usu=cod and u.Id_Estado=1;
@@ -548,7 +554,7 @@ create procedure usp_MuestraProductosMasVendidos(
 DELIMITER ;
 --  ------------------------------------------------------------------------- 
 delimiter $$
-create procedure usp_reporte_Mes_A�o(
+create procedure usp_reporte_Mes_Año(
 	anio int
 )
 	begin
@@ -709,8 +715,7 @@ create procedure usp_mesasReserva()
 	end $$
 delimiter ;  
 
-
--- -------------------------------------
+-- ---------------------------------------
 /*Relaciones*/
 alter table pedido
 add constraint pk_Idpedido primary key(id_pedido);
@@ -737,3 +742,4 @@ add constraint fk_DelIdprod foreign key(id_prod) references Producto(id_prod);
 
 
 
+call usp_validarIngreso('Mramos','ciber') -- ------------------------------------------------------------------------------------  drop table if exists Tipo_Categoria
