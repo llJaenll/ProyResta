@@ -36,7 +36,7 @@
                   <ul class="dropdown-menu" role="menu">
                    <li class="dropdown-header">Lista Mantenimientos</li>
                     <li><a href="ListaUsuario.jsp" target="form">Mantenimiento Usuarios</a></li>
-                    <li><a href="#" target="form">Mantenimiento Productos</a></li>
+                    <li><a href="ListaProducto.jsp" target="form">Mantenimiento Productos</a></li>
                   </ul>
                 </li>
                 <li>
