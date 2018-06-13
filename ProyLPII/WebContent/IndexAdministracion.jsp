@@ -66,9 +66,7 @@
 				<span class="hamb-bottom"></span>
             </button>
             <div class="container">
-             
-                    
-									<iframe  style="width: 100%; height: 500px;border: 0" name="form"></iframe>     
+				<iframe  style="width: 100%; height: 500px;border: 0" name="form"></iframe>     
             </div>
         </div>
         <!-- /#page-content-wrapper -->

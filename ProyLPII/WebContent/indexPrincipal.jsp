@@ -12,17 +12,18 @@
 		<nav id="menu">
 			<ul>
 				<li class="palo"><li>
-				<li class="barra"><a href="">Inicio</a></li>
+				<li class="barra"><a href="Principal.jsp" target="form">Inicio</a></li>
 				<li class="palo"><hr class="v" /></li>
 				<li class="barra"><a href="">Carta</a></li>
 				<li class="palo"><hr class="v" /></li>
-				<li class="barra"><a href="">Ubicación</a></li>
+				<li class="barra"><a href="Mapa.jsp" target="form">Ubicación</a></li>
 				<li class="palo"><hr class="v" /></li>
-				<li class="barra"><a href="">Contactenos</a></li>
+				<li class="barra"><a href="Contactenos.jsp" target="form">Contactenos</a></li>
 				<li class="palo"><hr class="v" /></li>
 				<li class="barra"><a href="">Nosotros</a></li>
 			</ul>
 		</nav>
+		
 		<div id="contenido">
 			<header id="cabecera">
 			
@@ -45,8 +46,18 @@
 				<center><img class="imgCambio" src="img/pizza.jpg" alt=""></center>
 			</arcticle>
 		</div>
+		<div id="contenido1">
+		<iframe  style="width: 100%; height:1000px;border: 0; display:none;" name="form" id="ifr"></iframe>
+		</div>
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script>
+			var fondo=document.getElementById("contenido");
+			if(fondo!=undefined){
+				$( ".barra" ).click(function() {
+					  $( "#contenido" ).remove();
+					  $("#ifr").css("display","block");
+					});
+			}
 		
 			$(document).ready(function(){
 				$(".barra").mouseover(function(){
