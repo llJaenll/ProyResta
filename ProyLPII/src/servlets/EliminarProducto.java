@@ -18,7 +18,7 @@ import service.UsuarioService;
 /**
  * Servlet implementation class EliminarUsuario
  */
-@WebServlet("/EliminarUsuario")
+@WebServlet("/EliminarProducto")
 public class EliminarProducto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
