@@ -41,15 +41,17 @@ call usp_InsertarUsuario(3,'Eduardo','Cumpa','Rojas','12345679','123456789','Ecu
 call usp_InsertarUsuario(4,'Jaen','Rumiche','Riveros','12345677','123456789','Jrumic','ciber');
 call usp_InsertarUsuario(5,'Cristofer','Montalvo','Montalvo','12345671','123456789','Cmonta','ciber');
 
+call usp_InsertarProducto(1,'Arroz chaufa',20,100,'ruta');
+
+/*
 call usp_InsertarCliente('Juan','Ramirez','Perez','12345678');
 call usp_InsertarCliente('Ken','Cordova','Rojas','12345678');
 call usp_InsertarCliente('Pablo','Ramirez','Diaz','12345678');
 call usp_InsertarCliente('Jose','Alcorcon','Perez','12345678');
 call usp_InsertarCliente('Jerundio','Guerrero','Mendoza','12345678');
 call usp_InsertarCliente('Carlos','Lobaton','Cuevita','12345678');
-
+*/
 select * from estado;
-select * from reserva;
 select * from pedido;
 select * from detalle_pedido;
 select * from producto;

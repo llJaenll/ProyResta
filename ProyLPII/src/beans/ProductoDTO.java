@@ -6,20 +6,30 @@ public class ProductoDTO extends ObjetoBaseDTO{
 
 	private int tipoCategoria, stock,estado;
 	private double precio;
-	private Image imgProd;
+	private String imgProd,tipoC;
 	
 	public ProductoDTO(int codigo, String descripcion) {
 		super(codigo, descripcion);
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductoDTO(int codigo,int tipoCategoria, String descripcion, double precio, int stock,  int estado, Image imgProd) {
+	public ProductoDTO(int codigo,int tipoCategoria, String descripcion, double precio, int stock,  int estado, String imgProd) {
 		super(codigo, descripcion);
 		this.tipoCategoria = tipoCategoria;
 		this.stock = stock;
 		this.precio = precio;
 		this.estado = estado;
 		this.imgProd = imgProd;
+	}
+
+	public ProductoDTO(int codigo,String descripcion,String tipoC,double precio,int stock, int estado, 
+			String imgProd) {
+		super(codigo, descripcion);
+		this.stock = stock;
+		this.estado = estado;
+		this.precio = precio;
+		this.imgProd = imgProd;
+		this.tipoC = tipoC;
 	}
 
 	public int getTipoCategoria() {
@@ -54,13 +64,22 @@ public class ProductoDTO extends ObjetoBaseDTO{
 		this.estado = estado;
 	}
 
-	public Image getImgProd() {
+	public String getImgProd() {
 		return imgProd;
 	}
 
-	public void setImgProd(Image imgProd) {
+	public void setImgProd(String imgProd) {
 		this.imgProd = imgProd;
 	}
+
+	public String getTipoC() {
+		return tipoC;
+	}
+
+	public void setTipoC(String tipoC) {
+		this.tipoC = tipoC;
+	}
+
 	
 	
 	

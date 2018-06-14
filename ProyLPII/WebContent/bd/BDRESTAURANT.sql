@@ -60,7 +60,7 @@ create table Producto(
     precio_Prod decimal(6,2) not null,
     stock_Prod smallint null,
     Id_Estado int not null,
-    Img_Prod mediumblob not null,
+    Img_Prod varchar(255) not null,
     constraint pk_Id_Prod primary key(Id_Prod),
     constraint fk_Id_Estado2 foreign key(Id_Estado) references Estado(Id_Estado),
     constraint fk_Id_TipoCat foreign key(Id_TipoCat) references Tipo_Categoria(Id_TipoCat)
@@ -191,7 +191,7 @@ create procedure usp_InsertarProducto(
 	xnom_Prod varchar(60),
 	xprecio_Prod decimal(6,2),
 	xstock_Prod smallint,
-	xImg_Prod mediumblob
+	xImg_Prod varchar(255)
 )
     begin
 		Insert into Producto values(
@@ -268,6 +268,20 @@ create procedure usp_listarProductoPorCategoria(
 		where Id_TipoCat = xId_TipoCat;
 	end $$
 DELIMITER ;
+-- ------------------------------------------------------------------------------------------------------------------
+drop procedure if exists usp_listarProducto;
+DELIMITER $$
+create procedure usp_listarProducto()
+    begin 
+		Select 
+			p.Id_Prod,p.nom_Prod,c.des_TipoCat,p.precio_Prod,p.stock_Prod,
+            p.Id_Estado,p.Img_Prod
+		from producto p inner join tipo_categoria c
+        on p.Id_TipoCat=c.Id_TipoCat
+		where Id_Estado = 1;
+	end $$
+DELIMITER ;
+
  --  -------------------------------------------------------------------------
 drop procedure if exists usp_validarIngreso;
 DELIMITER $$
@@ -332,6 +346,18 @@ create procedure usp_EliminarUsuario(
 		update usuario
 			set Id_Estado = 2
 			where Id_Usu = xId_Usu;
+	end $$
+DELIMITER ;
+ --  -------------------------------------------------------------------------
+drop procedure if exists usp_EliminarProducto;
+DELIMITER $$
+create procedure usp_EliminarProducto(
+	xId_Prod int
+)
+    begin
+		update producto
+			set Id_Estado = 2
+			where Id_Prod = xId_Prod;
 	end $$
 DELIMITER ;
 --  ------------------------------------------------------------------------- 

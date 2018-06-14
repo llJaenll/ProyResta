@@ -6,35 +6,39 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap4.min.css">
 <body>
 <div class="container">
-<h1 class="font-weight-bold">Lista de Productos</h1>
-<table id="listaProducto" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+<h1>Lista de Productos</h1>
+<table id="tablaProductos" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
         <thead>
             <tr>
+            	<th>Producto</th>
                 <th>Nombre</th>
-                <th>DNI</th>
-                <th>Teléfono</th>
-                <th>Tipo de Usuario</th>
-                <th>Usuario</th>
-                <th>Fecha de Ingreso</th>      
+                <th>Categoria</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Acciones</th>    
             </tr>
         </thead>
         <tbody>
-        
+       
+       
+       
         </tbody>
         <tfoot>
             <tr>
+         	    <th>Producto</th>
                 <th>Nombre</th>
-                <th>DNI</th>
-                <th>Teléfono</th>
-                <th>Tipo de Usuario</th>
-                <th>Usuario</th>
-                <th>Fecha de Ingreso</th>  
+                <th>Categoria</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Acciones</th>    
             </tr>
         </tfoot>
     </table>
@@ -51,12 +55,67 @@
 
 <script>
 $(document).ready(function() {
-    $('#listaProducto').DataTable( {
-        "language": {
+
+    var tabla = $('#tablaProductos').DataTable({
+        ajax:{
+        	method:"POST",
+        	url:"ListarP",
+        	dataSrc:"datos"
+        },
+        columns: [
+        	{"data":"img"}, 
+        	{"data":"descripcion"}, 
+        	{"data":"tipoCategoria"},
+        	{"data":"precio"},
+        	{"data":"stock"},
+        	{"data":"acciones"}
+        ],
+        
+    	"language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
         }
+    
+    
     } );
-} );
+    
+    $(document).on('click','.eliminar',function(){
+    	
+    	var idProducto = $(this).attr('id');
+    	var row = $(this).parent().parent();
+    	var r = confirm("¿Seguro que desea eliminar el producto?");
+    	
+    	if (r==true) {
+			
+    		$.ajax({
+    			
+    			url:"EliminarProducto",
+    			method:"POST",
+    			data:{"action":"eliminar","idProducto":idProducto},
+    			success: function(data){
+    				alert("El producto fue eliminado");
+    				row.remove();
+    			},
+    			error: function (error){
+    				alert("Error al ejecutar el procedimiento");
+    			}
+    			
+    			
+    			
+    		});
+    		
+    		
+    		
+		}
+    	
+    	
+    	
+    	
+    	
+    	
+    });
+    
+    
+});
 </script>
 	
 </body>
