@@ -9,6 +9,7 @@
 	  map.controls[google.maps.ControlPosition.TOP_CENTER].push(document.getElementById("VerTodos"));
   }
 
+
 //combo
 var x, i, j, selElmnt, a, b, c;
 /*look for any elements with the class "custom-select":*/

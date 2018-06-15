@@ -5,6 +5,7 @@ import interfaces.ClienteDAO;
 import interfaces.DeliveryDAO;
 import interfaces.DetalleDeliveryDAO;
 import interfaces.EstadoDAO;
+import interfaces.LocalDAO;
 import interfaces.MotorizadoDAO;
 import interfaces.ProductoDAO;
 import interfaces.UsuarioDAO;
@@ -57,6 +58,12 @@ public class MySQLDAOFactory extends DAOFactory {
 	public CategoriaDAO getCategoriaDAO() {
 		// TODO Auto-generated method stub
 		return new MYSQLCategoriaDAO();
+	}
+
+	@Override
+	public LocalDAO getLocalDAO() {
+		// TODO Auto-generated method stub
+		return new MYSQLLocalDAO();
 	}
 
 
