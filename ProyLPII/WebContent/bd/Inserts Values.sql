@@ -55,6 +55,7 @@ select * from estado;
 select * from pedido;
 select * from detalle_pedido;
 select * from producto;
+select * from usuario;
 
 
 

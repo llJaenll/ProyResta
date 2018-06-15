@@ -123,8 +123,33 @@ public class MYSQLUsuarioDAO implements UsuarioDAO {
 
 	@Override
 	public UsuarioDTO buscarUsuario(int codigo) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultSet rs=null;
+		Connection con =null;
+		PreparedStatement pst=null;
+		UsuarioDTO u=null;
+		try {
+			con=MySQLConexion.getConexion();
+			String sql="select * from usuario where id_usu=?";
+			pst=con.prepareStatement(sql);
+			pst.setInt(1, codigo);
+			rs=pst.executeQuery();
+			
+			while(rs.next()){
+
+				u= new UsuarioDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),
+						rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10), rs.getString(11));
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la consulta" +e.getMessage());
+		}finally {
+			try {
+				if(pst!=null)pst.close();
+				if(con!=null)con.close();
+			} catch (Exception e2) {
+				System.out.println("error al cerrar");
+			}
+		}
+		return u;
 	}
 
 	@Override
