@@ -1,15 +1,20 @@
-<!DOCTYPE html>
-<html lang="en" >
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page import="beans.TipoUsuarioDTO" %>
+<%@page import="service.UsuarioService" %>
+<%@page import="java.util.List" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 
 <head>
   <meta charset="UTF-8">
   <title>Urpinion â€” Form</title>
   <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-	<link rel="stylesheet" href="css/styleReg.css">
-	<link rel="stylesheet" href="scss/styleReg.scss">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	<link rel="stylesheet" href="scss/styleReg.scss">
+	  <link rel="stylesheet" href="css/styleReg.css">
 
 </head>
 
@@ -55,13 +60,17 @@
       </label>
     </fieldset>
     
-      <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="Id_TipoUsu" name="Id_TipoUsu" tabindex="0" />
-      <label for="username">
-        <span data-text="Tipo de Usuario">Tipo de Usuario</span>
-      </label>
-    </fieldset>
-    
+      <div class="caja"><select name="Id_TipoUsu">
+       <option>Elija un tipo de Usuario</option>
+      <% 
+      UsuarioService us = new UsuarioService();
+      List<TipoUsuarioDTO> lista = us.listarTipoUsuario(); 
+     if(lista!=null){
+      for (TipoUsuarioDTO t: lista){
+      %>
+      <option value="<%=t.getCodigo()%>"><%=t.getDescripcion()%></option></select><%}}else{System.out.print("no hay na");}%></div>
+  
+
     <fieldset class="form-fieldset ui-input __first">
       <input type="text" id="usuario" name="usuario" tabindex="0" />
       <label for="username">
@@ -70,9 +79,9 @@
     </fieldset>
     
     <fieldset class="form-fieldset ui-input __third">
-      <input type="password" id="contraseÃ±a" name="contraseÃ±a" />
+      <input type="password" id="contraseña" name="contraseña" />
       <label for="new-password">
-        <span data-text="ContraseÃ±a">ContraseÃ±a</span>
+        <span data-text="Contraseña">Contraseña</span>
       </label>
     </fieldset>
     
@@ -92,5 +101,4 @@
 
 
 </body>
-
 </html>

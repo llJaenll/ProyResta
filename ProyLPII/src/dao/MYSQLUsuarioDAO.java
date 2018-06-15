@@ -182,9 +182,36 @@ public class MYSQLUsuarioDAO implements UsuarioDAO {
 	}
 
 	@Override
-	public List<TipoUsuarioDTO> listarTipoUsaurio() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<TipoUsuarioDTO> listarTipoUsuario() {
+		List<TipoUsuarioDTO>lista=new ArrayList<TipoUsuarioDTO>();
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "select * from Tipo_Usuario";
+		    pst = con.prepareStatement(sql);
+		    
+		    rs = pst.executeQuery();
+			
+		    while(rs.next()){
+		    	TipoUsuarioDTO tu = new TipoUsuarioDTO(rs.getInt(1),rs.getString(2));
+                lista.add(tu);		    
+		    }
+		    
+		} catch (Exception e) {
+			System.out.println("Error a la sentencia => "+e.getMessage());
+		}finally {
+			try {
+				if(pst!=null)pst.close();
+				if(con!=null)con.close();
+			} catch (SQLException e2) {
+				System.out.println("Error al cerrar");
+			}
+		}
+	
+		return lista;
 	}
 
 	@Override

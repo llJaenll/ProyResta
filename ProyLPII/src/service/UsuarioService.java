@@ -44,9 +44,9 @@ public class UsuarioService implements UsuarioDAO{
 		return dao.buscarUsuario(codigo);
 	}
 	@Override
-	public List<TipoUsuarioDTO> listarTipoUsaurio() {
+	public List<TipoUsuarioDTO> listarTipoUsuario() {
 		// TODO Auto-generated method stub
-		return dao.listarTipoUsaurio();
+		return dao.listarTipoUsuario();
 	}
 	@Override
 	public List<UsuarioDTO> listarUsuarioTipo() {
