@@ -8,7 +8,16 @@ use DBRestaurante;
 -- ////////////////////////////////////////////////////////////////////////////////////
 -- CREACIÓN DE TABLAS
 -- ////////////////////////////////////////////////////////////////////////////////////
+drop table if exists Locales;
+create table Locales(
+	Id_Locales int auto_increment ,
+	nombre_Locales varchar(40) not null,
+    longitud_Locales double not null,
+    latitud_Locales double not null,
+    constraint pk_Locales primary key(Id_Locales)
 
+);
+-- ------------------------------------------------------------------------------------
 drop table if exists Tipo_Usuario;
 create table Tipo_Usuario(
 	Id_TipoUsu int auto_increment ,
@@ -769,3 +778,5 @@ add constraint fk_DelIdprod foreign key(id_prod) references Producto(id_prod);
 
 
 call usp_validarIngreso('Mramos','ciber') -- ------------------------------------------------------------------------------------  drop table if exists Tipo_Categoria
+insert  into Locales values(null,'Miraflores',-77.0315913,-12.111062);
+insert  into Locales values(null,'Surco',-76.99181550000003,-12.1416088);
