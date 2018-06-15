@@ -78,9 +78,38 @@ public class MYSQLUsuarioDAO implements UsuarioDAO {
 	}
 
 	@Override
-	public int modificar(UsuarioDTO c) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int modificar(UsuarioDTO u) {
+		int rs = 0;
+		Connection con = null;
+		PreparedStatement pst = null;
+		
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "{call usp_ActualizarUsuario(?,?,?,?,?,?,?,?,?)}";
+			pst = con.prepareStatement(sql);
+			pst.setInt(1, u.getCodigo());
+			pst.setInt(2, u.getTipoUsuario());
+			pst.setString(3, u.getNombre());
+			pst.setString(4, u.getApePat());
+			pst.setString(5, u.getApeMat());
+			pst.setString(6, u.getDni());
+			pst.setString(7, u.getTelefono());
+			pst.setString(8, u.getUsuario());
+			pst.setString(9, u.getContraseña());
+			
+			rs = pst.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia => "+e.getMessage());  
+		}finally {
+			try {
+				if(pst!=null)pst.close();
+				if(con!=null)con.close();
+			} catch (SQLException e2) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		return rs;
 	}
 
 	@Override
