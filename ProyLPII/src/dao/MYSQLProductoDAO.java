@@ -7,16 +7,47 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import beans.CategoriaDTO;
 import beans.ProductoDTO;
+import beans.TipoUsuarioDTO;
 import interfaces.ProductoDAO;
 import utils.MySQLConexion;
 
 public class MYSQLProductoDAO implements ProductoDAO {
 
 	@Override
-	public int registrar(ProductoDTO p, String ruta) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int registrar(ProductoDTO p) {
+		Connection con = null;
+		PreparedStatement pst=null;
+		int rs =0;
+		
+		try {
+			
+			con=MySQLConexion.getConexion();
+			String sql="{call usp_InsertarProducto(?,?,?,?)}";
+			pst=con.prepareStatement(sql);
+			
+			pst.setInt(1, p.getTipoCategoria());
+			pst.setString(2, p.getDescripcion());
+			pst.setDouble(3, p.getPrecio());
+			pst.setInt(4, p.getStock());
+			
+			rs = pst.executeUpdate();
+			
+		
+		} catch (Exception e) {
+			
+			System.out.println("Error en la sentencia"+e.getMessage());
+		}finally{
+			try {
+				if(pst!=null) pst.close();
+				if(con!=null) con.close();
+			} catch (SQLException e) {
+				System.out.println("Error al cerrar");
+			}
+		}
+		
+		return rs;
 	}
 
 	@Override
@@ -46,7 +77,7 @@ public class MYSQLProductoDAO implements ProductoDAO {
 	}
 
 	@Override
-	public int modificar(ProductoDTO p, String ruta) {
+	public int modificar(ProductoDTO p) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -139,6 +170,39 @@ public class MYSQLProductoDAO implements ProductoDAO {
 	public List<ProductoDTO> listarProdMasVendidos(int cat) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<CategoriaDTO> listarTipoProducto() {
+		List<CategoriaDTO>lista=new ArrayList<CategoriaDTO>();
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "select * from Tipo_Categoria";
+		    pst = con.prepareStatement(sql);
+		    
+		    rs = pst.executeQuery();
+			
+		    while(rs.next()){
+		    	CategoriaDTO tu = new CategoriaDTO(rs.getInt(1),rs.getString(2));
+                lista.add(tu);		    
+		    }
+		    
+		} catch (Exception e) {
+			System.out.println("Error a la sentencia => "+e.getMessage());
+		}finally {
+			try {
+				if(pst!=null)pst.close();
+				if(con!=null)con.close();
+			} catch (SQLException e2) {
+				System.out.println("Error al cerrar");
+			}
+		}
+	
+		return lista;
 	}
 
 }

@@ -69,11 +69,12 @@ create table Producto(
     precio_Prod decimal(6,2) not null,
     stock_Prod smallint null,
     Id_Estado int not null,
-    Img_Prod varchar(255) not null,
     constraint pk_Id_Prod primary key(Id_Prod),
     constraint fk_Id_Estado2 foreign key(Id_Estado) references Estado(Id_Estado),
     constraint fk_Id_TipoCat foreign key(Id_TipoCat) references Tipo_Categoria(Id_TipoCat)
 );
+
+
 -- ------------------------------------------------------------------------------------ 
 drop table if exists Pedido;      
 create table Pedido(
@@ -199,8 +200,7 @@ create procedure usp_InsertarProducto(
 	xId_TipoCat int,
 	xnom_Prod varchar(60),
 	xprecio_Prod decimal(6,2),
-	xstock_Prod smallint,
-	xImg_Prod varchar(255)
+	xstock_Prod smallint
 )
     begin
 		Insert into Producto values(
@@ -209,8 +209,7 @@ create procedure usp_InsertarProducto(
 			xnom_Prod,
 			xprecio_Prod,
 			xstock_Prod,
-			1,
-			xImg_Prod
+			1
 		);
     end $$
 DELIMITER ;
@@ -777,7 +776,7 @@ add constraint fk_DelIdprod foreign key(id_prod) references Producto(id_prod);
 
 
 
-call usp_validarIngreso('Mramos','ciber') -- ------------------------------------------------------------------------------------  drop table if exists Tipo_Categoria
+call usp_validarIngreso('Mramos','ciber') ;-- ------------------------------------------------------------------------------------  drop table if exists Tipo_Categoria
 insert  into Locales values(null,'Miraflores',-77.0315913,-12.111062);
 insert  into Locales values(null,'Surco',-76.99181550000003,-12.1416088);
 insert into producto values(null,1,'Arroz con Pollo',29.5,10,1,"");

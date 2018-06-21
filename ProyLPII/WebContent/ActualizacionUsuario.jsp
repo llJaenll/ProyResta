@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="beans.UsuarioDTO" %>
+<%@page import="beans.TipoUsuarioDTO" %>
+<%@page import="service.UsuarioService" %>
+<%@page import="java.util.List" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -24,63 +27,67 @@
   <form class="form" action="RegistrarUsuario">
   
     <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="Id_Usu" name="Id_Usu" tabindex="0" value="<%= u.getCodigo() %>"/>
+      <input type="text" id="Id_Usu" readonly="true" name="Id_Usu" tabindex="0" value="<%= u.getCodigo() %>"/>
       <label for="nom_Usu">
         <span data-text="Codigo">Codigo</span>
       </label>
     </fieldset>
     
   <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="nom_Usu" name="nom_Usu" tabindex="0" />
+      <input type="text" id="nom_Usu" name="nom_Usu" tabindex="0" value="<%= u.getNombre() %>" />
       <label for="nom_Usu">
         <span data-text="Nombre">Nombre</span>
       </label>
     </fieldset>
     
     <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="apePat_Usu" name="apePat_Usu" tabindex="0" />
+      <input type="text" id="apePat_Usu" name="apePat_Usu" tabindex="0"  value="<%= u.getApePat()%>" />
       <label for="username">
         <span data-text="Apellido Paterno">Apellido Paterno</span>
       </label>
     </fieldset>
     
     <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="apeMat_Usu" name="apeMat_Usu" tabindex="0" />
+      <input type="text" id="apeMat_Usu" name="apeMat_Usu" tabindex="0" value="<%= u.getApeMat()%>" />
       <label for="username">
         <span data-text="Apellido Materno">Apellido Materno</span>
       </label>
     </fieldset>
     
     <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="dni_Usu" name="dni_Usu" tabindex="0" />
+      <input type="text" id="dni_Usu" name="dni_Usu" tabindex="0" value="<%= u.getDni()%>" />
       <label for="username">
         <span data-text="DNI de Usuario">DNI de Usuario</span>
       </label>
     </fieldset>
     
     <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="telf_Usu" name="telf_Usu" tabindex="0" />
+      <input type="text" id="telf_Usu" name="telf_Usu" tabindex="0" value="<%= u.getTelefono()%>" />
       <label for="username">
         <span data-text="Telefono de Usuario">Telefono de Usuario</span>
       </label>
     </fieldset>
     
-      <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="Id_TipoUsu" name="Id_TipoUsu" tabindex="0" />
-      <label for="username">
-        <span data-text="Tipo de Usuario">Tipo de Usuario</span>
-      </label>
-    </fieldset>
+      <div class="caja"><select name="Id_TipoUsu">
+       <option>Elija un tipo de Usuario</option>
+      <% 
+      UsuarioService us = new UsuarioService();
+      List<TipoUsuarioDTO> lista = us.listarTipoUsuario(); 
+     if(lista!=null){
+      for (TipoUsuarioDTO t: lista){
+      %>
+      <option value="<%=t.getCodigo()%>"><%=t.getDescripcion()%></option><%}}else{System.out.print("no hay na");}%></select></div>
+  
     
     <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="usuario" name="usuario" tabindex="0" />
+      <input type="text" id="usuario" name="usuario" tabindex="0" value="<%= u.getUsuario()%>" />
       <label for="username">
         <span data-text="Username">Username</span>
       </label>
     </fieldset>
     
     <fieldset class="form-fieldset ui-input __third">
-      <input type="password" id="contraseña" name="contraseña" />
+      <input type="password" id="contraseña" name="contraseña" value="<%= u.getContrase�a()%>" />
       <label for="new-password">
         <span data-text="Contrase�a">Contrase�a</span>
       </label>

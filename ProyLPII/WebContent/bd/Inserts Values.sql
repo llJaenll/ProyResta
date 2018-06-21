@@ -56,6 +56,8 @@ select * from pedido;
 select * from detalle_pedido;
 select * from producto;
 select * from usuario;
+select * from tipo_categoria;
+select * from tipo_usuario;
 
 
 
