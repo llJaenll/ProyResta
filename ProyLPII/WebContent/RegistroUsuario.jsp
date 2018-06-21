@@ -23,7 +23,7 @@
   <div class="container" >
   <h1>SIRVETEK</h1>
   <h2>REGISTRO DE USUARIO</h2>
-  <form class="form" action="RegistrarUsuario">
+  <form class="form" action="RegistrarUsuario" method="post">
     
   <fieldset class="form-fieldset ui-input __first">
       <input type="text" id="nom_Usu" name="nom_Usu" tabindex="0" />
@@ -68,7 +68,7 @@
      if(lista!=null){
       for (TipoUsuarioDTO t: lista){
       %>
-      <option value="<%=t.getCodigo()%>"><%=t.getDescripcion()%></option></select><%}}else{System.out.print("no hay na");}%></div>
+      <option value="<%=t.getCodigo()%>"><%=t.getDescripcion()%></option><%}}else{System.out.print("no hay na");}%></select></div>
   
 
     <fieldset class="form-fieldset ui-input __first">

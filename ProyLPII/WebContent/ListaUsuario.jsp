@@ -112,19 +112,7 @@ $(document).ready(function() {
     	    	
     });
     
-    $(document).on('click','.actualizar',function(){
-		
-		var idUsuario = $(this).attr('id');
-		
-		$.ajax({
-			
-			url:"ActualizarUsuario",
-			method:"POST",
-			data:{"action":"actualizar","idUsuario":idUsuario}		
-		});
-		
-		
-	});
+ 
     
     
     

@@ -3,6 +3,7 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
+import beans.CategoriaDTO;
 import beans.ProductoDTO;
 import dao.DAOFactory;
 import interfaces.ProductoDAO;
@@ -13,9 +14,9 @@ public class ProductoService implements ProductoDAO{
 	ProductoDAO dao =  fabrica.getProductoDAO();
 	
 	@Override
-	public int registrar(ProductoDTO p, String ruta) {
+	public int registrar(ProductoDTO p) {
 		// TODO Auto-generated method stub
-		return dao.registrar(p, ruta);
+		return dao.registrar(p);
 	}
 	@Override
 	public int eliminar(int codigo) {
@@ -23,9 +24,9 @@ public class ProductoService implements ProductoDAO{
 		return dao.eliminar(codigo);
 	}
 	@Override
-	public int modificar(ProductoDTO p, String ruta) {
+	public int modificar(ProductoDTO p) {
 		// TODO Auto-generated method stub
-		return dao.modificar(p, ruta);
+		return dao.modificar(p);
 	}
 	@Override
 	public List<ProductoDTO> listadoProducto() {
@@ -61,6 +62,11 @@ public class ProductoService implements ProductoDAO{
 	public List<ProductoDTO> listarProdMasVendidos(int cat) {
 		// TODO Auto-generated method stub
 		return dao.listarProdMasVendidos(cat);
+	}
+	@Override
+	public List<CategoriaDTO> listarTipoProducto() {
+		// TODO Auto-generated method stub
+		return dao.listarTipoProducto();
 	}	
 	
 }

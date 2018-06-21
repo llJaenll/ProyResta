@@ -2,18 +2,21 @@ package interfaces;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import beans.CategoriaDTO;
 import beans.ProductoDTO;
+import beans.TipoUsuarioDTO;
 
 public interface ProductoDAO {
 	
 	//metodo para registrar
-		public int registrar(ProductoDTO p,String ruta);
+		public int registrar(ProductoDTO p);
 
 		// para eliminar
 		public int eliminar(int codigo);
 
 		// metodo para modificar 
-		public int modificar(ProductoDTO p,String ruta);
+		public int modificar(ProductoDTO p);
 		//metodo para listar
 		public List<ProductoDTO> listadoProducto();
 		
@@ -29,6 +32,7 @@ public interface ProductoDAO {
 		
 		public List<ProductoDTO> listarProdMasVendidos(int cat);
 		
+		public List<CategoriaDTO> listarTipoProducto(); 
 		
 		
 

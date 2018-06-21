@@ -22,7 +22,7 @@ public class ActualizarUsuario extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int idUsuario =Integer.parseInt(request.getParameter("idUsuario"));
+		int idUsuario =Integer.parseInt(request.getParameter("id"));
 		
 		UsuarioService us = new UsuarioService();
 		

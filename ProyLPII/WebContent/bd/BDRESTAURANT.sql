@@ -199,8 +199,7 @@ create procedure usp_InsertarProducto(
 	xId_TipoCat int,
 	xnom_Prod varchar(60),
 	xprecio_Prod decimal(6,2),
-	xstock_Prod smallint,
-	xImg_Prod varchar(255)
+	xstock_Prod smallint
 )
     begin
 		Insert into Producto values(
@@ -209,8 +208,7 @@ create procedure usp_InsertarProducto(
 			xnom_Prod,
 			xprecio_Prod,
 			xstock_Prod,
-			1,
-			xImg_Prod
+			1
 		);
     end $$
 DELIMITER ;

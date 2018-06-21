@@ -46,12 +46,12 @@ public class ListarUsuario extends HttpServlet {
 			item.addProperty("Id_TipoUsu", usuarioDTO.getTipoU());
 			item.addProperty("usuario", usuarioDTO.getUsuario());
 			item.addProperty("fechIng_Usu", usuarioDTO.getFecha());
-			item.addProperty("acciones", "<button type='button' name='actualizar' id='"+
-							usuarioDTO.getCodigo()+"' class='btn btn-info btn-xs actualizar' title='Actualizar'>"
-							+ "<span class='fas fa-user-edit'></span></button>&nbsp"
-							+ "<button type='button' name='eliminar' id='"+
+			item.addProperty("acciones", "<a type='button' name='actualizar' id='"+
+							usuarioDTO.getCodigo()+"' href='ActualizarUsuario?id="+usuarioDTO.getCodigo()+"' class='btn btn-info btn-xs actualizar' title='Actualizar'>"
+							+ "<span class='fas fa-user-edit'></span></a>&nbsp"
+							+ "<a type='button' name='eliminar' id='"+
 							usuarioDTO.getCodigo()+"' class='btn btn-danger btn-xs eliminar' title='Eliminar'>"
-							+ "<span class='fas fa-trash-alt'></span></button>");
+							+ "<span class='fas fa-trash-alt'></span></a>");
 			array.add(item);
 		}
 		
