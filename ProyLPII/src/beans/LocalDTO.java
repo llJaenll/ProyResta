@@ -5,7 +5,7 @@ public class LocalDTO {
 	private String nombreLocal;
 	private double latitud,longitud;
 	
-	public LocalDTO(int idLocal, String nombreLocal, double latitud,double longitud) {
+	public LocalDTO(int idLocal, String nombreLocal, double longitud,double latitud) {
 		super();
 		this.idLocal = idLocal;
 		this.nombreLocal = nombreLocal;

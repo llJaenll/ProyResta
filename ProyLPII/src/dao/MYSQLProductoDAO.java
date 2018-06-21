@@ -101,8 +101,32 @@ public class MYSQLProductoDAO implements ProductoDAO {
 
 	@Override
 	public List<ProductoDTO> listarxCategoria(int cat) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<ProductoDTO> lista = new ArrayList<ProductoDTO>();
+		ResultSet rs=null;
+		Connection con =null;
+		PreparedStatement pst=null;
+		try {
+			con=MySQLConexion.getConexion();
+			String sql="select * from producto where id_TipoCat=?";
+			pst=con.prepareStatement(sql);
+			pst.setInt(1, cat);
+			rs=pst.executeQuery();
+			
+			while(rs.next()){
+				ProductoDTO p = new ProductoDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getDouble(4), rs.getInt(5), rs.getInt(6),rs.getString(7));
+				lista.add(p);
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la consulta listar por categoria " +e.getMessage());
+		}finally {
+			try {
+				if(pst!=null)pst.close();
+				if(con!=null)con.close();
+			} catch (Exception e2) {
+				System.out.println("error al cerrar");
+			}
+		}
+		return lista;
 	}
 
 	@Override

@@ -10,12 +10,55 @@
 	<meta charset="UTF-8">
 	<title>Mapa</title>
 	<link rel="stylesheet" href="css/Mapa.css">
-	
+	<link rel="stylesheet" href="css/BarraMenu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poiret+One" rel="stylesheet">
 </head>
 <body>
+<header id="menu-flex" class="menu-flex">
+  <nav class="menu">
+    <div class="logo-menu">
+      <a href="" title="Logo">
+        <span class="title-logo-menu">
+          Sirvetek
+        </span>
+      </a>
+      <a href="javascript:void(0);" id="btn-menu" class="btn-menu">
+        <i id="hamburguer" class="fa fa-times-circle" aria-hidden="true"></i>
+      </a>
+    </div>
+  
+    <div id="links" class="links">
+      <a href="Principal.jsp" class="links-menu links-menu-active">
+        <i class="fa fa-home icons-menu" aria-hidden="true"></i>
+        Inicio
+      </a>
+      
+      <a href="GaleriaProd.jsp" class="links-menu">
+        <i class="fas fa-utensils" aria-hidden="true"></i>
+        Carta
+      </a>
+      
+      <a href="Mapa.jsp" class="links-menu">
+        <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+        Ubicación
+      </a>
+      
+      <a href="Contactenos.jsp" class="links-menu">
+        <i class="fa fa-envelope icons-menu" aria-hidden="true"></i>
+        Contactenos
+      </a>
+       <a href="Nosotros.jsp" class="links-menu">
+        <i class="fas fa-users" aria-hidden="true"></i>
+        Nosotros
+      </a>  
+    </div>
+  </nav>
+</header>
 	<div id="contenido">
-		<div id="cabecera" class="custom-select" style="width:200px;">
-		<select id="LocalesSelect">
+		<div id="cabecera" style="width:200px;">
+		<select id="LocalesSelect" onChange="cambioLocal()">
 		<option value="">Seleccione un Local</option>
 		<%
 		LocalesService ls=new LocalesService();
@@ -28,17 +71,22 @@
 		<% 	}
 		}%>
 			</select>
+		
 		</div>
-		<button type="button" id="VerTodos" class="boton_personalizado">Ver todas las Sedes</button>
+		<button type="button" id="VerTodos" onclick="verTodos()" class="boton_personalizado">Ver todas las Sedes</button>
 		<div id="map"></div>
+		<select onChange="cambioLocal()">
+		<option value="">Seleccione un Local</option>
+		<option value="">Seleccione un Local2</option></select>
 	</div>
 	  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	  <script type="application/ecmascript" src="js/BarraMenu.js"></script>
 	<script src="js/Mapa.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRc59Ca614xfVdEAIkDF03paH4GTkudiA&callback=initMap"
     async defer></script>
   
 	<script>
-	
+	var datos=[];
 	  $(document).ready(function(){
 			$.ajax({
 	          url : "ListarLocal",
@@ -47,24 +95,65 @@
 	              alert("Error Occured");
 	          },
 	          success : function(data) {
-	        	var datos=data;
+	        	datos=data;
+	        	console.log(datos);
 	          }
 	      });
 		});
-    	$('#LocalesSelect').change(function(){
-    	    var selectedOption = $(this).find('option:selected');
-    	    var selectedValue = $selectedOption.val();
-    	    	$.each(data,function(key,value){
-    	    		var myLatLng = {lat:value.latitud_Locales, lng:longitud_Locales};
-	        	    var marker = new google.maps.Marker({
-	        	        position: myLatLng,
-	        	        map: map,
-	        	        title:value.nombre_Locales
-	        	    });
+	  function verTodos() {
+		  $.ajax({
+	          url : "ListarLocal",
+	          dataType : 'json',
+	          error : function() {
+	              alert("Error Occured");
+	          },
+	          success : function(data) {
+	        	datos=data;
+	        
+	    		    $.each(data,function(key,value){
+	    		    		var myLatLng = {lat:value.latitud_Locales, lng:value.longitud_Locales};
+	                	    var marker = new google.maps.Marker({
+	                	        position: myLatLng,
+	                	        map: map,
+	                	        title:value.nombre_Locales
+	                	    });
+	                	    marker.setMap(map);
+	    	    		
+	    	    	});
+	    		
+	          }
+	      });
+		}
+	  function cambioLocal() {
+	  $.ajax({
+          url : "ListarLocal",
+          dataType : 'json',
+          error : function() {
+              alert("Error Occured");
+          },
+          success : function(data) {
+        	datos=data;
+        	console.log(datos);
+    		  console.log("joldd");
+    		    var x = document.getElementById("LocalesSelect").value;
+    		    console.log(x);
+    		    $.each(data,function(key,value){
+    		    	if(Number(value.id_Locales)==x){
+    		    		var myLatLng = {lat:value.latitud_Locales, lng:value.longitud_Locales};
+                	    var marker = new google.maps.Marker({
+                	        position: myLatLng,
+                	        map: map,
+                	        title:value.nombre_Locales
+                	    });
+                	    marker.setMap(map);
+    		    	}
+    	    		
     	    	});
-    	    	
-    	});
-	  
+    		
+          }
+      });
+	  }
+
 	
 	</script>
 </body>

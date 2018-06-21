@@ -1,17 +1,21 @@
+<%@page import="java.util.List"%>
+<%@page import="beans.ProductoDTO"%>
+<%@page import="service.ProductoService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Contactenos</title>
-	<link rel="stylesheet" href="css/estiloContactenos.css">
+	<title>Menu</title>
+	<link rel="stylesheet" href="css/estiloGaleriaProd.css">
 	<link rel="stylesheet" href="css/BarraMenu.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poiret+One" rel="stylesheet">
+	
 </head>
 <body>
+
 <header id="menu-flex" class="menu-flex">
   <nav class="menu">
     <div class="logo-menu">
@@ -52,16 +56,31 @@
     </div>
   </nav>
 </header>
-	<form action="">
-		<h2>CONTACTO</h2>
-		<input type="text" name="nombre" placeholder="Nombre">
-		<input type="text" name="correo" placeholder="Correo">
-		<input type="text" name="telefono" placeholder="Telefono">
-		<textarea name="mensaje" placeholder="Escriba su mensaje">
-		</textarea>
-		<input type="button" value="ENVIAR" id="boton">
-	</form>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<div id=container>
+	<div class="content-all">
+		
+		<%
+			ProductoService ps = new ProductoService();
+			List<ProductoDTO> ListaProd=ps.listarxCategoria(1);
+			if(ListaProd!=null){
+				for(ProductoDTO p:ListaProd){
+					System.out.print(p.getDescripcion());
+		%>	
+		<div class="content-img">
+				<img class="galeria__img" src="img/<%=p.getCodigo()%>.jpg">
+				<div class="content-txt">
+				<h2><%=p.getDescripcion()%></h2>
+				<input type="submit" value="Pedir">				
+			</div>
+		</div>
+		<%
+				}
+			}
+			
+		%>
+	</div>
+	</div>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script type="application/ecmascript" src="js/BarraMenu.js"></script>
 </body>
 </html>

@@ -37,7 +37,9 @@ public class ListarLocal extends HttpServlet {
 		JsonArray array = new JsonArray();
 	
 		for (LocalDTO localDTO : listaLocales) {
+			System.out.println(localDTO.getLongitud());
 			JsonObject item = new JsonObject();
+			item.addProperty("id_Locales", localDTO.getIdLocal());
 			item.addProperty("nombre_Locales", localDTO.getNombreLocal());
 			item.addProperty("longitud_Locales", localDTO.getLongitud());
 			item.addProperty("latitud_Locales", localDTO.getLatitud());
