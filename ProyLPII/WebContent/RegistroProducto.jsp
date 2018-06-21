@@ -25,7 +25,7 @@
   <div class="container" >
   <h1>SIRVETEK</h1>
   <h2>REGISTRO DE USUARIO</h2>
-  <form method="post" enctype="multipart/form-data" class="form" action="Regp" >
+  <form method="post" enctype="multipart/form-data" class="form" action="RegistrarProducto" >
     
       <div class="caja"><select name="Id_TipoCat" id ="Id_TipoCat">
        <option>Elija un tipo de Producto</option>

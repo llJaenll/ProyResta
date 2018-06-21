@@ -35,17 +35,9 @@ public class RegistrarProducto extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		
-		  ProductoDTO p = new ProductoDTO(0, Integer.parseInt(request.getParameter("Id_TipoCat")), 
-					request.getParameter("nom_Prod"), Double.parseDouble(request.getParameter("precio_Prod")), 
-							Integer.parseInt(request.getParameter("stock_Prod")), 0, "");
-			ProductoService ps = new ProductoService();
-			int ok = ps.registrar(p);
-			
-			if (ok==0) {
-				out.println("Error");
-			} else {
-				out.println("Se registro");
-			}
+		int Id_TipoCat=0,stock_Prod=0;
+		double precio_Prod=0;
+		String nom_Prod="";
 		
 		String archivourl="E:\\";
 		 try {
@@ -55,13 +47,29 @@ public class RegistrarProducto extends HttpServlet {
 			    ServletFileUpload servlet_up = new ServletFileUpload(file_factory);
 			    /*sacando los FileItem del ServletFileUpload en una lista */
 			    List items = servlet_up.parseRequest(request);
+			    
  
 			    for(int i=0;i<items.size();i++){
 			        /*FileItem representa un archivo en memoria que puede ser pasado al disco duro*/
 			    	FileItem item = (FileItem) items.get(i);
 			    	 //nombre real del archivo para guardar
 			    	/*item.isFormField() false=input file; true=text field*/
-
+			    	if("Id_TipoCat".equals(item.getFieldName())){
+			    		Id_TipoCat = Integer.parseInt(item.getString());
+			    		}
+			    	
+			    	if("stock_Prod".equals(item.getFieldName())){
+			    		stock_Prod = Integer.parseInt(item.getString());
+			    		}
+			    	
+			    	if("precio_Prod".equals(item.getFieldName())){
+			    		precio_Prod = Double.parseDouble(item.getString());
+			    		}
+			    	if("nom_Prod".equals(item.getFieldName())){
+			    		nom_Prod = item.getString();
+			    		}
+			    	
+			    	
 			    	if (! item.isFormField()){
 			    		String n[] =item.getName().replace("\\","-").split("-");
 				    	String nombreReal=n[n.length-1];
@@ -75,6 +83,18 @@ public class RegistrarProducto extends HttpServlet {
 			            out.print("<br>");
 			        }
 			    }
+			    
+			 	ProductoDTO p = new ProductoDTO(0, Id_TipoCat, 
+		    			nom_Prod, precio_Prod, 
+		    			stock_Prod, 0, "");
+				ProductoService ps = new ProductoService();
+				int ok = ps.registrar(p);
+				
+				if (ok==0) {
+					out.println("Error");
+				} else {
+					out.println("Se registro");
+				}
 			    
 			  
 		} catch (FileUploadException e) {
