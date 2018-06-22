@@ -30,9 +30,9 @@ public class CategoriaService implements CategoriaDAO{
 	}
 
 	@Override
-	public List<CategoriaDTO> listadoCliente() {
+	public List<CategoriaDTO> listarCategoria() {
 		// TODO Auto-generated method stub
-		return dao.listadoCliente();
+		return dao.listarCategoria();
 	}
 
 }

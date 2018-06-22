@@ -31,7 +31,7 @@
         Inicio
       </a>
       
-      <a href="GaleriaProd.jsp" class="links-menu">
+      <a href="Categorias.jsp" class="links-menu">
         <i class="fas fa-utensils" aria-hidden="true"></i>
         Carta
       </a>

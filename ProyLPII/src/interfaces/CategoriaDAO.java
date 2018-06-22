@@ -16,6 +16,6 @@ public interface CategoriaDAO {
 			public int modificar(CategoriaDTO c);
 			
 			//metodo para listar
-			public List<CategoriaDTO> listadoCliente();
+			public List<CategoriaDTO> listarCategoria();
 	
 }

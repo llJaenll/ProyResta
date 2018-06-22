@@ -1,3 +1,7 @@
+body{
+	background-image: url(../imagenes/fondo.jpeg);
+	background-size: cover;
+}
 *{
 	margin: 0;
 	padding: 0;
@@ -9,8 +13,7 @@
 	flex-wrap: wrap;
 	overflow: hidden;
 	margin-top:  50px;
-	background-color: blanchedalmond;
-	
+	font-family: 'Poiret One', sans-serif;
 }
 .galeria__img{
 	width: 100%;
@@ -19,6 +22,7 @@
 	object-fit: cover;
 	filter: brightness(70%);
 	animation: escalar 1.5s infinite alternate;
+	
 	
 }
 .content-img{
@@ -31,7 +35,7 @@
 	box-sizing: border-box;
 	padding: 0;
 	border-radius: 5%;
-	
+	border: 3px solid #000;
 }
 .content-img img{
 	width: 100%;
@@ -53,6 +57,7 @@
 	z-index: 10;
 	color: black;
 	text-align: center;
+	font-family: 'Poiret One', sans-serif;
 	
 	
 }
@@ -61,36 +66,54 @@
 	opacity: 0;
 	transition: all 300ms;
 }
-.content-txt p,input{
+.content-txt p,input,label{
 	font-size: 20px;
 	margin-top: 10px;
 	opacity: 0;
 	transform: scale(1.5);
 	transition: all 300ms;
+	font-family: 'Poiret One', sans-serif;
 }
 .content-img:hover h2{
 	opacity: 1;
 	transition: all 30ms;
-	transform: scale(1);
+	transform: scale(1.4);
+	font-family: 'Poiret One', sans-serif;
+	color: white;
+	
 }
 .content-img:hover p{
 	opacity: 1;
 	transform: scale(1);
 	transition: all 500ms;
 }
-.content-img:hover input{
+.content-img:hover .bot{
 	opacity: 1;
 	transform: scale(1);
 	transition: all 500ms;
 }
-.content-img input{
+.content-img:hover .caja{
+	opacity: 1;
+	transform: scale(1);
+	transition: all 500ms;
+	width: 80px;
+}
+.content-img:hover label{
+	opacity: 1;
+	transform: scale(1.8);
+	transition: all 500ms;
+	width: 80px;
+	color: white;
+	font-family: 'Poiret One', sans-serif;
+}
+
+.content-img .bot{
 	background: rgba(0,100,255,0.8); 
 	color: white;
 	padding: 10px;
 	border-radius: 15%;
 	cursor: pointer;
 }
-
 @media(max-width:790px){
 	.content-img{
 		width: 450px;
@@ -103,6 +126,7 @@
 
 	}
 	.content-txt{
+	font-family: 'Poiret One', sans-serif;
 	position: absolute;
 	top: 0;
 	width: 400px;

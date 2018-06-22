@@ -1,6 +1,6 @@
+<%@page import="beans.CategoriaDTO"%>
 <%@page import="java.util.List"%>
-<%@page import="beans.ProductoDTO"%>
-<%@page import="service.ProductoService"%>
+<%@page import="service.CategoriaService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -8,11 +8,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Menu</title>
-	<link rel="stylesheet" href="css/estiloGaleriaProd.css">
+	<link rel="stylesheet" href="css/estilogaleria.css">
 	<link rel="stylesheet" href="css/BarraMenu.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poiret+One" rel="stylesheet">
+	
 </head>
 <body>
 
@@ -56,33 +56,30 @@
     </div>
   </nav>
 </header>
-	<div id=container>
 	<div class="content-all">
+		<%
+			CategoriaService cs = new CategoriaService();
+			List<CategoriaDTO> listaCat=cs.listarCategoria();
+			for(CategoriaDTO c:listaCat){
+		%>
+		<div class="content-img">
+			<img src="img/categoria/<%=c.getCodigo() %>.jpg">
+			<div class="content-txt">
+				<h2><%=c.getDescripcion() %></h2>
+				<a href="GaleriaProd.jsp?cod=<%=c.getCodigo()%>"><input type="button" value="Ir"></a>
+			</div>
+			<div class="content-1"></div>
+			<div class="content-2"></div>
+			<div class="content-3"></div>
+			<div class="content-4"></div>
+			
+		</div>
 		
 		<%
-			String cod=request.getParameter("cod");
-			ProductoService ps = new ProductoService();
-			List<ProductoDTO> ListaProd=ps.listarxCategoria(Integer.parseInt(cod));
-			if(ListaProd!=null){
-				for(ProductoDTO p:ListaProd){
-					System.out.print(p.getDescripcion());
-		%>	
-		<div class="content-img">
-				<img class="galeria__img" src="img/<%=p.getCodigo()%>.jpg">
-				<div class="content-txt">
-				<h2><%=p.getDescripcion()%></h2>
-				<label for="">Cant: </label><input type="number" class="caja" max="100"><br>
-				<input type="submit" value="Pedir"  class="bot" class="bot">					
-			</div>
-		</div>
-		<%
-				}
 			}
-			
 		%>
 	</div>
-	</div>
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script type="application/ecmascript" src="js/BarraMenu.js"></script>
 </body>
 </html>
