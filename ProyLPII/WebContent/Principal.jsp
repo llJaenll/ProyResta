@@ -48,7 +48,11 @@
        <a href="Nosotros.jsp" class="links-menu">
         <i class="fas fa-users" aria-hidden="true"></i>
         Nosotros
-      </a>  
+      </a>
+       <a href="Resumen.jsp" class="links-menu">
+        <i class="fas fa-shipping-fast" aria-hidden="true"></i>
+        Ver Resumen
+      </a>   
     </div>
   </nav>
 </header>
