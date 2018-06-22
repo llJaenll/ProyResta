@@ -57,7 +57,8 @@
 	<section class="products__header">
 		<h1>Resumen de Pedido</h1>
 		<p>Total S/150</p>
-		<input type="submit" value="Ordenar">
+		<label for="Direccion">Direccion</label><input type="text" name="Direccion"><br>
+		<input type="submit" value="Ordenar" id="btordenar">
 	</section>
 	
 	<section class="container-products-item">
