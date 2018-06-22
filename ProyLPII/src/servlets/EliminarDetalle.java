@@ -24,14 +24,27 @@ public class EliminarDetalle extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int id=Integer.parseInt(request.getParameter("id"));
+		int cant=Integer.parseInt(request.getParameter("cant"));
+		int cont=0;
+		int cont2=0;
+		ArrayList<DetalleDeliveryDTO> listaTemp=new ArrayList<>();
 		ArrayList<DetalleDeliveryDTO> carroD = (ArrayList<DetalleDeliveryDTO>)request.getSession().getAttribute("carroD");
+		for(DetalleDeliveryDTO det:carroD) {
+			if(cont==0) {
+				if(det.getIdProducto()!=id && det.getCantidad()!=cant) {				
+					listaTemp.add(det);
+				}else {
+					cont++;
+				}	
+			}else {
+				listaTemp.add(det);
+			}
+			
+			cont2++;
+		}
 		
-		carroD.remove(carroD.get(id-1));
-		
-		request.getSession().setAttribute("carroD", carroD);
-		
-		//visualiza el jsp
-				request.getRequestDispatcher("Resumen.jsp").forward(request, response);
+		request.getSession().setAttribute("carroD", listaTemp);
+		request.getRequestDispatcher("/Resumen.jsp").forward(request, response);		
 		
 		
 		

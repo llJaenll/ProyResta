@@ -89,7 +89,7 @@
 				<h3>Subtotal : S/<%=dt.getSubtotal() %></h3>				
 				
 			</section>
-			<div class="wrap-item-button"><a href="EliminarDetalle?id=<%=p.getCodigo()%>" class="item-button">Eliminar</a></div>
+			<div class="wrap-item-button"><a href="EliminarDetalle?id=<%=p.getCodigo()%>&cant=<%=dt.getCantidad()%>" class="item-button">Eliminar</a></div>
 		</article>
 
 	</section>
