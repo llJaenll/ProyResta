@@ -72,4 +72,10 @@ public class DeliveryService implements DeliveryDAO{
 		return dao.PagarDelivery(cod);
 	}
 
+	@Override
+	public int codigoCorrelativo() {
+		// TODO Auto-generated method stub
+		return dao.codigoCorrelativo();
+	}
+
 }

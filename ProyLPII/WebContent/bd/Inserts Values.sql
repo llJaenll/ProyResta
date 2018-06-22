@@ -40,6 +40,8 @@ call usp_InsertarUsuario(2,'Gianfranco','Poma','Vidal','87654321','123456789','G
 call usp_InsertarUsuario(3,'Eduardo','Cumpa','Rojas','12345679','123456789','Ecumpa','ciber');
 call usp_InsertarUsuario(4,'Jaen','Rumiche','Riveros','12345677','123456789','Jrumic','ciber');
 call usp_InsertarUsuario(5,'Cristofer','Montalvo','Montalvo','12345671','123456789','Cmonta','ciber');
+insert into Motorizado(nom_Motor,apePat_Motor,apeMat_Motor,dni_Motor,nro_brevete,telf_Tra,placaAutomovil,Id_Estado
+) values('Maveric','Ramos','Pinillos','12345678','12345678','12345679','ASDFE',1);
 
 call usp_InsertarProducto(1,'Arroz chaufa',20,100);
 
@@ -52,8 +54,8 @@ call usp_InsertarCliente('Jerundio','Guerrero','Mendoza','12345678');
 call usp_InsertarCliente('Carlos','Lobaton','Cuevita','12345678');
 */
 select * from estado;
-select * from pedido;
-select * from detalle_pedido;
+select * from delivery;
+select * from detalle_delivery;
 select * from producto;
 select * from usuario;
 select * from tipo_categoria;

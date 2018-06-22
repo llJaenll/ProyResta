@@ -117,15 +117,14 @@ CREATE TABLE Motorizado(
    -- contraseña varchar(10),
 );
 
+
 drop table if exists Delivery;      
 create table Delivery(
     Id_Del int ,
     id_Motor int,
     dir varchar(80),
 	fech_Del timestamp default current_timestamp,
-    Id_Estado int default 5,
     total numeric(6,2) default 0
-
 );
 
 drop table if exists detalle_Delivery;    	
@@ -380,44 +379,44 @@ create procedure usp_validarDNI(
     end $$
 DELIMITER ;
 --  -------------------------------------------------------------------------     
-drop procedure if exists usp_InsertarPedido;
+drop procedure if exists usp_InsertarDelivery;
 DELIMITER $$
-CREATE PROCEDURE usp_InsertarPedido(
-	xId_Pedido int,
-	xId_Usu int,
-	xNro_Mesa int
+CREATE PROCEDURE usp_InsertarDelivery(
+	xId_Del int,
+	xid_Motor int,
+	xdir varchar(80)
 )
 	begin
-		insert into pedido(
-			Id_Pedido,
-			Id_Usu,
-			Nro_Mesa
+		insert into Delivery(
+			Id_Del,
+			id_Motor,
+			dir
 		) 
 		values(
-			xId_Pedido,
-			xId_Usu,
-			xNro_Mesa
+			xId_Del,
+			xid_Motor,
+			xdir
 		);
 	end $$
 DELIMITER ;
 --  ------------------------------------------------------------------------- 
-drop procedure if exists usp_InsertarDetallePedido;
+drop procedure if exists usp_InsertarDetalleDelivery;
 DELIMITER $$
-CREATE PROCEDURE usp_InsertarDetallePedido(
-	xId_Pedido int,
+CREATE PROCEDURE usp_InsertarDetalleDelivery(    
+    xId_Del int,
 	xId_Prod int,
 	xCant int,
 	xPrec_Prod decimal(6,2)
 )
 	begin
-		insert into detalle_pedido(
-			Id_Pedido,
+		insert into detalle_delivery(
+			Id_Del,
 			Id_Prod,
-			cant,
-			prec_Prod
+			Cant,
+			Prec_Prod
 		)
         values(
-			xId_Pedido,
+			xId_Del,
 			xId_Prod,
 			xCant,
 			xPrec_Prod
@@ -425,7 +424,9 @@ CREATE PROCEDURE usp_InsertarDetallePedido(
 
 	UPDATE producto 
 		SET stock_Prod = stock_Prod - xCant
-		WHERE Id_Prod=xID_Prod;
+		WHERE Id_Prod=xId_Prod;
+	UPDATE Delivery set total=total+(xCant*xPrec_Prod)
+		where Id_Del=xId_Del;    
 	end $$
 DELIMITER ;
 --  ------------------------------------------------------------------------- 
@@ -748,15 +749,8 @@ create procedure usp_mesasReserva()
 delimiter ;  
 
 -- ---------------------------------------
-/*Relaciones*/
-alter table pedido
-add constraint pk_Idpedido primary key(id_pedido);
+/*Relaciones
 
-alter table detalle_pedido
-add constraint fk_Idpedido foreign key(id_pedido) references pedido(id_pedido);
-
-alter table detalle_pedido
-add constraint fk_Idprod foreign key(id_prod) references producto(id_prod);
 
 alter table delivery
 add constraint pk_IdDelivery primary key(id_del);
@@ -770,11 +764,12 @@ add constraint fk_IdDelivery foreign key(id_del) references delivery(id_del);
 alter table detalle_delivery
 add constraint fk_DelIdprod foreign key(id_prod) references Producto(id_prod);
 
-
+*/
 
 
 
 call usp_validarIngreso('Mramos','ciber') ;-- ------------------------------------------------------------------------------------  drop table if exists Tipo_Categoria
+
 insert  into Locales values(null,'Miraflores',-77.0315913,-12.111062);
 insert  into Locales values(null,'Surco',-76.99181550000003,-12.1416088);
 insert into producto values(null,1,'Arroz con Pollo',29.5,10,1);
