@@ -48,12 +48,12 @@ public class ListarProducto extends HttpServlet {
 			item.addProperty("tipoCategoria", p.getTipoC());
 			item.addProperty("precio", p.getPrecio());
 			item.addProperty("stock", p.getStock());
-			item.addProperty("acciones", "<button type='button' name='actualizar' id='"+
-							p.getCodigo()+"' class='btn btn-info btn-xs actualizar' title='Actualizar'>"
-							+ "<span class='fas fa-user-edit'></span></button>&nbsp"
-							+ "<button type='button' name='eliminar' id='"+
-							p.getCodigo()+"' class='btn btn-danger btn-xs eliminar' title='Eliminar'>"
-							+ "<span class='fas fa-trash-alt'></span></button>");
+			item.addProperty("acciones", "<a type='button' name='actualizar' id='"+
+					p.getCodigo()+"' href='ActualizarProducto?id="+p.getCodigo()+"' class='btn btn-info btn-xs actualizar' title='Actualizar'>"
+					+ "<span class='fas fa-user-edit'></span></a>&nbsp"
+					+ "<a type='button' name='eliminar' id='"+
+					p.getCodigo()+"' class='btn btn-danger btn-xs eliminar' title='Eliminar'>"
+					+ "<span class='fas fa-trash-alt'></span></a>");
 			array.add(item);
 		}
 		

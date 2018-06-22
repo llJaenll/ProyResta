@@ -13,22 +13,20 @@ public class ProductoDTO extends ObjetoBaseDTO{
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductoDTO(int codigo,int tipoCategoria, String descripcion, double precio, int stock,  int estado, String imgProd) {
+	public ProductoDTO(int codigo,int tipoCategoria, String descripcion, double precio, int stock,  int estado) {
 		super(codigo, descripcion);
 		this.tipoCategoria = tipoCategoria;
 		this.stock = stock;
 		this.precio = precio;
 		this.estado = estado;
-		this.imgProd = imgProd;
 	}
 
-	public ProductoDTO(int codigo,String descripcion,String tipoC,double precio,int stock, int estado, 
-			String imgProd) {
+	public ProductoDTO(int codigo,String descripcion,String tipoC,double precio,int stock, int estado 
+			) {
 		super(codigo, descripcion);
 		this.stock = stock;
 		this.estado = estado;
 		this.precio = precio;
-		this.imgProd = imgProd;
 		this.tipoC = tipoC;
 	}
 

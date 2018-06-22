@@ -23,19 +23,19 @@ import service.ProductoService;
 import service.UsuarioService;
 
 /**
- * Servlet implementation class RegistrarProducto
+ * Servlet implementation class CActualizarUsuario
  */
-@WebServlet("/RegistrarProducto")
-public class RegistrarProducto extends HttpServlet {
+@WebServlet("/CActualizarProducto")
+public class CActualizarProducto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
+PrintWriter out = response.getWriter();
 		
-		int Id_TipoCat=0,stock_Prod=0;
+		int Id_TipoCat=0,stock_Prod=0,codigo=0;
 		double precio_Prod=0;
 		String nom_Prod="";
 		
@@ -54,6 +54,10 @@ public class RegistrarProducto extends HttpServlet {
 			    	FileItem item = (FileItem) items.get(i);
 			    	 //nombre real del archivo para guardar
 			    	/*item.isFormField() false=input file; true=text field*/
+			    	if("codigo".equals(item.getFieldName())){
+			    		codigo = Integer.parseInt(item.getString());
+			    		}
+			    	
 			    	if("Id_TipoCat".equals(item.getFieldName())){
 			    		Id_TipoCat = Integer.parseInt(item.getString());
 			    		}
@@ -84,16 +88,16 @@ public class RegistrarProducto extends HttpServlet {
 			        }
 			    }
 			    
-			 	ProductoDTO p = new ProductoDTO(0, Id_TipoCat, 
+			 	ProductoDTO p = new ProductoDTO(codigo, Id_TipoCat, 
 		    			nom_Prod, precio_Prod, 
 		    			stock_Prod, 0);
 				ProductoService ps = new ProductoService();
-				int ok = ps.registrar(p);
+				int ok = ps.modificar(p);
 				
 				if (ok==0) {
 					out.println("Error");
 				} else {
-					out.println("Se registro");
+					out.println("Se modifico");
 				}
 			    
 			  
@@ -106,15 +110,6 @@ public class RegistrarProducto extends HttpServlet {
 			out.println("Error "+e.getMessage());
 			
 		}
-		 
-			
-			
-		
-		
-		
-		
-		
-		
 	}
 
 }
