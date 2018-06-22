@@ -24,7 +24,7 @@
   <h1>SIRVETEK</h1>
   <h2>EDICION DE USUARIO</h2>
   <% UsuarioDTO u = (UsuarioDTO) request.getAttribute("data"); %>
-  <form class="form" action="RegistrarUsuario">
+  <form class="form" action="CActualizarUsuario">
   
     <fieldset class="form-fieldset ui-input __first">
       <input type="text" id="Id_Usu" readonly="true" name="Id_Usu" tabindex="0" value="<%= u.getCodigo() %>"/>

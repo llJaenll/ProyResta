@@ -78,8 +78,37 @@ public class MYSQLProductoDAO implements ProductoDAO {
 
 	@Override
 	public int modificar(ProductoDTO p) {
-		// TODO Auto-generated method stub
-		return 0;
+		int rs =0; // es int x ser un Insert
+		Connection con = null;
+		PreparedStatement pst = null;
+		
+		try {
+			con = MySQLConexion.getConexion();
+			
+			String sql ="{call usp_ActualizarProducto(?,?,?,?,?)}";
+	
+			pst = con.prepareStatement(sql);
+			//parametros
+			pst.setInt(1, p.getCodigo());
+			pst.setInt(2, p.getTipoCategoria());
+			pst.setString(3, p.getDescripcion());
+			pst.setDouble(4, p.getPrecio());
+			pst.setInt(5, p.getStock());
+			
+			rs = pst.executeUpdate();	
+			
+		} catch (Exception e) {
+			System.out.println("Error en la sentencia"+e.getMessage());
+		}finally{
+			try {
+				if(pst!=null) pst.close();
+				if(con!=null) con.close();
+			} catch (SQLException e) {
+				System.out.println("Error al cerrar");
+			}
+		
+		}
+		return rs;
 	}
 
 	@Override
@@ -92,10 +121,10 @@ public class MYSQLProductoDAO implements ProductoDAO {
 			con=MySQLConexion.getConexion();
 			String sql="{call usp_listarProducto()}";
 			pst=con.prepareStatement(sql);
-			rs=pst.executeQuery();
+			rs=pst.executeQuery(); 
 			
 			while(rs.next()){
-				ProductoDTO p = new ProductoDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getInt(5), rs.getInt(6),rs.getString(7));
+				ProductoDTO p = new ProductoDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getInt(5), rs.getInt(6));
 				
 				lista.add(p);
 			}
@@ -120,8 +149,32 @@ public class MYSQLProductoDAO implements ProductoDAO {
 
 	@Override
 	public ProductoDTO buscarProductoCod(int cod) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultSet rs=null;
+		Connection con =null;
+		PreparedStatement pst=null;
+		ProductoDTO p=null;
+		try {
+			con=MySQLConexion.getConexion();
+			String sql="select * from producto where id_prod=?";
+			pst=con.prepareStatement(sql);
+			pst.setInt(1, cod);
+			rs=pst.executeQuery();
+			
+			while(rs.next()){
+				 p = new ProductoDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getDouble(4), rs.getInt(5), rs.getInt(6));
+				
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la consulta" +e.getMessage());
+		}finally {
+			try {
+				if(pst!=null)pst.close();
+				if(con!=null)con.close();
+			} catch (Exception e2) {
+				System.out.println("error al cerrar");
+			}
+		}
+		return p;
 	}
 
 	@Override
@@ -144,7 +197,7 @@ public class MYSQLProductoDAO implements ProductoDAO {
 			rs=pst.executeQuery();
 			
 			while(rs.next()){
-				ProductoDTO p = new ProductoDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getDouble(4), rs.getInt(5), rs.getInt(6),rs.getString(7));
+				ProductoDTO p = new ProductoDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getDouble(4), rs.getInt(5), rs.getInt(6));
 				lista.add(p);
 			}
 		} catch (Exception e) {
