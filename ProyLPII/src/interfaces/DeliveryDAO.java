@@ -29,5 +29,7 @@ public interface DeliveryDAO {
 	
 	public int PagarDelivery(int cod);
 	
+	public int codigoCorrelativo();
+	
 
 }

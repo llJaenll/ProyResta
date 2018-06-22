@@ -68,10 +68,12 @@
 	
 	%>	
 	<section class="products__header">
+	<form action="RealizarOrden">
 		<h1>Resumen de Pedido</h1>
 		<p>Total S/</p>
-		<label for="Direccion">Direccion</label><input type="text" name="Direccion"><br>
+		<label for="Direccion">Direccion</label><input type="text" name="dir" id="dir"><br>
 		<input type="submit" value="Ordenar" id="btordenar">
+	</form>
 	</section>
 	<%
 	for(DetalleDeliveryDTO dt : carro){	
@@ -89,7 +91,7 @@
 				<h3>Subtotal : S/<%=dt.getSubtotal() %></h3>				
 				
 			</section>
-			<div class="wrap-item-button"><a href="EliminarDetalle?id=<%=p.getCodigo()%>" class="item-button">Eliminar</a></div>
+			<div class="wrap-item-button"><a href="EliminarDetalle?id=<%=p.getCodigo()%>?cant=<%=dt.getCantidad() %> %>" class="item-button">Eliminar</a></div>
 		</article>
 
 	</section>
