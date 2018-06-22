@@ -67,6 +67,11 @@ public class ProductoService implements ProductoDAO{
 	public List<CategoriaDTO> listarTipoProducto() {
 		// TODO Auto-generated method stub
 		return dao.listarTipoProducto();
+	}
+	@Override
+	public int codigoCorrelativo() {
+		// TODO Auto-generated method stub
+		return dao.codigoCorrelativo();
 	}	
 	
 }

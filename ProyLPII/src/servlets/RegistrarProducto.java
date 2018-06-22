@@ -35,11 +35,15 @@ public class RegistrarProducto extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		
+		//obtenemos el codigo correlativo
+		ProductoService prs= new ProductoService();
+		int codImg=prs.codigoCorrelativo();
+		
+		
 		int Id_TipoCat=0,stock_Prod=0;
 		double precio_Prod=0;
 		String nom_Prod="";
 		
-		String archivourl="E:\\";
 		 try {
 			FileItemFactory file_factory = new DiskFileItemFactory();
 			 
@@ -74,7 +78,7 @@ public class RegistrarProducto extends HttpServlet {
 			    		String n[] =item.getName().replace("\\","-").split("-");
 				    	String nombreReal=n[n.length-1];
 			    	/*cual sera la ruta al archivo en el servidor*/
-			    	File archivo_server = new File("D:\\"+nombreReal);
+			    	File archivo_server = new File("D:\\"+codImg+".jpg");
 			            /*y lo escribimos en el servido*/
 			            item.write(archivo_server);
 			            out.print("Nombre --> " + item.getName() );

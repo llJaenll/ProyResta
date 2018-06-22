@@ -11,6 +11,7 @@ import beans.CategoriaDTO;
 import beans.ProductoDTO;
 import beans.TipoUsuarioDTO;
 import interfaces.ProductoDAO;
+import service.ProductoService;
 import utils.MySQLConexion;
 
 public class MYSQLProductoDAO implements ProductoDAO {
@@ -256,6 +257,23 @@ public class MYSQLProductoDAO implements ProductoDAO {
 		}
 	
 		return lista;
+	}
+
+	@Override
+	public int codigoCorrelativo() {
+	
+			ProductoService ps = new ProductoService();
+			List<ProductoDTO> listaPro = ps.listadoProducto();
+			ProductoDTO p;
+			int cod;
+			try {
+				p = listaPro.get(listaPro.size() - 1);
+				cod=p.getCodigo() + 1;
+			} catch (Exception e) {
+				cod=1;
+			}
+			return cod;
+		
 	}
 
 }

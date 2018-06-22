@@ -34,6 +34,8 @@ public interface ProductoDAO {
 		
 		public List<CategoriaDTO> listarTipoProducto(); 
 		
+		public int codigoCorrelativo();
+		
 		
 
 }
