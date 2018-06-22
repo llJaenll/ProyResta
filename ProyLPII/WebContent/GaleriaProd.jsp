@@ -65,13 +65,12 @@
 			List<ProductoDTO> ListaProd=ps.listarxCategoria(Integer.parseInt(cod));
 			if(ListaProd!=null){
 				for(ProductoDTO p:ListaProd){
-					System.out.print(p.getDescripcion());
 		%>	
 		<div class="content-img">
 				<img class="galeria__img" src="img/<%=p.getCodigo()%>.jpg">
 				<div class="content-txt">
 				<h2><%=p.getDescripcion()%></h2>
-				<label for="">Cant: </label><input type="number" class="caja" max="100"><br>
+				<label for="">Cant: </label><input type="number" class="caja" max="100" min="1" ><br>
 				<input type="submit" value="Pedir"  class="bot" class="bot">					
 			</div>
 		</div>
