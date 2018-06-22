@@ -3,7 +3,7 @@
 }
 body {
 	
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Poiret One', sans-serif;
 	font-size: 18px;
 	color: #000;
 	line-height: 1.5;
@@ -15,7 +15,7 @@ a {
 .products {
 	display: flex;
 	flex-direction: column;
-	
+	margin-top:8%;
 	width: 100%;
 }
 .products__header {
