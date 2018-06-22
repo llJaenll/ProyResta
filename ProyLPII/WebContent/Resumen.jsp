@@ -1,5 +1,10 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="java.util.ArrayList"%>
+<%@page import="beans.DetalleDeliveryDTO"%>
+<%@page import="beans.ProductoDTO"%>
+<%@page import="service.ProductoService"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,28 +62,38 @@
   </nav>
 </header>
 <section class="products">
+
+	<%
+	ArrayList<DetalleDeliveryDTO> carro = (ArrayList<DetalleDeliveryDTO>)request.getSession().getAttribute("carroD");
 	
+	%>	
 	<section class="products__header">
 		<h1>Resumen de Pedido</h1>
-		<p>Total S/150</p>
+		<p>Total S/</p>
 		<label for="Direccion">Direccion</label><input type="text" name="Direccion"><br>
 		<input type="submit" value="Ordenar" id="btordenar">
 	</section>
-	
+	<%
+	for(DetalleDeliveryDTO dt : carro){	
+		ProductoService ps = new ProductoService();
+		ProductoDTO p= ps.buscarProductoCod(dt.getIdProducto());
+		
+	%>
 	<section class="container-products-item">
 		<article class="products__item">
-			<img src='imagenes/2.jpg'  class="product-img">
+			<img src='img/<%=dt.getIdProducto() %>.jpg'  class="product-img">
 			<section class="product-desc" >
-				<h3>Item name</h3>
-				<h3>Precio : S/30</h3>				
-				<h3>Cantidad : 3</h3>				
-				<h3>Subtotal : S/90</h3>				
+				<h3>Nombre: <%=p.getDescripcion() %></h3>
+				<h3>Precio : S/<%=dt.getPrecioProducto() %></h3>				
+				<h3>Cantidad : <%=dt.getCantidad() %></h3>				
+				<h3>Subtotal : S/<%=dt.getSubtotal() %></h3>				
 				
 			</section>
 			<div class="wrap-item-button"><a href="#more" class="item-button">Eliminar</a></div>
 		</article>
 
 	</section>
+	<%} %>
 	
 </section>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
