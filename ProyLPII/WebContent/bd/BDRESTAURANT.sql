@@ -117,6 +117,7 @@ CREATE TABLE Motorizado(
    -- contraseña varchar(10),
 );
 
+
 drop table if exists Delivery;      
 create table Delivery(
     Id_Del int ,
@@ -748,15 +749,8 @@ create procedure usp_mesasReserva()
 delimiter ;  
 
 -- ---------------------------------------
-/*Relaciones*/
-alter table pedido
-add constraint pk_Idpedido primary key(id_pedido);
+/*Relaciones
 
-alter table detalle_pedido
-add constraint fk_Idpedido foreign key(id_pedido) references pedido(id_pedido);
-
-alter table detalle_pedido
-add constraint fk_Idprod foreign key(id_prod) references producto(id_prod);
 
 alter table delivery
 add constraint pk_IdDelivery primary key(id_del);
@@ -770,11 +764,12 @@ add constraint fk_IdDelivery foreign key(id_del) references delivery(id_del);
 alter table detalle_delivery
 add constraint fk_DelIdprod foreign key(id_prod) references Producto(id_prod);
 
-
+*/
 
 
 
 call usp_validarIngreso('Mramos','ciber') ;-- ------------------------------------------------------------------------------------  drop table if exists Tipo_Categoria
+
 insert  into Locales values(null,'Miraflores',-77.0315913,-12.111062);
 insert  into Locales values(null,'Surco',-76.99181550000003,-12.1416088);
 insert into producto values(null,1,'Arroz con Pollo',29.5,10,1);
