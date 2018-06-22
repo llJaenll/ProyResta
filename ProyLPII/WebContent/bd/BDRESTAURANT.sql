@@ -134,7 +134,7 @@ create table detalle_Delivery(
     Id_Prod int not null,
     cant tinyint not null,
     prec_Prod decimal (6,2)not null,
-  --  subtotal decimal(6,2) as (cant*prec_prod),
+	subtotal decimal(6,2) as (cant*prec_prod),
     fech_Pedido timestamp default current_timestamp
 );
 

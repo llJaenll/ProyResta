@@ -66,14 +66,21 @@
 			if(ListaProd!=null){
 				for(ProductoDTO p:ListaProd){
 		%>	
+		
 		<div class="content-img">
+		
 				<img class="galeria__img" src="img/<%=p.getCodigo()%>.jpg">
 				<div class="content-txt">
+				<form action="ServletCarro">
 				<h2><%=p.getDescripcion()%></h2>
-				<label for="">Cant: </label><input type="number" class="caja" max="100" min="1" ><br>
-				<input type="submit" value="Pedir"  class="bot" class="bot">					
+				<input type="hidden" id="id" name="id" value="<%=p.getCodigo()%>">
+				<label for="">Cant: </label><input id="cant" name="cant" type="number" class="caja" max="100" min="1" ><br>
+				<a href="" target="mainFrame">
+				<input type="submit" value="Pedir"  class="bot" class="bot">	</a>	
+				</form>				
 			</div>
 		</div>
+		
 		<%
 				}
 			}
