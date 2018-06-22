@@ -249,8 +249,7 @@ create procedure usp_ActualizarProducto(
 	xId_TipoCat int,
 	xnom_Prod varchar(60),
 	xprecio_Prod decimal(6,2),
-	xstock_Prod smallint,
-	xImg_Prod mediumblob
+	xstock_Prod smallint
 )
     begin 
 		update producto
@@ -258,8 +257,7 @@ create procedure usp_ActualizarProducto(
 			nom_Prod = xnom_Prod,
 			precio_Prod = xprecio_Prod,
 			stock_Prod = xstock_Prod,
-			Id_estado=1,
-			img_Prod=ximg_Prod
+			Id_estado=1
 			where Id_Prod=xid_Prod;
 	end $$
 DELIMITER ;
@@ -283,7 +281,7 @@ create procedure usp_listarProducto()
     begin 
 		Select 
 			p.Id_Prod,p.nom_Prod,c.des_TipoCat,p.precio_Prod,p.stock_Prod,
-            p.Id_Estado,p.Img_Prod
+            p.Id_Estado
 		from producto p inner join tipo_categoria c
         on p.Id_TipoCat=c.Id_TipoCat
 		where Id_Estado = 1;
@@ -779,7 +777,7 @@ add constraint fk_DelIdprod foreign key(id_prod) references Producto(id_prod);
 call usp_validarIngreso('Mramos','ciber') ;-- ------------------------------------------------------------------------------------  drop table if exists Tipo_Categoria
 insert  into Locales values(null,'Miraflores',-77.0315913,-12.111062);
 insert  into Locales values(null,'Surco',-76.99181550000003,-12.1416088);
-insert into producto values(null,1,'Arroz con Pollo',29.5,10,1,"");
+insert into producto values(null,1,'Arroz con Pollo',29.5,10,1);
 insert into producto values(null,1,'Arroz con Pato',2.5,10,1,"");
 insert into producto values(null,1,'Cebiche',25,10,1,"");
 insert into producto values(null,1,'Tallarines',29,10,1,"");
