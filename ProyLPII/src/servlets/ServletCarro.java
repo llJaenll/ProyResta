@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.DetalleDeliveryDTO;
 import beans.ProductoDTO;
+import service.DeliveryService;
 import service.ProductoService;
 
 /**
@@ -25,6 +26,7 @@ public class ServletCarro extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		DeliveryService ds = new DeliveryService();
 		// TODO Auto-generated method stub
 		//capturamos los datos del formulario de Compra
 		int cantidad=Integer.parseInt(request.getParameter("cant"));
@@ -46,7 +48,7 @@ public class ServletCarro extends HttpServlet {
 		//agregamos el producto y actualizamos el total
 		try {
 			DetalleDeliveryDTO v = new DetalleDeliveryDTO();
-			v.setidDelivery(0);
+			v.setidDelivery(ds.codigoCorrelativo());
 			v.setIdProducto(idprod);
 			v.setPrecioProducto(preciovta);
 			v.setSubtotal(cantidad*preciovta);
