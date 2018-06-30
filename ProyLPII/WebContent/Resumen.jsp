@@ -89,13 +89,9 @@
 				<h3>Precio : S/<%=dt.getPrecioProducto() %></h3>				
 				<h3>Cantidad : <%=dt.getCantidad() %></h3>				
 				<h3>Subtotal : S/<%=dt.getSubtotal() %></h3>				
-				
 			</section>
-<<<<<<< HEAD
 			<div class="wrap-item-button"><a href="EliminarDetalle?id=<%=p.getCodigo()%>&cant=<%=dt.getCantidad()%>" class="item-button">Eliminar</a></div>
-=======
-			<div class="wrap-item-button"><a href="EliminarDetalle?id=<%=p.getCodigo()%>?cant=<%=dt.getCantidad() %> %>" class="item-button">Eliminar</a></div>
->>>>>>> f73049c6db9f5d7a2cf13c051a759a2c48538e76
+
 		</article>
 
 	</section>
