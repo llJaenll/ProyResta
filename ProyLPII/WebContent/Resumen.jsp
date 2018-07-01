@@ -86,27 +86,27 @@
 					<form>
 					  <div class="form-group">
 						<label for="nombre" class="col-form-label">Nombre Completo:</label>
-						<input type="text" class="form-control" id="nombre">
+						<input type="text" class="form-control" id="nomDel" name="nomDel">
 					  </div>
 					   <div class="form-group">
 						<label for="nombre" class="col-form-label">DNI:</label>
-						<input type="text" class="form-control" id="nombre">
+						<input type="text" class="form-control" id="dniDel" name="dniDel">
 					  </div> 
 					  <div class="form-group">
 						<label for="nombre" class="col-form-label" required>Direccion:</label>
-						<input type="text" class="form-control" id="nombre">
+						<input type="text" class="form-control" id="dir" name="dir">
 					  </div> 
 					  <div class="form-group">
-						<label for="nombre" class="col-form-label" required>Direccion:</label>
-						 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-							<option selected>Tipo de Pago</option>
-							<option value="1">Efectivo</option>
-							<option value="2">Tarjeta</option>
+						<label for="nombre" class="col-form-label" required>Pago:</label>
+						 <select class="custom-select mr-sm-2" id="pagoDel" name="pagoDel" required>
+							<option selected value="">Tipo de Pago</option>
+							<option value="Efectivo">Efectivo</option>
+							<option value="Tarjeta">Tarjeta</option>
 						  </select>
 					  </div>
 					  <div class="form-group">
 						<label for="message-text" class="col-form-label">Observaciones para el pedido:</label>
-						<textarea class="form-control" id="message-text"></textarea>
+						<textarea class="form-control" id="obsDel" name="obsDel"></textarea>
 					  </div>
 					   <div class="form-group">
 						<div class="alert alert-primary" role="alert">

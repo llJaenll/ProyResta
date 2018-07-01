@@ -124,6 +124,10 @@ create table Delivery(
     id_Motor int,
     dir varchar(80),
 	fech_Del timestamp default current_timestamp,
+    nomDel varchar(80),
+    dniDel char(8),
+    pagoDel varchar(10),
+    obsDel varchar(80),
     total numeric(6,2) default 0
 );
 

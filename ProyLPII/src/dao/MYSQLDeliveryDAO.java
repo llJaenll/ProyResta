@@ -23,11 +23,15 @@ public class MYSQLDeliveryDAO implements DeliveryDAO {
 		int rs = 0;
 		try {
 			con = MySQLConexion.getConexion();
-			String sql = "{call usp_InsertarDelivery(?,?,?)}";
+			String sql = "{call usp_InsertarDelivery(?,?,?,?,?,?,?)}";
 			pst = con.prepareStatement(sql);
-			pst.setInt(1, p.getidDelivery());
-			pst.setInt(2, p.getid_motor());
-			pst.setString(3, p.getdir());
+			pst.setInt(1, p.getIdDelivery());
+			pst.setInt(2, p.getId_motor());
+			pst.setString(3, p.getDir());
+			pst.setString(4, p.getNomDel());
+			pst.setString(5, p.getDniDel());
+            pst.setString(6, p.getPagoDel());
+            pst.setString(7, p.getObsDel());
 			rs = pst.executeUpdate();
 
 		} catch (Exception e) {
@@ -61,9 +65,9 @@ public class MYSQLDeliveryDAO implements DeliveryDAO {
 
 			while (rs.next()) {
 				DeliveryDTO d = new DeliveryDTO();
-				d.setidDelivery(rs.getInt(1));
-				d.setid_motor(rs.getInt(2));
-				d.setdir(rs.getString(3));
+				d.setIdDelivery(rs.getInt(1));
+				d.setId_motor(rs.getInt(2));
+				d.setDir(rs.getString(3));
 				d.setFecha(rs.getString(4));
 				d.setTotal(rs.getDouble(5));
 				lista.add(d);
@@ -141,7 +145,7 @@ public class MYSQLDeliveryDAO implements DeliveryDAO {
 		int cod;
 		try {
 			d = listaDes.get(listaDes.size() - 1);
-			cod=d.getidDelivery() + 1;
+			cod=d.getIdDelivery() + 1;
 		} catch (Exception e) {
 			cod=1;
 		}

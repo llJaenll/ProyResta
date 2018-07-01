@@ -33,9 +33,13 @@ public class RealizarOrden extends HttpServlet {
 					int codDel=des.codigoCorrelativo();
 			
 			DeliveryDTO d = new DeliveryDTO();
-			d.setidDelivery(codDel);
-			d.setid_motor(1);
-			d.setdir(request.getParameter("dir"));
+			d.setIdDelivery(codDel);
+			d.setId_motor(1);
+			d.setDir(request.getParameter("dir"));
+			d.setNomDel(request.getParameter("nomDel"));
+			d.setDniDel(request.getParameter("dniDel"));
+			d.setPagoDel(request.getParameter("pagoDel"));
+			d.setObsDel(request.getParameter("obsDel"));
 			des.registrarDelivery(d);
 			//hasta aqui es delivery
 			
