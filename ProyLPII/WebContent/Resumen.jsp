@@ -71,8 +71,57 @@
 	<form action="RealizarOrden">
 		<h1>Resumen de Pedido</h1>
 		<p>Total S/</p>
-		<label for="Direccion">Direccion</label><input type="text" name="dir" id="dir"><br>
-		<input type="submit" value="Ordenar" id="btordenar">
+		<input type="button" value="Ordenar" id="btordenar" data-toggle="modal" data-target="#exampleModal"> 
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Datos Personales</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				  </div>
+				  <div class="modal-body">
+					<form>
+					  <div class="form-group">
+						<label for="nombre" class="col-form-label">Nombre Completo:</label>
+						<input type="text" class="form-control" id="nombre">
+					  </div>
+					   <div class="form-group">
+						<label for="nombre" class="col-form-label">DNI:</label>
+						<input type="text" class="form-control" id="nombre">
+					  </div> 
+					  <div class="form-group">
+						<label for="nombre" class="col-form-label" required>Direccion:</label>
+						<input type="text" class="form-control" id="nombre">
+					  </div> 
+					  <div class="form-group">
+						<label for="nombre" class="col-form-label" required>Direccion:</label>
+						 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+							<option selected>Tipo de Pago</option>
+							<option value="1">Efectivo</option>
+							<option value="2">Tarjeta</option>
+						  </select>
+					  </div>
+					  <div class="form-group">
+						<label for="message-text" class="col-form-label">Observaciones para el pedido:</label>
+						<textarea class="form-control" id="message-text"></textarea>
+					  </div>
+					   <div class="form-group">
+						<div class="alert alert-primary" role="alert">
+						  	<center><p>Total de su pedido S/500</p></center>
+						</div>
+					  </div>
+					</form>
+				  </div>
+				  <div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="sumbit" class="btn btn-primary">Ordenar</button>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		
 	</form>
 	</section>
 	<%
