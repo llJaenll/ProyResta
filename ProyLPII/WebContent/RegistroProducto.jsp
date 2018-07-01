@@ -27,8 +27,8 @@
   <h2>REGISTRO DE PRODUCTO</h2>
   <form method="post" enctype="multipart/form-data" class="form" action="RegistrarProducto" >
     
-      <div class="caja"><select name="Id_TipoCat" id ="Id_TipoCat">
-       <option>Elija un tipo de Producto</option>
+      <div class="caja"><select name="Id_TipoCat" id ="Id_TipoCat" required>
+       <option value="">Elija un tipo de Producto</option>
       <% 
       ProductoService up = new ProductoService();
       List<CategoriaDTO> lista = up.listarTipoProducto(); 
@@ -39,21 +39,21 @@
 
     
     <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="nom_Prod" name="nom_Prod" tabindex="0" />
+      <input type="text" id="nom_Prod" name="nom_Prod" tabindex="0" maxlength="10" pattern="[A-Za-z]{2,40}" title="Introduce entre 3 y 40 letras" required/>
       <label for="nom_Prod">
         <span data-text="Descripcion">Descripcion</span>
       </label>
     </fieldset>
     
     <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="precio_Prod" name="precio_Prod" tabindex="0" />
+      <input type="text" id="precio_Prod" name="precio_Prod" tabindex="0" maxlength="6" pattern="[0-9]{1,6}" title="Introduce un precio correcto" required/>
       <label for="precio_Prod">
         <span data-text="Precio">Precio</span>
       </label>
     </fieldset>
     
     <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="stock_Prod" name="stock_Prod" tabindex="0" />
+      <input type="text" id="stock_Prod" name="stock_Prod" tabindex="0" maxlength="3" pattern="[0-9]{1,3}" title="Introduce un stock correcto" required/>
       <label for="stock_Prod">
         <span data-text="Stock de Producto">Stock de Producto</span>
       </label>
