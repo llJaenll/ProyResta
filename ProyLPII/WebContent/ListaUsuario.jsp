@@ -25,7 +25,7 @@
 <body>
 <div class="container">
 <h1 id="ListTit">Lista de Productos</h1>
-<a  id="ListBot" type="button" class="btn btn-info btn-xs" href="RegistroProducto.jsp">Añadir</a>
+<a  id="ListBot" type="button" class="btn btn-info btn-xs" href="RegistroUsuario.jsp">Añadir</a>
 <h1>Lista de Usuarios</h1>
 <table id="tablaClientes" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
         <thead>
