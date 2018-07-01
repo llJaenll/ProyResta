@@ -773,7 +773,10 @@ call usp_validarIngreso('Mramos','ciber') ;-- ----------------------------------
 insert  into Locales values(null,'Miraflores',-77.0315913,-12.111062);
 insert  into Locales values(null,'Surco',-76.99181550000003,-12.1416088);
 insert into producto values(null,1,'Arroz con Pollo',29.5,10,1);
-insert into producto values(null,1,'Arroz con Pato',2.5,10,1,"");
-insert into producto values(null,1,'Cebiche',25,10,1,"");
-insert into producto values(null,1,'Tallarines',29,10,1,"");
-insert into producto values(null,1,'Lomo',2,10,1,"");
+insert into producto values(null,1,'Arroz con Pato',2.5,10,1);
+insert into producto values(null,1,'Cebiche',25,10,1);
+insert into producto values(null,1,'Tallarines',29,10,1);
+insert into producto values(null,1,'Lomo',2,10,1);
+insert into producto values(null,5,'Causa Rellena',20,10,1);
+insert into producto values(null,5,'Adobo ',5,10,1);
+insert into producto values(null,5,'Albondigas',12,10,1);

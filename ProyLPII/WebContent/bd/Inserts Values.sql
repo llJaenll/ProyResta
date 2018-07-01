@@ -1,4 +1,4 @@
-/*INSERTS BÁSICOS PARA FUNCIONAMIENTO*/
+/*INSERTS BSICOS PARA FUNCIONAMIENTO*/
 use DBRestaurante;
 
 insert into estado values(null,'Activo'); 			-- 1
@@ -20,6 +20,7 @@ insert into tipo_categoria values(null,'Menu');
 insert into tipo_categoria values(null,'Ensaladas');
 insert into tipo_categoria values(null,'Bebidas');
 insert into tipo_categoria values(null,'Complementos');
+insert into tipo_categoria values(null,'Ofertas');
 /*
 insert into mesa values(null, 'Mesa para 2');
 insert into mesa values(null, 'Mesa para 2');
