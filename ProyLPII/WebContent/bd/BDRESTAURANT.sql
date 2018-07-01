@@ -388,18 +388,30 @@ DELIMITER $$
 CREATE PROCEDURE usp_InsertarDelivery(
 	xId_Del int,
 	xid_Motor int,
-	xdir varchar(80)
+	xdir varchar(80),
+    xnomDel varchar(80),
+    xdniDel char(8),
+	xpagoDel varchar(10),
+	xobsDel varchar(80) 
 )
 	begin
 		insert into Delivery(
 			Id_Del,
 			id_Motor,
-			dir
+			dir,
+            nomDel,
+            dniDel,
+            pagoDel,
+            obsDel
 		) 
 		values(
 			xId_Del,
 			xid_Motor,
-			xdir
+			xdir,
+            xnomDel,
+            xdniDel,
+            xpagoDel,
+            xobsDel
 		);
 	end $$
 DELIMITER ;

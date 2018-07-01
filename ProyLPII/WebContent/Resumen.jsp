@@ -110,7 +110,7 @@
 					  </div>
 					   <div class="form-group">
 						<div class="alert alert-primary" role="alert">
-						  	<center><p>Total de su pedido S/500</p></center>
+						  	<center><p>Total de su pedido <%=totalventa %></p></center>
 						</div>
 					  </div>
 					</form>
