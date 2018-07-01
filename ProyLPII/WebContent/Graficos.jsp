@@ -16,20 +16,18 @@
 		</header>
 			<div id="graficos">
 				<section class="graficossection">
+				
 					<article id="artgraficobarra">
 					</article>
 					
 				</section>
+				
 				<section class="graficossection">
 					<article id="artgraficopie">
-
-
-					</article>
-					
+					</article>	
 				</section>
-				
-			</section>
 			
+		</div>
 		</div>
 	<script src="js/estadistica.js"></script>
 </body>

@@ -32,19 +32,19 @@
 				<h1 id="texto2">¿HAMBRIENTO?<br>
 					ORDENE EN <br>CIRBETEK DELIVERY</h1>
 			</header>
-			<arcticle class="artComida">
+			<article class="artComida">
 				<center><img class="imgCambio" src="img/pescados.jpg" alt=""></center>
 	
-			</arcticle>
-			<arcticle class="artComida">
+			</article>
+			<article class="artComida">
 				<center><img class="imgCambio" src="img/Carnes.jpg" alt=""></center>
-			</arcticle>
-			<arcticle class="artComida">
+			</article>
+			<article class="artComida">
 				<center><img class="imgCambio" src="img/rapida.jpg" alt=""></center>
-			</arcticle>
-			<arcticle class="artComida">
+			</article>
+			<article class="artComida">
 				<center><img class="imgCambio" src="img/pizza.jpg" alt=""></center>
-			</arcticle>
+			</article>
 		</div>
 		<div id="contenido1">
 		<iframe  style="width: 100%; height:1000px;border: 0; display:none;" name="form" id="ifr"></iframe>
