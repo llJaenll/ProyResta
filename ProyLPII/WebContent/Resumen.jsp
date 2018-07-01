@@ -65,12 +65,12 @@
 
 	<%
 	ArrayList<DetalleDeliveryDTO> carro = (ArrayList<DetalleDeliveryDTO>)request.getSession().getAttribute("carroD");
-	
+	Double totalventa=(Double)request.getSession().getAttribute("totalventa");
 	%>	
 	<section class="products__header">
 	<form action="RealizarOrden">
 		<h1>Resumen de Pedido</h1>
-		<p>Total S/</p>
+		<p>Total S/<%=totalventa%> </p>
 		<input type="button" value="Ordenar" id="btordenar" data-toggle="modal" data-target="#exampleModal"> 
 			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			  <div class="modal-dialog" role="document">

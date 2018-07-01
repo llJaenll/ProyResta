@@ -42,7 +42,7 @@ public class ServletCarro extends HttpServlet {
 		System.out.println("pre"+p.getPrecio());
 		//obtenemos los datos globales de session
 		ArrayList<DetalleDeliveryDTO> carroD = (ArrayList<DetalleDeliveryDTO>)request.getSession().getAttribute("carroD");
-		//double totalventa=(double)request.getSession().getAttribute("totalventa");
+		double totalventa=(double)request.getSession().getAttribute("totalventa");
 		
 		
 		//agregamos el producto y actualizamos el total
@@ -53,14 +53,15 @@ public class ServletCarro extends HttpServlet {
 			v.setPrecioProducto(preciovta);
 			v.setSubtotal(cantidad*preciovta);
 			v.setCantidad(cantidad);
+			totalventa +=(cantidad * preciovta);
 			carroD.add(v);
 		} catch (Exception e) {
 			System.out.println("Error "+e.getMessage());
 		}
-		//totalventa +=(cantidad * preciovta);
+		
 		
 		request.getSession().setAttribute("carroD", carroD);
-		//request.getSession().setAttribute("total", totalventa);
+		request.getSession().setAttribute("totalventa", totalventa);
 		
 		//visualiza el jsp
 		request.getRequestDispatcher("Resumen.jsp").forward(request, response);
