@@ -30,7 +30,7 @@
     </div>
   
     <div id="links" class="links">
-      <a href="Principal.jsp" class="links-menu links-menu-active">
+      <a href="PrincipalIndex.jsp" class="links-menu links-menu-active">
         <i class="fa fa-home icons-menu" aria-hidden="true"></i>
         Inicio
       </a>

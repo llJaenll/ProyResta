@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="beans.ProductoDTO"%>
+<%@page import="service.ProductoService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -14,7 +17,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poiret+One" rel="stylesheet">
 </head>
 <body>
-	<header id="menu-flex" class="menu-flex">
+	
+<header id="menu-flex" class="menu-flex">
   <nav class="menu">
     <div class="logo-menu">
       <a href="" title="Logo">
@@ -28,29 +32,33 @@
     </div>
   
     <div id="links" class="links">
-      <a href="" class="links-menu links-menu-active">
+      <a href="PrincipalIndex.jsp" class="links-menu links-menu-active">
         <i class="fa fa-home icons-menu" aria-hidden="true"></i>
         Inicio
       </a>
       
-      <a href="" class="links-menu">
+      <a href="Categorias.jsp" class="links-menu">
         <i class="fas fa-utensils" aria-hidden="true"></i>
         Carta
       </a>
       
-      <a href="" class="links-menu">
+      <a href="Mapa.jsp" class="links-menu">
         <i class="fas fa-map-marked-alt" aria-hidden="true"></i>
         Ubicación
       </a>
       
-      <a href="" class="links-menu">
+      <a href="Contactenos.jsp" class="links-menu">
         <i class="fa fa-envelope icons-menu" aria-hidden="true"></i>
         Contactenos
       </a>
-       <a href="" class="links-menu">
+       <a href="Nosotros.jsp" class="links-menu">
         <i class="fas fa-users" aria-hidden="true"></i>
         Nosotros
-      </a>  
+      </a>
+      <a href="Resumen.jsp" class="links-menu">
+        <i class="fas fa-shipping-fast" aria-hidden="true"></i>
+        Ver Resumen
+      </a>   
     </div>
   </nav>
 </header>
@@ -64,20 +72,36 @@
 		<h1>Principales Ofertas</h1>
 	</div>
 	<div class="contentAll">
+		<%
+		String cod=request.getParameter("cod");
+		ProductoService ps = new ProductoService();
+		List<ProductoDTO> ListaProd=ps.listarxCategoria(5);
+		if(ListaProd!=null){
+			for(ProductoDTO p:ListaProd){
+		%>
 		<div class="contenedor">
 			<div class="carta">
 				<div class="lado frente">
-					<img src="img/causaOferta.jpg" alt="">
+					<img src="img/<%=p.getCodigo()%>.jpg" alt="">
 				</div>
 				<div class="lado atras">
 					<div class="content-txt">
-						<h2>Arroz con Pollo</h2>
-						<label for="">Cant: </label><input type="number" class="caja"><br>
-						<button type="submit" class="bot">Pedir</button>				
+						<form action="ServletCarro">
+						<h2><%=p.getDescripcion()%></h2>
+						<h2>S/<%=p.getPrecio()%></h2>
+						<input type="hidden" id="id" name="id" value="<%=p.getCodigo()%>">
+						<label for="">Cant: </label><input id="cant" name="cant" type="number" class="caja" max="100" min="1"><br>
+						<button type="submit" class="bot">Pedir</button>			
+						</form>	
 					</div>
 				</div>
 			</div>
 		</div>
+		<%
+				}
+			}
+			
+		%>
 	</div>
 
 </body>
