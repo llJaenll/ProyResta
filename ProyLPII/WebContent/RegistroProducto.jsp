@@ -11,7 +11,7 @@
 
 <head>
   <meta charset="UTF-8" http-equiv="Content-Type" content="text/html">
-  <title>Urpinion — Form</title>
+  <title>Registro de Producto</title>
   <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
@@ -24,7 +24,7 @@
 
   <div class="container" >
   <h1>SIRVETEK</h1>
-  <h2>REGISTRO DE USUARIO</h2>
+  <h2>REGISTRO DE PRODUCTO</h2>
   <form method="post" enctype="multipart/form-data" class="form" action="RegistrarProducto" >
     
       <div class="caja"><select name="Id_TipoCat" id ="Id_TipoCat">
@@ -67,7 +67,8 @@
     </fieldset>
 
     <div class="form-footer">
-      <button type="submit" class="btn">Crear cuenta</button>
+      <button type="submit" class="btn">REGISTRAR</button>
+      
     </div>
   </form>
 </div>
@@ -75,7 +76,7 @@
 
   
 
-    <script  src="js/index.js"></script>
+    <script  src="js/indexReg.js"></script>
 
 
 

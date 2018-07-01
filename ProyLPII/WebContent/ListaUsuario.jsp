@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Usuarios</title>
 </head>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -12,8 +12,20 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap4.min.css">
+<style>
+#ListTit{
+	margin-top: 3%;
+}
+#ListBot{
+	margin-top: 0.5%;
+	margin-left:1%;
+	margin-bottom: 1%;
+}
+</style>
 <body>
 <div class="container">
+<h1 id="ListTit">Lista de Productos</h1>
+<a  id="ListBot" type="button" class="btn btn-info btn-xs" href="RegistroProducto.jsp">Añadir</a>
 <h1>Lista de Usuarios</h1>
 <table id="tablaClientes" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
         <thead>

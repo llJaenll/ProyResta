@@ -43,7 +43,7 @@ public class ListarProducto extends HttpServlet {
 	
 		for (ProductoDTO p : lista) {
 			JsonObject item = new JsonObject();
-			item.addProperty("img", "<img src='img/"+p.getCodigo()+".jpg' width='100px' height='100px' />");
+			//item.addProperty("img", "<img src='img/"+p.getCodigo()+".jpg' width='100px' height='100px' />");
 			item.addProperty("descripcion", p.getDescripcion());
 			item.addProperty("tipoCategoria", p.getTipoC());
 			item.addProperty("precio", p.getPrecio());
