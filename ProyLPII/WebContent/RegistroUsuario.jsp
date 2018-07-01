@@ -26,7 +26,7 @@
   <form class="form" action="RegistrarUsuario" method="post">
     
   <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="nom_Usu" name="nom_Usu" tabindex="0" />
+      <input type="text" id="nom_Usu" name="nom_Usu" tabindex="0" required/>
       <label for="nom_Usu">
         <span data-text="Nombre">Nombre</span>
       </label>

@@ -75,7 +75,7 @@
 		
 				<img class="galeria__img" src="img/<%=p.getCodigo()%>.jpg">
 				<div class="content-txt">
-				<form action="ServletCarro">
+				<form action="ServletCarro" method="post">
 				<h2><%=p.getDescripcion()%></h2>
 				<input type="hidden" id="id" name="id" value="<%=p.getCodigo()%>">
 				<label for="">Cant: </label><input id="cant" name="cant" type="number" class="caja" max="100" min="1" ><br>

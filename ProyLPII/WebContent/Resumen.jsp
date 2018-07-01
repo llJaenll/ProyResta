@@ -65,12 +65,12 @@
 
 	<%
 	ArrayList<DetalleDeliveryDTO> carro = (ArrayList<DetalleDeliveryDTO>)request.getSession().getAttribute("carroD");
-	
+	Double totalventa=(Double)request.getSession().getAttribute("totalventa");
 	%>	
 	<section class="products__header">
 	<form action="RealizarOrden">
 		<h1>Resumen de Pedido</h1>
-		<p>Total S/</p>
+		<p>Total S/<%=totalventa%> </p>
 		<label for="Direccion">Direccion</label><input type="text" name="dir" id="dir"><br>
 		<input type="submit" value="Ordenar" id="btordenar">
 	</form>
