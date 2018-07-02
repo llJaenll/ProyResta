@@ -1,35 +1,50 @@
 #contenido{
 	width: 100%;
 	height: 100%;
-	
+	margin-top:8%;
 }
 #map{
-	margin-top: 4.5%;
-	width: 100%;
-	height: 100vh;
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+	height: 600px;
+	border: 4px solid #A80C00;
 }
 #cabecera{
-	width: 100%;
+	width: 30%;
 	height: auto;
+	margin-top: 1%;
+	display: flex;
+	flex-wrap: wrap;
+}
+/*titulo*/
+.titulo{
+	text-align: center;
+	color: #A80C00;
+	font: normal 1.5em 'Dancing Script', sans-serif;
+}
+.botonVer{
+	margin-left: 3%;
+	color: #fff;
+	font: normal 1.5em 'Dancing Script', sans-serif;
+	text-shadow: 4px 6px 6px #000000;
+	transition: 0.3s ease all;
+	background: #28A85E; 
+	color: #fff;
+	padding: 10px;
+	cursor: pointer;
+	margin-top: 1%;
+}
+#LocalesSelect{
+	margin-left: 3%;
+	color: #fff;
+	font: normal 1.5em 'Dancing Script', sans-serif;
+	text-shadow: 4px 6px 6px #000000;
+	transition: 0.3s ease all;
+	background: #28A85E; 
+	color: #fff;
+	padding: 10px;
+	cursor: pointer;
 	margin-top: 1%;
 }
 /****************boton**********************/
-.boton_personalizado{
-    padding: 6px 35px;
-    color: #ffffff;
-    background-color: DodgerBlue;
-    border-color: transparent transparent #fff transparent;
-	font-family: Arial;
-	font-size: 12px;
-	margin-left: 1%;
-	margin-top: 1%;
-	
-  }
-  .boton_personalizado:hover{
-    color: DodgerBlue;
-    background-color: #ffffff;
-	cursor: pointer;
-  }
-/****************boton**********************/
-
-

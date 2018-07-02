@@ -61,7 +61,7 @@
   </nav>
 </header>
 	<div id="contenido">
-		<div id="cabecera" style="width:200px;">
+		<div id="cabecera">
 		<select id="LocalesSelect" onChange="cambioLocal()">
 		<option value="">Seleccione un Local</option>
 		<%
@@ -77,11 +77,8 @@
 			</select>
 		
 		</div>
-		<button type="button" id="VerTodos" onclick="verTodos()" class="boton_personalizado">Ver todas las Sedes</button>
+		<button type="button" id="VerTodos" onclick="verTodos()" class="botonVer">Ver todas las Sedes</button>
 		<div id="map"></div>
-		<select onChange="cambioLocal()">
-		<option value="">Seleccione un Local</option>
-		<option value="">Seleccione un Local2</option></select>
 	</div>
 	  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	  <script type="application/ecmascript" src="js/BarraMenu.js"></script>
