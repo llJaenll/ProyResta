@@ -4,10 +4,12 @@ public class DetalleDeliveryDTO {
 	
 	private int idDelivery,idProducto,cantidad;
 	private double precioProducto,subtotal;
+	String nombre;
 	
 	public DetalleDeliveryDTO(){
 		
 	};
+	
 		
 	public DetalleDeliveryDTO(int idDelivery, int idProducto, int cantidad, double precioProducto, double subtotal) {
 		super();
@@ -53,6 +55,26 @@ public class DetalleDeliveryDTO {
 	public double getSubtotal() {
 		return subtotal;
 	}
+
+	public int getIdDelivery() {
+		return idDelivery;
+	}
+
+
+	public void setIdDelivery(int idDelivery) {
+		this.idDelivery = idDelivery;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 
 	public void setSubtotal(double subtotal) {
 		this.subtotal = subtotal;

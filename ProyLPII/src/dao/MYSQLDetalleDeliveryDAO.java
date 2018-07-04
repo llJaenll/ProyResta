@@ -2,8 +2,11 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
+import beans.DeliveryDTO;
 import beans.DetalleDeliveryDTO;
 import beans.MuestraDetalleDTO;
 import interfaces.DetalleDeliveryDAO;
@@ -79,9 +82,31 @@ public class MYSQLDetalleDeliveryDAO implements DetalleDeliveryDAO {
 	}
 
 	@Override
-	public List<MuestraDetalleDTO> listarOrdenado(int ped) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<DetalleDeliveryDTO> listarOrdenado(String fecha1,String fecha2) {
+		Connection con=null;
+		PreparedStatement pst=null;
+		ResultSet rs=null;
+		List<DetalleDeliveryDTO> lista = new ArrayList<DetalleDeliveryDTO>();
+		try {
+			con=MySQLConexion.getConexion();
+			String sql="{call usp_DeliveryPorFecha(?,?)}";
+			pst=con.prepareStatement(sql);
+			pst.setString(1, fecha1);
+			pst.setString(2, fecha2);
+			rs=pst.executeQuery();
+			while(rs.next()){
+				DetalleDeliveryDTO dd = new DetalleDeliveryDTO();
+				dd.setNombre(rs.getString(1));
+				dd.setPrecioProducto(rs.getDouble(2));
+				dd.setCantidad(rs.getInt(3));
+				dd.setSubtotal(rs.getDouble(4));
+				lista.add(dd);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return lista;
 	}
 
 	@Override

@@ -24,7 +24,7 @@ public interface DetalleDeliveryDAO {
 	 
 	 public int actualizarCancelacion(int idprod, int cantidad);
 	 
-	 public List<MuestraDetalleDTO> listarOrdenado(int ped);
+	 public List<DetalleDeliveryDTO> listarOrdenado(String fecha1,String fecha2);
 	 
 	 public int totalDeliveryEstado(int cod);
 		 

@@ -719,6 +719,27 @@ create procedure usp_pedido(
     end $$
 delimiter ;
   --  -------------------------------------------------------------------------   
+  drop procedure if exists usp_DeliveryPorFecha;
+delimiter $$
+create procedure usp_DeliveryPorFecha(
+xFecha1 timestamp,
+xFecha2 timestamp
+)
+	begin
+		select 
+			pd.nom_Prod,
+			dt.prec_Prod,
+            dt.cant,
+			dt.subtotal 
+		from delivery d 
+		inner join detalle_delivery dt on d.Id_Del=dt.Id_Del
+		inner join producto pd on dt.Id_Prod=pd.Id_Prod
+		where DATE(d.fech_Del) between xFecha1 and xFecha2;
+    end $$
+delimiter ;
+call usp_DeliveryPorFecha('2018-07-04','2018-07-04');
+select * from delivery where DATE(fech_Del)='2018-07-04';
+  --  ------------------------------------------------------------------------- 
 drop procedure if exists usp_actulizarPedidoPrePagado;
 delimiter $$
 create procedure usp_actulizarPedidoPrePagado(
