@@ -136,6 +136,7 @@
 		ProductoDTO p= ps.buscarProductoCod(dt.getIdProducto());
 		
 	%>
+
 	<section class="container-products-item">
 		<article class="products__item">
 			<img src='img/<%=dt.getIdProducto() %>.jpg'  class="product-img">
@@ -145,10 +146,10 @@
 				<h3>Cantidad : <%=dt.getCantidad() %></h3>				
 				<h3>Subtotal : S/<%=dt.getSubtotal() %></h3>				
 			</section>
-			<div class="wrap-item-button"><a href="EliminarDetalle?id=<%=p.getCodigo()%>&cant=<%=dt.getCantidad()%>" class="item-button">Eliminar</a></div>
+			<div class="wrap-item-button"><a id="llamar" onclick="llamarServlet(<%=p.getCodigo()%>,<%=dt.getCantidad()%>)" class="item-button">Eliminar</a></div>
 
 		</article>
-
+	
 	</section>
 	<%} %>
 	
@@ -160,6 +161,34 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 	<script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRc59Ca614xfVdEAIkDF03paH4GTkudiA&callback=initMap">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script type="text/javascript">
+    function llamarServlet(codigo,c){
+    	swal({
+    		  title: 'Esta Seguro que desea eliminar el plato?',
+    		  text: "Esto n ose puede revertir",
+    		  type: 'warning',
+    		  showCancelButton: true,
+    		  confirmButtonColor: '#3085d6',
+    		  cancelButtonColor: '#d33',
+    		  confirmButtonText: 'Si, eliminar'
+    		}).then((result) => {
+    		  if (result.value) {
+    			  
+    		    swal(
+    		      'Eliminado!',
+    		      'Su prodcuto fue eliminado',
+    		      'success'
+    		    )
+    		    location.href ="EliminarDetalle?id="+codigo+"&cant="+c;
+    		  }
+    		})
+
+    	
+
+    }
     </script>
 </body>
 </html>

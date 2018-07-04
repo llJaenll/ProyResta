@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -22,11 +23,10 @@ public class EliminarDetalle extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		int id=Integer.parseInt(request.getParameter("id"));
 		int cant=Integer.parseInt(request.getParameter("cant"));
 		int cont=0;
-		int cont2=0;
+		
 		ArrayList<DetalleDeliveryDTO> listaTemp=new ArrayList<>();
 		ArrayList<DetalleDeliveryDTO> carroD = (ArrayList<DetalleDeliveryDTO>)request.getSession().getAttribute("carroD");
 		for(DetalleDeliveryDTO det:carroD) {
@@ -44,8 +44,7 @@ public class EliminarDetalle extends HttpServlet {
 		}
 		
 		request.getSession().setAttribute("carroD", listaTemp);
-		request.getRequestDispatcher("/Resumen.jsp").forward(request, response);		
-		
+		request.getRequestDispatcher("/Resumen.jsp").forward(request, response);
 		
 	}
 

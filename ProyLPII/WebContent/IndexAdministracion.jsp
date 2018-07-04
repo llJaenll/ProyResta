@@ -27,9 +27,9 @@
                 <li>
                     <a href="#">Mi Perfil</a>
                 </li>
-                <li>
+               <!-- <li>
                     <a href="Graficos.jsp" target="form">Graficos</a>
-                </li>
+                </li> --> 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mantenimiento <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
@@ -42,16 +42,12 @@
                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                    <li class="dropdown-header">Lista de Reportes</li>
-                    <li><a href="#">Reporte Usuarios</a></li>
                     <li><a href="#">Reporte Productos</a></li>
-                    <li><a href="#">Reporte Analitycs</a></li>
+                    <li><a href="#">Reporte Ventas</a></li>
                   </ul>
                 </li>
                 <li>
-                    <a href="#">Ventas</a>
-                </li>
-                <li>
-                    <a href="#">Cerrar Sesion</a>
+                    <a href="#">Cerrar Sesión</a>
                 </li>
             </ul>
         </nav>
