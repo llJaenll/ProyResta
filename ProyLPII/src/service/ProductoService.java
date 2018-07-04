@@ -59,9 +59,9 @@ public class ProductoService implements ProductoDAO{
 		return dao.listarxStock();
 	}
 	@Override
-	public List<ProductoDTO> listarProdMasVendidos(int cat) {
+	public List<ProductoDTO> listarProdMasVendidos() {
 		// TODO Auto-generated method stub
-		return dao.listarProdMasVendidos(cat);
+		return dao.listarProdMasVendidos();
 	}
 	@Override
 	public List<CategoriaDTO> listarTipoProducto() {

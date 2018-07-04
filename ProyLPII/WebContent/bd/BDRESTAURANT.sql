@@ -592,17 +592,16 @@ DELIMITER ;
 --  ------------------------------------------------------------------------- 
 drop procedure if exists usp_MuestraProductosMasVendidos;
 DELIMITER $$
-create procedure usp_MuestraProductosMasVendidos(
-	xId_TipCat int
-)
+create procedure usp_MuestraProductosMasVendidos()
 	begin
 			select 
-			p.nom_Prod 
-		from detalle_pedido dp
-		join producto p on p.Id_Prod=dp.Id_Prod 
-		group by p.nom_Prod order by sum(dp.cant) desc limit 8;
+			p.nom_Prod, sum(dt.cant)
+		from detalle_delivery dt
+		join producto p on p.Id_Prod=dt.Id_Prod 
+		group by p.nom_Prod order by sum(dt.cant) desc;
 	end $$
 DELIMITER ;
+call usp_MuestraProductosMasVendidos();
 --  ------------------------------------------------------------------------- 
 delimiter $$
 create procedure usp_reporte_Mes_Año(

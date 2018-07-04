@@ -30,7 +30,7 @@ public interface ProductoDAO {
 		
 		public List<ProductoDTO> listarxStock();
 		
-		public List<ProductoDTO> listarProdMasVendidos(int cat);
+		public List<ProductoDTO> listarProdMasVendidos();
 		
 		public List<CategoriaDTO> listarTipoProducto(); 
 		
