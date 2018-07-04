@@ -79,7 +79,7 @@
 				<h2><%=p.getDescripcion()%></h2>
 				<h2>S/<%=p.getPrecio()%></h2>
 				<input type="hidden" id="id" name="id" value="<%=p.getCodigo()%>">
-				<label for="">Cant: </label><input id="cant" name="cant" type="number" class="caja" max="100" min="1" required><br>
+				<label for="">Cant: </label><input id="cant" name="cant" type="number" class="caja" max="100" min="1" maxlength="2" pattern="[0-9]{2}" title="Introduce solo numeros" required><br>
 				<a href="" target="mainFrame">
 				<input type="submit" value="Pedir"  class="bot" class="bot">	</a>	
 				</form>				
