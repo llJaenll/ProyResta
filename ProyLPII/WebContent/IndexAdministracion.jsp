@@ -1,4 +1,12 @@
+<%@page import="beans.UsuarioDTO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%
+	UsuarioDTO u = (UsuarioDTO)request.getSession().getAttribute("usu");
+	if(u==null){
+		request.getRequestDispatcher("/Login.jsp").forward(request, response);
+	}
+
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +55,7 @@
                   </ul>
                 </li>
                 <li>
-                    <a href="#">Cerrar Sesión</a>
+                    <a href="CerrarSesion">Cerrar Sesión</a>
                 </li>
             </ul>
         </nav>

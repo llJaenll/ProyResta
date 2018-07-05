@@ -51,9 +51,9 @@ public class ServletLogin extends HttpServlet {
 					out.print("});");
 					out.print("</script>");
 					//éxito
-					
+					request.getSession().setAttribute("usu", u);
 					request.setAttribute("msj", "ok");
-					request.getRequestDispatcher("/IndexAdministracion.jsp").forward(request, response);
+					request.getRequestDispatcher("/IndexAdministracion.jsp").include(request, response);
 					
 				}else {
 					out.print("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js\"></script>");
@@ -61,7 +61,6 @@ public class ServletLogin extends HttpServlet {
 					out.print("<script>");
 					out.print("$(document).ready(function(){");
 					out.print("swal('Error','Contraseña o Usuario Incorrecto','error');");
-					out.print("alert('holas')");
 					out.print("});");
 					out.print("</script>");
 					System.out.println("entro");
