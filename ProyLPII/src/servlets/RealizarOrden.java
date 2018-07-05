@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -28,9 +29,10 @@ public class RealizarOrden extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
+			PrintWriter out= response.getWriter();
 			//obtenemos el codigo correlativo
-					DeliveryService des= new DeliveryService();
-					int codDel=des.codigoCorrelativo();
+			DeliveryService des= new DeliveryService();
+			int codDel=des.codigoCorrelativo();
 			
 			DeliveryDTO d = new DeliveryDTO();
 			d.setIdDelivery(codDel);
@@ -50,7 +52,11 @@ public class RealizarOrden extends HttpServlet {
 			for (DetalleDeliveryDTO dt : carroD) {
 				ds.registrar(dt);
 			}
-			request.getRequestDispatcher("/Resumen.jsp").forward(request, response);
+			out.println("<script>");
+			out.println("open(\"MapaEmergente.jsp\",\"Mapa Guia\",\"width=800,heigth=300,left=100,top=10,scrollbars=no,toolbars=no\");");
+			out.println("</script>");
+			request.getRequestDispatcher("/Resumen.jsp").include(request, response);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("Error "+e.getMessage());
