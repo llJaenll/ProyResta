@@ -221,9 +221,32 @@ public class MYSQLProductoDAO implements ProductoDAO {
 	}
 
 	@Override
-	public List<ProductoDTO> listarProdMasVendidos(int cat) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ProductoDTO> listarProdMasVendidos() {
+		List<ProductoDTO> lista = new ArrayList<ProductoDTO>();
+		ResultSet rs=null;
+		Connection con =null;
+		PreparedStatement pst=null;
+		try {
+			con=MySQLConexion.getConexion();
+			String sql="{call usp_MuestraProductosMasVendidos()}";
+			pst=con.prepareStatement(sql);
+			rs=pst.executeQuery();
+			
+			while(rs.next()){
+				ProductoDTO p = new ProductoDTO(rs.getInt(2), rs.getString(1));
+				lista.add(p);
+			}
+		} catch (Exception e) {
+			System.out.println("Error en la consulta de Productos más vendidos" +e.getMessage());
+		}finally {
+			try {
+				if(pst!=null)pst.close();
+				if(con!=null)con.close();
+			} catch (Exception e2) {
+				System.out.println("error al cerrar");
+			}
+		}
+		return lista;
 	}
 
 	@Override

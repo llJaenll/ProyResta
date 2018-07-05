@@ -87,11 +87,11 @@
 					<form>
 					  <div class="form-group">
 						<label for="nombre" class="col-form-label">Nombre Completo:</label>
-						<input type="text" class="form-control" id="nomDel" name="nomDel">
+						<input type="text" class="form-control" id="nomDel" name="nomDel" tabindex="0" maxlength="80" pattern="[A-Za-z]{1,80}" title="Introduce entre 1 y 80 letras" required>
 					  </div>
 					   <div class="form-group">
 						<label for="nombre" class="col-form-label">DNI:</label>
-						<input type="text" class="form-control" id="dniDel" name="dniDel">
+						<input type="text" class="form-control" id="dniDel" name="dniDel"  tabindex="0" maxlength="8" pattern="[0-9]{8}" title="Introduce solo 8 digitos" required>
 					  </div> 
 					  <div class="form-group">
 						<div class="input-group mb-3">
@@ -111,7 +111,7 @@
 					  </div>
 					  <div class="form-group">
 						<label for="message-text" class="col-form-label">Observaciones para el pedido:</label>
-						<textarea class="form-control" id="obsDel" name="obsDel"></textarea>
+						<textarea class="form-control" id="obsDel" name="obsDel" tabindex="0" maxlength="80" pattern="[A-Za-z]{1,80}" title="Introduce entre 1 y 80 letras" required></textarea>
 					  </div>
 					   <div class="form-group">
 						<div class="alert alert-primary" role="alert">
@@ -122,7 +122,7 @@
 				  </div>
 				  <div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					<button type="sumbit" class="btn btn-primary">Ordenar</button>
+					<a id="llamarO" onclick="llamarServletOrdenar()" class="btn btn-primary">Ordenar</a>
 				  </div>
 				</div>
 			  </div>
@@ -168,7 +168,7 @@
     function llamarServlet(codigo,c){
     	swal({
     		  title: 'Esta Seguro que desea eliminar el plato?',
-    		  text: "Esto n ose puede revertir",
+    		  text: "Esto nose puede revertir",
     		  type: 'warning',
     		  showCancelButton: true,
     		  confirmButtonColor: '#3085d6',
@@ -183,6 +183,38 @@
     		      'success'
     		    )
     		    location.href ="EliminarDetalle?id="+codigo+"&cant="+c;
+    		  }
+    		})
+
+    	
+
+    }
+    
+    function llamarServletOrdenar(){
+    	
+    	 var nomDel=document.getElementById("nomDel").value;
+    	 var dniDel=document.getElementById("dniDel").value;
+    	 var dir=document.getElementById("dir").value;
+    	 var pagoDel=document.getElementById("pagoDel").value;
+    	 var obsDel=document.getElementById("obsDel").value;
+    	
+    	swal({
+    		  title: 'Esta Seguro que desea ordenar el pedido?',
+    		  text: "Ya no podra modificar su pedido",
+    		  type: 'warning',
+    		  showCancelButton: true,
+    		  confirmButtonColor: '#3085d6',
+    		  cancelButtonColor: '#d33',
+    		  confirmButtonText: 'Si, tengo hambre!!!'
+    		}).then((result) => {
+    		  if (result.value) {
+    			  
+    		    swal(
+    		      'Ordenado!',
+    		      'Su pedido está en camino',
+    		      'success'
+    		    )
+    		    location.href ="RealizarOrden?nomDel="+nomDel+"&dniDel="+dniDel+"&dir="+dir+"&pagoDel="+pagoDel+"&obsDel="+obsDel;
     		  }
     		})
 

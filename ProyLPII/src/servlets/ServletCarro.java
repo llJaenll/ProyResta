@@ -58,13 +58,13 @@ public class ServletCarro extends HttpServlet {
 			v.setCantidad(cantidad);
 			totalventa +=(cantidad * preciovta);
 			carroD.add(v);
-			out.print("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js\"></script>");
+		/*	out.print("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js\"></script>");
 			out.print("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>");
 			out.print("<script>");
 			out.print("$(document).ready(function(){");
 			out.print("swal('Ok','Pedido Agregado correctamente','success');");
 			out.print("});");
-			out.print("</script>");
+			out.print("</script>");*/
 		} catch (Exception e) {
 			System.out.println("Error "+e.getMessage());
 		}
@@ -74,7 +74,7 @@ public class ServletCarro extends HttpServlet {
 		request.getSession().setAttribute("totalventa", totalventa);
 		
 		//visualiza el jsp
-		request.getRequestDispatcher("Resumen.jsp").include(request, response);
+		request.getRequestDispatcher("Resumen.jsp").forward(request, response);
 		
 		
 	}

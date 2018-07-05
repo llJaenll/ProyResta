@@ -415,6 +415,8 @@ CREATE PROCEDURE usp_InsertarDelivery(
 		);
 	end $$
 DELIMITER ;
+
+
 --  ------------------------------------------------------------------------- 
 drop procedure if exists usp_InsertarDetalleDelivery;
 DELIMITER $$
@@ -590,17 +592,16 @@ DELIMITER ;
 --  ------------------------------------------------------------------------- 
 drop procedure if exists usp_MuestraProductosMasVendidos;
 DELIMITER $$
-create procedure usp_MuestraProductosMasVendidos(
-	xId_TipCat int
-)
+create procedure usp_MuestraProductosMasVendidos()
 	begin
 			select 
-			p.nom_Prod 
-		from detalle_pedido dp
-		join producto p on p.Id_Prod=dp.Id_Prod 
-		group by p.nom_Prod order by sum(dp.cant) desc limit 8;
+			p.nom_Prod, sum(dt.cant)
+		from detalle_delivery dt
+		join producto p on p.Id_Prod=dt.Id_Prod 
+		group by p.nom_Prod order by sum(dt.cant) desc;
 	end $$
 DELIMITER ;
+call usp_MuestraProductosMasVendidos();
 --  ------------------------------------------------------------------------- 
 delimiter $$
 create procedure usp_reporte_Mes_Año(
@@ -718,6 +719,27 @@ create procedure usp_pedido(
     end $$
 delimiter ;
   --  -------------------------------------------------------------------------   
+  drop procedure if exists usp_DeliveryPorFecha;
+delimiter $$
+create procedure usp_DeliveryPorFecha(
+xFecha1 timestamp,
+xFecha2 timestamp
+)
+	begin
+		select 
+			pd.nom_Prod,
+			dt.prec_Prod,
+            dt.cant,
+			dt.subtotal 
+		from delivery d 
+		inner join detalle_delivery dt on d.Id_Del=dt.Id_Del
+		inner join producto pd on dt.Id_Prod=pd.Id_Prod
+		where DATE(d.fech_Del) between xFecha1 and xFecha2;
+    end $$
+delimiter ;
+call usp_DeliveryPorFecha('2018-07-04','2018-07-04');
+select * from delivery where DATE(fech_Del)='2018-07-04';
+  --  ------------------------------------------------------------------------- 
 drop procedure if exists usp_actulizarPedidoPrePagado;
 delimiter $$
 create procedure usp_actulizarPedidoPrePagado(

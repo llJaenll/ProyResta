@@ -50,6 +50,7 @@ public class RealizarOrden extends HttpServlet {
 			for (DetalleDeliveryDTO dt : carroD) {
 				ds.registrar(dt);
 			}
+			request.getRequestDispatcher("/Resumen.jsp").forward(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("Error "+e.getMessage());

@@ -55,9 +55,9 @@ public class DetalleDeliveryService implements DetalleDeliveryDAO{
 	}
 
 	@Override
-	public List<MuestraDetalleDTO> listarOrdenado(int ped) {
+	public List<DetalleDeliveryDTO> listarOrdenado(String fecha1,String fecha2) {
 		// TODO Auto-generated method stub
-		return dao.listarOrdenado(ped);
+		return dao.listarOrdenado(fecha1,fecha2);
 	}
 
 	@Override
