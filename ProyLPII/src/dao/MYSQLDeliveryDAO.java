@@ -74,7 +74,7 @@ public class MYSQLDeliveryDAO implements DeliveryDAO {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Error en la sentencia " + e.getMessage());
+			System.out.println("Error en la sentencia listarDelivery()" + e.getMessage());
 		}finally{
 			try {
 				if (pst != null)
