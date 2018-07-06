@@ -27,9 +27,15 @@
 <div class="container">
 <h1 id="ListTit">Lista de Productos</h1>
 
-<input id="fecha1" width="276" />
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Ingrese la Fechas a filtrar</span>
+  </div>
+ <input id="fecha1" width="276" />
 <input id="fecha2" width="276" data-date-format="yyyy-mm-dd"/>
-<div class="wrap-item-button"><a type="button" class="llamar" >Filtrar</a></div>
+<div class="wrap-item-button"><a type="button" id="llamar" class="btn btn-primary">Filtrar</a></div>
+
+</div>
 
 <table id="tablaProductos" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
         <thead>
@@ -81,7 +87,7 @@ $(document).ready(function() {
         format: 'yyyy-mm-dd'
     });
     
-    $(document).on('click','.llamar',function(){
+    $(document).on('click','#llamar',function(){
     	
     	var fecha1=document.getElementById("fecha1").value;
     	var fecha2=document.getElementById("fecha2").value;
