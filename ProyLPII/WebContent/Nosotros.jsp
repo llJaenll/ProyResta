@@ -61,23 +61,25 @@
 </header>
 <section class="introduction-section">
     <h1>Historia</h1>
-    <p>I am a construction business owner, part time marketer, and soon to be web developer.</p>
-    <p>I love the internet, technology, and building beautiful things.</p>
+    <p>Sirvetk implemento comida peruana a domicilio  cuando no  había apenas competencia pero sí una enorme demanda potencial de consumidores .</p>
+    <p>El momento era propicio para apostar por este nuevo modelo de negocio .</p>
 </section>
 <section class="location-section">
     <h1>Miembros</h1>
-    <p>I'm originally from Toronto, Ontario. </p>
+    <p>Somos  originario de Lima, Peru. </p>
 </section>
 <section class="questions-section">
     <h1>Preguntas</h1>
     <h2>Quienes Somos?</h2>
-    <p>My favorite hobby is building things on the internet like ecommerce sites and email marketing campaigns.</p>
+    <p>Somos personas que engrien personas.Sirvetk es una familia que como tal se preocupa por su casa y por los que la habitan.</p>
     <h2>Que hacemos?</h2>
-    <p>My dream job is similar to my current job except I would like to be building software instead of buildings.</p>
+    <p>Que el mundo entero sepa gracias a Sirvetk que los peruanos cocinamos como los dioses..</p>
     <h2>Cual es nuestra misión?</h2>
-    <p>I live on a rural acreage, but I'm close to Ottawa and Montreal.</p>
+    <p>Elaborar la mejor comida peruana con una sazón especial,utilizando productos de muy buena calidad, ofrecida a través
+    de un excelente servicio, logrando mediante una capacitación continua del nuestro colaboradores que se identifican 
+    plenamente con la esencia del negocio.</p>
     <h2>Cual es nuestra visión?</h2>
-    <p>Because programming is awesome and programming for the internet is even more awesome.</p>
+    <p>Una sólida corporación especializada en gastronomía peruana con proyección nacional e internacional.</p>
 </section>
 
 <!--<footer class="content-footer">

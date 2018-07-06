@@ -140,10 +140,17 @@ create table detalle_Delivery(
 	subtotal decimal(6,2) as (cant*prec_prod),
     fech_Pedido timestamp default current_timestamp
 );
+--------------------Tabla Contactenos ----------------------
 
-
-
-
+CREATE TABLE contactenos (
+ Id_Contactenos int AUTO_INCREMENT,
+  nombre_contactenos varchar(40) NOT NULL,
+  correo_contactenos varchar(40) NOT NULL,
+  telefono_contacteno varchar(9) NOT NULL,
+  mensaje_contactenos varchar(250) NOT NULL,
+  PRIMARY KEY (Id_Contactenos)
+  );
+  
 -- ------------------------------------------------------------------------------------  
 -- ////////////////////////////////////////////////////////////////////////////////////
 -- CREACIÓN DE PROCEDIMIENTOS ALMACENADOS
