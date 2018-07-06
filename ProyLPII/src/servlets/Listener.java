@@ -35,11 +35,13 @@ public class Listener implements HttpSessionListener {
         int cantarticulos=0;
         double totalventa=0.0;
         
+        
         //las enviamos a nivel de sesion
         arg0.getSession().setAttribute("carroC", carroC);
         arg0.getSession().setAttribute("carroD", carroD);
         arg0.getSession().setAttribute("cantarticulos", cantarticulos);
         arg0.getSession().setAttribute("totalventa", totalventa);
+        
         
         
     }

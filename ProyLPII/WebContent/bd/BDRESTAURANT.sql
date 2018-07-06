@@ -142,13 +142,13 @@ create table detalle_Delivery(
 );
 --------------------Tabla Contactenos ----------------------
 
-CREATE TABLE `contactenos` (
-  `Id_Contactenos` int AUTO_INCREMENT,
-  `nombre_contactenos` varchar(40) NOT NULL,
-  `correo_contactenos` varchar(40) NOT NULL,
-  `telefono_contacteno` varchar(9) NOT NULL,
-  `mensaje_contactenos` varchar(250) NOT NULL,
-  PRIMARY KEY (`Id_Contactenos`)
+CREATE TABLE contactenos (
+ Id_Contactenos int AUTO_INCREMENT,
+  nombre_contactenos varchar(40) NOT NULL,
+  correo_contactenos varchar(40) NOT NULL,
+  telefono_contacteno varchar(9) NOT NULL,
+  mensaje_contactenos varchar(250) NOT NULL,
+  PRIMARY KEY (Id_Contactenos)
   );
   
 -- ------------------------------------------------------------------------------------  
@@ -737,11 +737,12 @@ xFecha2 timestamp
 			pd.nom_Prod,
 			dt.prec_Prod,
             dt.cant,
-			dt.subtotal 
+			dt.subtotal
 		from delivery d 
 		inner join detalle_delivery dt on d.Id_Del=dt.Id_Del
 		inner join producto pd on dt.Id_Prod=pd.Id_Prod
-		where DATE(d.fech_Del) between xFecha1 and xFecha2;
+		where DATE(d.fech_Del) between xFecha1 and xFecha2
+        group by d.fech_Del;
     end $$
 delimiter ;
 call usp_DeliveryPorFecha('2018-07-04','2018-07-04');
@@ -811,17 +812,4 @@ add constraint fk_DelIdprod foreign key(id_prod) references Producto(id_prod);
 
 */
 
-
-
-call usp_validarIngreso('Mramos','ciber') ;-- ------------------------------------------------------------------------------------  drop table if exists Tipo_Categoria
-
-insert  into Locales values(null,'Miraflores',-77.0315913,-12.111062);
-insert  into Locales values(null,'Surco',-76.99181550000003,-12.1416088);
-insert into producto values(null,1,'Arroz con Pollo',29.5,10,1);
-insert into producto values(null,1,'Arroz con Pato',2.5,10,1);
-insert into producto values(null,1,'Cebiche',25,10,1);
-insert into producto values(null,1,'Tallarines',29,10,1);
-insert into producto values(null,1,'Lomo',2,10,1);
-insert into producto values(null,5,'Causa Rellena',20,10,1);
-insert into producto values(null,5,'Adobo ',5,10,1);
-insert into producto values(null,5,'Albondigas',12,10,1);
+call usp_validarIngreso('Mramos','ciber') ;

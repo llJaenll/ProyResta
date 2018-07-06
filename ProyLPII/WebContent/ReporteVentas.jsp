@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Productos</title>
+	<title>Ventas</title>
 </head>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -20,16 +20,22 @@
 #ListBot{
 	margin-top: 0.5%;
 	margin-left:1%;
-	margin-bottom: 1%;
+	margin-bottom: 2%;
 }
 </style>
 <body>
 <div class="container">
-<h1 id="ListTit">Lista de Productos</h1>
+<h1 id="ListTit">Reporte de Ventas</h1>
 
-<input id="fecha1" width="276" />
-<input id="fecha2" width="276" data-date-format="yyyy-mm-dd"/>
-<div class="wrap-item-button"><a type="button" class="llamar" >Filtrar</a></div>
+<div id="ListBot" class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Ingrese la Fechas a filtrar</span>
+  </div>
+ <input id="fecha1" width="276" readonly/>
+<input id="fecha2" width="276" readonly/>
+<div class="wrap-item-button"><a type="button" id="llamar" class="btn btn-primary">Filtrar</a></div>
+
+</div>
 
 <table id="tablaProductos" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
         <thead>
@@ -81,7 +87,7 @@ $(document).ready(function() {
         format: 'yyyy-mm-dd'
     });
     
-    $(document).on('click','.llamar',function(){
+    $(document).on('click','#llamar',function(){
     	
     	var fecha1=document.getElementById("fecha1").value;
     	var fecha2=document.getElementById("fecha2").value;
@@ -98,10 +104,14 @@ $(document).ready(function() {
             	{"data":"precio"},
             	{"data":"subtotal"}
             ],
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
             
         	"language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-            }
+            },destroy:true
         
         
         } );
@@ -111,14 +121,16 @@ $(document).ready(function() {
     
 });
 
-function filtrar(){
-
-	
-	
-	
-}
 </script>
 	  <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
       <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+      
+      <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js" type="text/javascript"></script>
+      <script src="dn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js" type="text/javascript"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" type="text/javascript"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js" type="text/javascript"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js" type="text/javascript"></script>
+      <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js" type="text/javascript"></script>
+      <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js" type="text/javascript"></script>
 </body>
 </html>

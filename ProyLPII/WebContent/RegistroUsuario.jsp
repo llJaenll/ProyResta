@@ -92,6 +92,7 @@
       <button type="submit" class="btn" id="validar">Crear cuenta</button>
         <a  id="ListBot" type="button" class="btn btn-info btn-xs" href="ListaUsuario.jsp">Volver</a>
     </div>
+    <label id="confirm">${msgR}</label>
   </form>
  
 </div>

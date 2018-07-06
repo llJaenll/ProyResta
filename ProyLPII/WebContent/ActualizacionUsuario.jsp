@@ -94,16 +94,18 @@
     </fieldset>
     
     
-    <div class="form-footer">
-      <button type="submit" class="btn">Crear cuenta</button>
+      <div class="form-footer">
+      <button type="submit" class="btn" id="validar">Crear cuenta</button>
+        <a  id="ListBot" type="button" class="btn btn-info btn-xs" href="ListaUsuario.jsp">Volver</a>
     </div>
+     <label id="confirm">${msgR}</label>
   </form>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
   
 
-    <script  src="js/index.js"></script>
+    <script  src="js/indexReg.js"></script>
 
 
 

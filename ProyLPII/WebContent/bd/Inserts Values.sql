@@ -1,4 +1,4 @@
-/*INSERTS BSICOS PARA FUNCIONAMIENTO*/
+/*INSERTS BASICOS PARA FUNCIONAMIENTO*/
 use DBRestaurante;
 
 insert into estado values(null,'Activo'); 			-- 1
@@ -61,6 +61,57 @@ select * from producto;
 select * from usuario;
 select * from tipo_categoria;
 select * from tipo_usuario;
+
+/*LOCALES*/
+insert  into Locales values(null,'Miraflores',-77.0315913,-12.111062);
+insert  into Locales values(null,'Surco',-76.99181550000003,-12.1416088);
+/*PLATOS*/
+-- null, categoria, nombre, precio, stock, estado
+-- 1
+insert into producto values(null,1,'Arroz Con Pollo',15.5,10,1);
+insert into producto values(null,1,'Chanfainita',14.5,10,1);
+insert into producto values(null,1,'Cau Cau',15,10,1);
+insert into producto values(null,1,'Seco De Cabrito',17.5,10,1);
+insert into producto values(null,1,'Arroz Con Pato',18.5,10,1);
+insert into producto values(null,1,'Aji De Gallina',15.5,10,1);
+insert into producto values(null,1,'Lomo Saltado',17,10,1);
+insert into producto values(null,1,'Tacu Tacu',16,10,1);
+insert into producto values(null,1,'Arroz Chaufa',15,10,1);
+insert into producto values(null,1,'Tallarin Saltado',16,10,1);
+-- 2
+insert into producto values(null,2,'Ensalada De Pasta',10,10,1);
+insert into producto values(null,2,'Ensalada De Patata',10.5,10,1);
+insert into producto values(null,2,'Ensalada Mixta',11,10,1);
+insert into producto values(null,2,'Ensalada Caprese',12.5,10,1);
+insert into producto values(null,2,'Ensalada Waldorf',15,10,1);
+insert into producto values(null,2,'Ensalada Rusa',15,10,1);
+insert into producto values(null,2,'Ensalada De Col',14,10,1);
+insert into producto values(null,2,'Ensalada Griega',13,10,1);
+insert into producto values(null,2,'Ensalada Cesar',15,10,1);
+insert into producto values(null,2,'Ensala de Palta',12,10,1);
+-- 3
+insert into producto values(null,3,'Pisco Sour',7,10,1);
+insert into producto values(null,3,'Chicha Morada',8,10,1);
+insert into producto values(null,3,'Limonada',8,10,1);
+insert into producto values(null,3,'Chilcano',6.5,10,1);
+insert into producto values(null,3,'Cuba Libre',7.5,10,1);
+insert into producto values(null,3,'Gin Tonic',6.5,10,1);
+insert into producto values(null,3,'Cerveza',7,10,1);
+insert into producto values(null,3,'Inka Kola',7,10,1);
+insert into producto values(null,3,'Coca Cola',8,10,1);
+insert into producto values(null,3,'Maracuya Sour',7,10,1);
+-- 4
+insert into producto values(null,4,'Causa',10,10,1);
+insert into producto values(null,4,'Ceviche',15,10,1);
+insert into producto values(null,4,'Anticucho',12,10,1);
+insert into producto values(null,4,'Mollejita',13,10,1);
+insert into producto values(null,4,'Papa A La HuancaÃ­na',10,10,1);
+insert into producto values(null,4,'Ocopa',10,10,1);
+insert into producto values(null,4,'Rocoto Relleno',14,10,1);
+insert into producto values(null,4,'Palta Rellena',10,10,1);
+insert into producto values(null,4,'Tequeños',10,10,1);
+insert into producto values(null,4,'Choritos A La Chalaca',15,10,1);
+-- 5
 
 
 

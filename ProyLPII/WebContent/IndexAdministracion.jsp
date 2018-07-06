@@ -50,8 +50,8 @@
                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                    <li class="dropdown-header">Lista de Reportes</li>
-                    <li><a href="#">Reporte Productos</a></li>
-                    <li><a href="#">Reporte Ventas</a></li>
+                    <li><a href="ReportesProductos.jsp" target="form">Reporte Productos</a></li>
+                    <li><a href="ReporteVentas.jsp" target="form">Reporte Ventas</a></li>
                   </ul>
                 </li>
                 <li>
@@ -69,7 +69,7 @@
 				<span class="hamb-bottom"></span>
             </button>
             <div class="container">
-				<iframe  style="width: 100%; height: 500px;border: 0" name="form"></iframe>     
+				<iframe  style="width: 100%; height: 700px;border: 0;margin-top: -80px" name="form" ></iframe>     
             </div>
         </div>
         <!-- /#page-content-wrapper -->
