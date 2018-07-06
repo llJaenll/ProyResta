@@ -8,17 +8,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/estiloResumen.css">
-	<link rel="stylesheet" href="css/BarraMenu.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Poiret+One" rel="stylesheet">
-	
-=======
 <meta charset="UTF-8">
 <title>Resumen de Venta</title>
 <link rel="stylesheet" href="css/estiloResumen.css">
@@ -36,7 +25,6 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
 	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
 	crossorigin="anonymous">
->>>>>>> a03295b419cca11689ea148f4443a521e50ace42
 </head>
 <body>
 	<header id="menu-flex" class="menu-flex">
@@ -176,13 +164,14 @@
 
 			</form>
 		</section>
+		<section class="container-products-item">
 		<%
 			for (DetalleDeliveryDTO dt : carro) {
 				ProductoService ps = new ProductoService();
 				ProductoDTO p = ps.buscarProductoCod(dt.getIdProducto());
 		%>
 
-		<section class="container-products-item">
+		
 			<article class="products__item">
 				<img src='img/productos/<%=dt.getIdProducto()%>.jpg'
 					class="product-img">
@@ -206,11 +195,11 @@
 
 			</article>
 
-		</section>
+		
 		<%
 			}
 		%>
-
+		</section>
 	</section>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script type="application/ecmascript" src="js/BarraMenu.js"></script>
