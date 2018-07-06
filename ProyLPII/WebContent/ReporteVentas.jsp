@@ -31,8 +31,8 @@
   <div class="input-group-prepend">
     <span class="input-group-text" id="">Ingrese la Fechas a filtrar</span>
   </div>
- <input id="fecha1" width="276" />
-<input id="fecha2" width="276" data-date-format="yyyy-mm-dd"/>
+ <input id="fecha1" width="276" readonly/>
+<input id="fecha2" width="276" readonly/>
 <div class="wrap-item-button"><a type="button" id="llamar" class="btn btn-primary">Filtrar</a></div>
 
 </div>
