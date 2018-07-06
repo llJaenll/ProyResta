@@ -73,7 +73,7 @@
 		
 		<div class="content-img">
 		
-				<img class="galeria__img" src="img/<%=p.getCodigo()%>.jpg">
+				<img class="galeria__img" src="img/productos/<%=p.getCodigo()%>.jpg">
 				<div class="content-txt">
 				<form action="ServletCarro" method="post">
 				<h2><%=p.getDescripcion()%></h2>

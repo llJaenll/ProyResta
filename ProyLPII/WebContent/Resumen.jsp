@@ -145,7 +145,7 @@
 
 	<section class="container-products-item">
 		<article class="products__item">
-			<img src='img/<%=dt.getIdProducto() %>.jpg'  class="product-img">
+			<img src='img/productos/<%=dt.getIdProducto() %>.jpg'  class="product-img">
 			<section class="product-desc" >
 				<h3>Nombre: <%=p.getDescripcion() %></h3>
 				<h3>Precio : S/<%=dt.getPrecioProducto() %></h3>				

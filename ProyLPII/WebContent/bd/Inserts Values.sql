@@ -73,11 +73,11 @@ insert into producto values(null,1,'Chanfainita',14.5,10,1);
 insert into producto values(null,1,'Cau Cau',15,10,1);
 insert into producto values(null,1,'Seco De Cabrito',17.5,10,1);
 insert into producto values(null,1,'Arroz Con Pato',18.5,10,1);
-insert into producto values(null,1,'Ají De Gallina',15.5,10,1);
+insert into producto values(null,1,'Aji De Gallina',15.5,10,1);
 insert into producto values(null,1,'Lomo Saltado',17,10,1);
 insert into producto values(null,1,'Tacu Tacu',16,10,1);
 insert into producto values(null,1,'Arroz Chaufa',15,10,1);
-insert into producto values(null,1,'Tallarín Saltado',16,10,1);
+insert into producto values(null,1,'Tallarin Saltado',16,10,1);
 -- 2
 insert into producto values(null,2,'Ensalada De Pasta',10,10,1);
 insert into producto values(null,2,'Ensalada De Patata',10.5,10,1);
@@ -87,7 +87,7 @@ insert into producto values(null,2,'Ensalada Waldorf',15,10,1);
 insert into producto values(null,2,'Ensalada Rusa',15,10,1);
 insert into producto values(null,2,'Ensalada De Col',14,10,1);
 insert into producto values(null,2,'Ensalada Griega',13,10,1);
-insert into producto values(null,2,'Ensalada César',15,10,1);
+insert into producto values(null,2,'Ensalada Cesar',15,10,1);
 insert into producto values(null,2,'Ensala de Palta',12,10,1);
 -- 3
 insert into producto values(null,3,'Pisco Sour',7,10,1);
@@ -109,7 +109,7 @@ insert into producto values(null,4,'Papa A La Huancaína',10,10,1);
 insert into producto values(null,4,'Ocopa',10,10,1);
 insert into producto values(null,4,'Rocoto Relleno',14,10,1);
 insert into producto values(null,4,'Palta Rellena',10,10,1);
-insert into producto values(null,4,'Tequeños',10,10,1);
+insert into producto values(null,4,'Teque�os',10,10,1);
 insert into producto values(null,4,'Choritos A La Chalaca',15,10,1);
 -- 5
 

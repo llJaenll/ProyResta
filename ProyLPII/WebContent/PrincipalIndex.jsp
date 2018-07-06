@@ -82,7 +82,7 @@
 		<div class="contenedor">
 			<div class="carta">
 				<div class="lado frente">
-					<img src="img/<%=p.getCodigo()%>.jpg" alt="">
+					<img src="img/productos/<%=p.getCodigo()%>.jpg" alt="">
 				</div>
 				<div class="lado atras">
 					<div class="content-txt">
