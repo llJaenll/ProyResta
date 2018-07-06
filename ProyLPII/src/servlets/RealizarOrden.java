@@ -65,7 +65,14 @@ public class RealizarOrden extends HttpServlet {
 			out.println("<script>");
 			out.println("open(\"MapaEmergente.jsp\",\"Mapa Guia\",\"width=800,heigth=300,left=100,top=10,scrollbars=no,toolbars=no\");");
 			out.println("</script>");
-			request.getRequestDispatcher("/Resumen.jsp").include(request, response);
+			out.print("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js\"></script>");
+			out.print("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>");
+			out.print("<script>");
+			out.print("$(document).ready(function(){");
+			out.print("swal('Ok','Su pedido se encuentra en camino','success');");
+			out.print("});");
+			out.print("</script>");
+			request.getRequestDispatcher("/PrincipalIndex.jsp").include(request, response);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
