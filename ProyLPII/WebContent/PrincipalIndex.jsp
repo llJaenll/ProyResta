@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Restaurant SIRVETEK</title>
 	<link rel="stylesheet" href="css/PrincipalSlider.css">
 	<link rel="stylesheet" href="css/estilosPrincipal.css">
 	<link rel="stylesheet" href="css/BarraMenu.css">
