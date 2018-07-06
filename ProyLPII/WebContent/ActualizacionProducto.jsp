@@ -72,8 +72,9 @@
       </label>
     </fieldset>
 
-    <div class="form-footer">
-      <button type="submit" class="btn">Crear cuenta</button>
+     <div class="form-footer">
+      <button type="submit" class="btn">REGISTRAR</button>
+      <a  id="ListBot" type="button" class="btn btn-info btn-xs" href="ListaProducto.jsp">Volver</a>
     </div>
   </form>
 </div>
@@ -81,7 +82,7 @@
 
   
 
-    <script  src="js/index.js"></script>
+    <script  src="js/indexReg.js"></script>
 
 
 
