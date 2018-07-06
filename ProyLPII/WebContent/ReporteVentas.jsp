@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Productos</title>
+	<title>Ventas</title>
 </head>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -25,7 +25,7 @@
 </style>
 <body>
 <div class="container">
-<h1 id="ListTit">Lista de Productos</h1>
+<h1 id="ListTit">Reporte de Ventas</h1>
 
 <div class="input-group">
   <div class="input-group-prepend">
@@ -107,7 +107,7 @@ $(document).ready(function() {
             
         	"language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-            }
+            },destroy:true
         
         
         } );
