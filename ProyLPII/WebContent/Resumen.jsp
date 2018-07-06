@@ -185,7 +185,7 @@
     			  
     		    swal(
     		      'Eliminado!',
-    		      'Su prodcuto fue eliminado',
+    		      'Su producto fue eliminado',
     		      'success'
     		    )
     		    location.href ="EliminarDetalle?id="+codigo+"&cant="+c;
@@ -217,7 +217,7 @@
     			  
     		    swal(
     		      'Ordenado!',
-    		      'Su pedido está en camino',
+    		      'Su pedido se encuentra en camino',
     		      'success'
     		    )
     		    location.href ="RealizarOrden?nomDel="+nomDel+"&dniDel="+dniDel+"&dir="+dir+"&pagoDel="+pagoDel+"&obsDel="+obsDel;

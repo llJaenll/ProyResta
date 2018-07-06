@@ -74,7 +74,7 @@ public class ServletCarro extends HttpServlet {
 		request.getSession().setAttribute("totalventa", totalventa);
 		
 		//visualiza el jsp
-		request.getRequestDispatcher("Resumen.jsp").forward(request, response);
+		request.getRequestDispatcher("Resumen.jsp").include(request, response);
 		
 		
 	}
