@@ -47,6 +47,7 @@
 		</nav>
 	</header>
 	<header class='masthead'>
+<<<<<<< HEAD
 		<h1 class='masthead-heading'>SIRVETEK</h1>
 	</header>
 	<section class="introduction-section">
@@ -74,6 +75,32 @@
 		<p>Because programming is awesome and programming for the internet
 			is even more awesome.</p>
 	</section>
+=======
+  <h1 class='masthead-heading'>SIRVETEK</h1>
+</header>
+<section class="introduction-section">
+    <h1>Historia</h1>
+    <p>Sirvetk implemento comida peruana a domicilio  cuando no  había apenas competencia pero sí una enorme demanda potencial de consumidores .</p>
+    <p>El momento era propicio para apostar por este nuevo modelo de negocio .</p>
+</section>
+<section class="location-section">
+    <h1>Miembros</h1>
+    <p>Somos  originario de Lima, Peru. </p>
+</section>
+<section class="questions-section">
+    <h1>Preguntas</h1>
+    <h2>Quienes Somos?</h2>
+    <p>Somos personas que engrien personas.Sirvetk es una familia que como tal se preocupa por su casa y por los que la habitan.</p>
+    <h2>Que hacemos?</h2>
+    <p>Que el mundo entero sepa gracias a Sirvetk que los peruanos cocinamos como los dioses..</p>
+    <h2>Cual es nuestra misión?</h2>
+    <p>Elaborar la mejor comida peruana con una sazón especial,utilizando productos de muy buena calidad, ofrecida a través
+    de un excelente servicio, logrando mediante una capacitación continua del nuestro colaboradores que se identifican 
+    plenamente con la esencia del negocio.</p>
+    <h2>Cual es nuestra visión?</h2>
+    <p>Una sólida corporación especializada en gastronomía peruana con proyección nacional e internacional.</p>
+</section>
+>>>>>>> 5efa1b112a84802c1206f17a99fa14e1fc1c323f
 
 	<!--<footer class="content-footer">
     <p>Say hi to me on these social networks:</p>

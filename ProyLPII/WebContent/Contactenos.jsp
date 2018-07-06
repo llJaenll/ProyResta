@@ -56,14 +56,14 @@
     </div>
   </nav>
 </header>
-	<form action="">
+	<form action="ContactenosServlet">
 		<h2>CONTACTO</h2>
 		<input type="text" name="nombre" placeholder="Nombre" maxlength="40" pattern="[A-Za-z]{1,40}" title="Introduce entre 1 y 40 letras" required>
 		<input type="email" name="correo" placeholder="Correo">
 		<input type="text" name="telefono" placeholder="Telefono" maxlength="9" pattern="[0-9]{7,9}" title="Introduzca un numero entre 7 y 9 digitos" required>
 		<textarea name="mensaje" placeholder="Escriba su mensaje" maxlength="100" pattern="[A-Za-z]{5,100}" title="Introduce entre 5 y 100 letras" required>
 		</textarea>
-		<input type="button" value="ENVIAR" id="boton">
+		<input type="submit" value="ENVIAR" id="boton">
 	</form>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script type="application/ecmascript" src="js/BarraMenu.js"></script>
