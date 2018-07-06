@@ -29,17 +29,7 @@ public class RealizarOrden extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-			//Email email = new Email();
 			PrintWriter out= response.getWriter();
-			//String para=request.getParameter("corDel");
-			//System.out.println(para);
-			//boolean resultado=email.enviarCorreo("lljeanll@outlook.cl","" , para,"hola" , "Pedido");
-           // if(resultado){
-           //     System.out.println("CORREO ELECTRONICO CORRECTAMENTE ENVIADO.....");
-                
-           // }else{
-           // 	 System.out.println("CORREO ELECTRONICO NO ENVIADO....."); 
-           // }
 			//obtenemos el codigo correlativo
 			DeliveryService des= new DeliveryService();
 			int codDel=des.codigoCorrelativo();
@@ -62,6 +52,10 @@ public class RealizarOrden extends HttpServlet {
 			for (DetalleDeliveryDTO dt : carroD) {
 				ds.registrar(dt);
 			}
+			ArrayList<DetalleDeliveryDTO> carroLimpio = (ArrayList<DetalleDeliveryDTO>)request.getSession().getAttribute("carroD");
+			Double totalLimpio=0.0;
+			request.getSession().setAttribute("carroD", carroLimpio);
+			request.getSession().setAttribute("totalventa", totalLimpio);
 			out.println("<script>");
 			out.println("open(\"MapaEmergente.jsp\",\"Mapa Guia\",\"width=800,heigth=300,left=100,top=10,scrollbars=no,toolbars=no\");");
 			out.println("</script>");
