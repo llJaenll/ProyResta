@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.DeliveryDTO;
 import beans.DetalleDeliveryDTO;
+
 import service.DeliveryService;
 import service.DetalleDeliveryService;
-import service.ProductoService;
 
 /**
  * Servlet implementation class RealizarOrden
@@ -52,12 +52,10 @@ public class RealizarOrden extends HttpServlet {
 			for (DetalleDeliveryDTO dt : carroD) {
 				ds.registrar(dt);
 			}
-			
 			ArrayList<DetalleDeliveryDTO> carroLimpio = (ArrayList<DetalleDeliveryDTO>)request.getSession().getAttribute("carroD");
 			Double totalLimpio=0.0;
 			request.getSession().setAttribute("carroD", carroLimpio);
 			request.getSession().setAttribute("totalventa", totalLimpio);
-			
 			out.println("<script>");
 			out.println("open(\"MapaEmergente.jsp\",\"Mapa Guia\",\"width=800,heigth=300,left=100,top=10,scrollbars=no,toolbars=no\");");
 			out.println("</script>");
