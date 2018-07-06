@@ -60,7 +60,7 @@
     </fieldset>
     
        <fieldset class="form-fieldset ui-input __first">
-      <input type="file" id="file" name="file" tabindex="0" />
+      <input type="file" id="file" name="file" tabindex="0" required/>
       <label for="stock_Prod">
         <span data-text="Seleccione una imagen">Seleccione una imagen</span>
       </label>
@@ -70,6 +70,7 @@
       <button type="submit" class="btn">REGISTRAR</button>
       <a  id="ListBot" type="button" class="btn btn-info btn-xs" href="ListaProducto.jsp">Volver</a>
     </div>
+        <label id="confirm">${msgR}</label>
   </form>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

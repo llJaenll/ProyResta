@@ -34,7 +34,7 @@ public class RegistrarProducto extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		
+		String msgR="";
 		//obtenemos el codigo correlativo
 		ProductoService prs= new ProductoService();
 		int codImg=prs.codigoCorrelativo();
@@ -97,7 +97,9 @@ public class RegistrarProducto extends HttpServlet {
 				if (ok==0) {
 					out.println("Error");
 				} else {
-					out.println("Se registro");
+					msgR="Producto Registrado";
+					request.setAttribute("msgR", msgR);
+					request.getRequestDispatcher("RegistroProducto.jsp").forward(request, response);
 				}
 			    
 			  

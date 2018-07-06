@@ -97,7 +97,9 @@ PrintWriter out = response.getWriter();
 				if (ok==0) {
 					out.println("Error");
 				} else {
-					out.println("Se modifico");
+					String msgR = "Producto Actualizado";
+					request.setAttribute("msgR", msgR);
+					request.getRequestDispatcher("RegistroProducto.jsp").forward(request, response);
 				}
 			    
 			  
