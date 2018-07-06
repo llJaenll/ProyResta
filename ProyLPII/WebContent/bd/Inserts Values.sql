@@ -107,10 +107,12 @@ insert into producto values(null,4,'Papa A La Huancaina',10,10,1);
 insert into producto values(null,4,'Ocopa',10,10,1);
 insert into producto values(null,4,'Rocoto Relleno',14,10,1);
 insert into producto values(null,4,'Palta Rellena',10,10,1);
-insert into producto values(null,4,'Tequeños',10,10,1);
+insert into producto values(null,4,'Tequenos',10,10,1);
 insert into producto values(null,4,'Choritos A La Chalaca',15,10,1);
 -- 5
-
+insert into producto values(null,5,'Desayuno Continental',10,10,1);
+insert into producto values(null,5,'Desayuno Americano',11,10,1);
+insert into producto values(null,5,'Fruta Empalada',12,10,1);
 
 
 

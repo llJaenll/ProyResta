@@ -31,7 +31,7 @@
 		<nav class="navbar navbar-inverse navbar-fixed-top"
 			id="sidebar-wrapper" role="navigation">
 			<ul class="nav sidebar-nav">
-				<li class="sidebar-brand"><a href="#"> Restaurante Sirvetek </a></li>
+				<li class="sidebar-brand"><a href="#">Sirvetek </a></li>
 				<!--  <li><a href="#">Mi Perfil</a></li>-->
 				<!-- <li>
                     <a href="Graficos.jsp" target="form">Graficos</a>
@@ -55,7 +55,7 @@
 						<li><a href="ReporteVentas.jsp" target="form">Reporte
 								Ventas</a></li>
 					</ul></li>
-				<li><a href="CerrarSesion">Cerrar Sesión</a></li>
+				<li><a href="CerrarSesion">Cerrar Sesion</a></li>
 			</ul>
 		</nav>
 		<!-- /#sidebar-wrapper -->
@@ -63,7 +63,7 @@
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<button type="button" class="hamburger is-closed"
-				data-toggle="offcanvas">
+				data-toggle="offcanvas" id="cambio">
 				<span class="hamb-top"></span> <span class="hamb-middle"></span> <span
 					class="hamb-bottom"></span>
 			</button>

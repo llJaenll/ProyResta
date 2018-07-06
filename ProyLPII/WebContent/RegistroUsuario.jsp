@@ -109,7 +109,7 @@
 
 
 			<div class="form-footer">
-				<button type="submit" class="btn" id="validar">Crear cuenta</button>
+				<button type="submit" class="btn" id="validar">Guardar cuenta</button>
 				<a id="ListBot" type="button" class="btn btn-info btn-xs"
 					href="ListaUsuario.jsp">Volver</a>
 			</div>
