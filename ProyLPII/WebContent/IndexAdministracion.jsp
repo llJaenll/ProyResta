@@ -31,8 +31,8 @@
 		<nav class="navbar navbar-inverse navbar-fixed-top"
 			id="sidebar-wrapper" role="navigation">
 			<ul class="nav sidebar-nav">
-				<li class="sidebar-brand"><a href="#"> Restaurante Jaen </a></li>
-				<li><a href="#">Mi Perfil</a></li>
+				<li class="sidebar-brand"><a href="#"> Restaurante Sirvetek </a></li>
+				<!--  <li><a href="#">Mi Perfil</a></li>-->
 				<!-- <li>
                     <a href="Graficos.jsp" target="form">Graficos</a>
                 </li> -->
