@@ -76,6 +76,7 @@
       <button type="submit" class="btn">REGISTRAR</button>
       <a  id="ListBot" type="button" class="btn btn-info btn-xs" href="ListaProducto.jsp">Volver</a>
     </div>
+      <label id="confirm">${msgR}</label>
   </form>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

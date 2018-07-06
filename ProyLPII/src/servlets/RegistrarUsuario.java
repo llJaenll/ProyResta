@@ -24,6 +24,7 @@ public class RegistrarUsuario extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String msgR="";
 		PrintWriter out = response.getWriter();
 		
 		UsuarioDTO u = new UsuarioDTO(0, request.getParameter("nom_Usu"), request.getParameter("apePat_Usu"),
@@ -37,7 +38,9 @@ public class RegistrarUsuario extends HttpServlet {
 		if (ok==0) {
 			out.println("Error");
 		} else {
-			out.println("Se registro");
+		msgR="Usuario Registrado";
+		request.setAttribute("msgR", msgR);
+		request.getRequestDispatcher("RegistroUsuario.jsp").forward(request, response);
 		}
 		
 		

@@ -36,7 +36,9 @@ public class CActualizarUsuario extends HttpServlet {
 		if (ok==0) {
 			out.println("Error");
 		} else {
-			out.println("Se modifico");
+			String msgR = "Usuario Actualizado";
+			request.setAttribute("msgR", msgR);
+			request.getRequestDispatcher("RegistroUsuario.jsp").forward(request, response);
 		}
 	}
 
