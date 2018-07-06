@@ -56,14 +56,14 @@
     </div>
   </nav>
 </header>
-	<form action="">
+	<form action="ContactenosServlet">
 		<h2>CONTACTO</h2>
 		<input type="text" name="nombre" placeholder="Nombre">
 		<input type="text" name="correo" placeholder="Correo">
 		<input type="text" name="telefono" placeholder="Telefono">
 		<textarea name="mensaje" placeholder="Escriba su mensaje">
 		</textarea>
-		<input type="button" value="ENVIAR" id="boton">
+		<input type="submit" value="ENVIAR" id="boton">
 	</form>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script type="application/ecmascript" src="js/BarraMenu.js"></script>

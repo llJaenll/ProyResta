@@ -2,6 +2,7 @@ package dao;
 
 import interfaces.CategoriaDAO;
 import interfaces.ClienteDAO;
+import interfaces.ContactenosDAO;
 import interfaces.DeliveryDAO;
 import interfaces.DetalleDeliveryDAO;
 import interfaces.EstadoDAO;
@@ -64,6 +65,12 @@ public class MySQLDAOFactory extends DAOFactory {
 	public LocalDAO getLocalDAO() {
 		// TODO Auto-generated method stub
 		return new MYSQLLocalDAO();
+	}
+
+	@Override
+	public ContactenosDAO getContactenosDAO() {
+		// TODO Auto-generated method stub
+		return new MYSQLContactenosDAO();
 	}
 
 
