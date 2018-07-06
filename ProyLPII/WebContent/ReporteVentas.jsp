@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Productos</title>
+	<title>Ventas</title>
 </head>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -25,11 +25,17 @@
 </style>
 <body>
 <div class="container">
-<h1 id="ListTit">Lista de Productos</h1>
+<h1 id="ListTit">Reporte de Ventas</h1>
 
-<input id="fecha1" width="276" />
-<input id="fecha2" width="276" data-date-format="yyyy-mm-dd"/>
-<div class="wrap-item-button"><a type="button" class="llamar" >Filtrar</a></div>
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Ingrese la Fechas a filtrar</span>
+  </div>
+ <input id="fecha1" width="276" readonly/>
+<input id="fecha2" width="276" readonly/>
+<div class="wrap-item-button"><a type="button" id="llamar" class="btn btn-primary">Filtrar</a></div>
+
+</div>
 
 <table id="tablaProductos" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
         <thead>
@@ -81,7 +87,7 @@ $(document).ready(function() {
         format: 'yyyy-mm-dd'
     });
     
-    $(document).on('click','.llamar',function(){
+    $(document).on('click','#llamar',function(){
     	
     	var fecha1=document.getElementById("fecha1").value;
     	var fecha2=document.getElementById("fecha2").value;
@@ -101,7 +107,7 @@ $(document).ready(function() {
             
         	"language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-            }
+            },destroy:true
         
         
         } );

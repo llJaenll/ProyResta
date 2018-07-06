@@ -72,8 +72,13 @@
 	<section class="products__header">
 	<form action="RealizarOrden">
 		<h1>Resumen de Pedido</h1>
-		<p>Total S/<%=totalventa%> </p>
-		<input type="button" value="Ordenar" id="btordenar" data-toggle="modal" data-target="#exampleModal"> 
+		<center><p>Total S/<%=totalventa%> </p></center>
+		<%if(totalventa<=0){%>
+		
+			<input type="button" value="Ordenar" id="btordenar" data-toggle="modal" data-target="#exampleModal" disabled> 
+		<%}else{ %>
+			<input type="button" value="Ordenar" id="btordenar" data-toggle="modal" data-target="#exampleModal"> 
+		<%} %>
 			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			  <div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -116,6 +121,7 @@
 					   <div class="form-group">
 						<div class="alert alert-primary" role="alert">
 						  	<center><p>Total de su pedido <%=totalventa %></p></center>
+						  	
 						</div>
 					  </div>
 					</form>
@@ -191,7 +197,7 @@
     }
     
     function llamarServletOrdenar(){
-    	
+    	var total=document.getElementById("")
     	 var nomDel=document.getElementById("nomDel").value;
     	 var dniDel=document.getElementById("dniDel").value;
     	 var dir=document.getElementById("dir").value;

@@ -730,11 +730,12 @@ xFecha2 timestamp
 			pd.nom_Prod,
 			dt.prec_Prod,
             dt.cant,
-			dt.subtotal 
+			dt.subtotal
 		from delivery d 
 		inner join detalle_delivery dt on d.Id_Del=dt.Id_Del
 		inner join producto pd on dt.Id_Prod=pd.Id_Prod
-		where DATE(d.fech_Del) between xFecha1 and xFecha2;
+		where DATE(d.fech_Del) between xFecha1 and xFecha2
+        group by d.fech_Del;
     end $$
 delimiter ;
 call usp_DeliveryPorFecha('2018-07-04','2018-07-04');
