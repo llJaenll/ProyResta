@@ -2,6 +2,7 @@ package dao;
 
 import interfaces.CategoriaDAO;
 import interfaces.ClienteDAO;
+import interfaces.ContactenosDAO;
 import interfaces.DeliveryDAO;
 import interfaces.DetalleDeliveryDAO;
 import interfaces.EstadoDAO;
@@ -24,6 +25,8 @@ public abstract class DAOFactory {
 	public abstract ProductoDAO getProductoDAO();
 	public abstract CategoriaDAO getCategoriaDAO();
 	public abstract LocalDAO getLocalDAO();
+	public abstract ContactenosDAO getContactenosDAO();
+
 	
 
 	public static DAOFactory getDAOFactory(int qFactory) {
