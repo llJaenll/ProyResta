@@ -44,8 +44,6 @@ call usp_InsertarUsuario(5,'Cristofer','Montalvo','Montalvo','12345671','1234567
 insert into Motorizado(nom_Motor,apePat_Motor,apeMat_Motor,dni_Motor,nro_brevete,telf_Tra,placaAutomovil,Id_Estado
 ) values('Maveric','Ramos','Pinillos','12345678','12345678','12345679','ASDFE',1);
 
-call usp_InsertarProducto(1,'Arroz chaufa',20,100);
-
 /*
 call usp_InsertarCliente('Juan','Ramirez','Perez','12345678');
 call usp_InsertarCliente('Ken','Cordova','Rojas','12345678');
@@ -105,11 +103,11 @@ insert into producto values(null,4,'Causa',10,10,1);
 insert into producto values(null,4,'Ceviche',15,10,1);
 insert into producto values(null,4,'Anticucho',12,10,1);
 insert into producto values(null,4,'Mollejita',13,10,1);
-insert into producto values(null,4,'Papa A La Huancaína',10,10,1);
+insert into producto values(null,4,'Papa A La Huancaina',10,10,1);
 insert into producto values(null,4,'Ocopa',10,10,1);
 insert into producto values(null,4,'Rocoto Relleno',14,10,1);
 insert into producto values(null,4,'Palta Rellena',10,10,1);
-insert into producto values(null,4,'Teque�os',10,10,1);
+insert into producto values(null,4,'Tequeños',10,10,1);
 insert into producto values(null,4,'Choritos A La Chalaca',15,10,1);
 -- 5
 
