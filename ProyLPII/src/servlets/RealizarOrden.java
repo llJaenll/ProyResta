@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.DeliveryDTO;
 import beans.DetalleDeliveryDTO;
-
 import service.DeliveryService;
 import service.DetalleDeliveryService;
+import service.ProductoService;
 
 /**
  * Servlet implementation class RealizarOrden
@@ -29,17 +29,7 @@ public class RealizarOrden extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-			//Email email = new Email();
 			PrintWriter out= response.getWriter();
-			//String para=request.getParameter("corDel");
-			//System.out.println(para);
-			//boolean resultado=email.enviarCorreo("lljeanll@outlook.cl","" , para,"hola" , "Pedido");
-           // if(resultado){
-           //     System.out.println("CORREO ELECTRONICO CORRECTAMENTE ENVIADO.....");
-                
-           // }else{
-           // 	 System.out.println("CORREO ELECTRONICO NO ENVIADO....."); 
-           // }
 			//obtenemos el codigo correlativo
 			DeliveryService des= new DeliveryService();
 			int codDel=des.codigoCorrelativo();
