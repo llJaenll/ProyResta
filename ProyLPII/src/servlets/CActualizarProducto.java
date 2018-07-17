@@ -18,9 +18,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import beans.ProductoDTO;
-import beans.UsuarioDTO;
 import service.ProductoService;
-import service.UsuarioService;
 
 /**
  * Servlet implementation class CActualizarUsuario

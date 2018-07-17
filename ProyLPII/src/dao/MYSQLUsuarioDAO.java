@@ -10,7 +10,6 @@ import java.util.List;
 
 import beans.TipoUsuarioDTO;
 import beans.UsuarioDTO;
-import beans.UsuarioTipoDTO;
 import interfaces.UsuarioDAO;
 import utils.MySQLConexion;
 

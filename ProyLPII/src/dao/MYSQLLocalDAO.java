@@ -5,11 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import utils.MySQLConexion;
 import beans.LocalDTO;
-import beans.UsuarioDTO;
 import interfaces.LocalDAO;
 
 public class MYSQLLocalDAO implements LocalDAO{

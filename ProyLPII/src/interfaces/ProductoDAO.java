@@ -5,7 +5,6 @@ import java.util.List;
 
 import beans.CategoriaDTO;
 import beans.ProductoDTO;
-import beans.TipoUsuarioDTO;
 
 public interface ProductoDAO {
 	

@@ -14,7 +14,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import beans.LocalDTO;
-import beans.UsuarioDTO;
 import service.LocalesService;
 
 /**
@@ -25,17 +24,19 @@ public class ListarLocal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("application/json;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		LocalesService ls=new LocalesService();
-		ArrayList<LocalDTO> listaLocales=ls.listar();
-		String datos="";
+		LocalesService ls = new LocalesService();
+		ArrayList<LocalDTO> listaLocales = ls.listar();
+		String datos = "";
 		com.google.gson.JsonObject gson = new JsonObject();
 		JsonArray array = new JsonArray();
-	
+
 		for (LocalDTO localDTO : listaLocales) {
 			System.out.println(localDTO.getLongitud());
 			JsonObject item = new JsonObject();
@@ -45,10 +46,10 @@ public class ListarLocal extends HttpServlet {
 			item.addProperty("latitud_Locales", localDTO.getLatitud());
 			array.add(item);
 		}
-		
-		PrintWriter pw = response.getWriter(); 
-        pw.print(array.toString());
-        pw.close();
+
+		PrintWriter pw = response.getWriter();
+		pw.print(array.toString());
+		pw.close();
 
 	}
 

@@ -8,10 +8,8 @@ import java.util.List;
 
 import beans.DeliveryDTO;
 import beans.ObjetoReporteDTO;
-import beans.ProductoDTO;
 import interfaces.DeliveryDAO;
 import service.DeliveryService;
-import service.ProductoService;
 import utils.MySQLConexion;
 
 public class MYSQLDeliveryDAO implements DeliveryDAO {

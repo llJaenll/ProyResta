@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.ProductoDTO;
-import beans.UsuarioDTO;
 import service.ProductoService;
-import service.UsuarioService;
 
 /**
  * Servlet implementation class ActualizarUsuario

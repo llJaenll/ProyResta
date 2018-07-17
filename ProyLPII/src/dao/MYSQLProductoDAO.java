@@ -9,7 +9,6 @@ import java.util.List;
 
 import beans.CategoriaDTO;
 import beans.ProductoDTO;
-import beans.TipoUsuarioDTO;
 import interfaces.ProductoDAO;
 import service.ProductoService;
 import utils.MySQLConexion;

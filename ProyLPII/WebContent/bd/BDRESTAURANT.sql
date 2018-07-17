@@ -140,7 +140,7 @@ create table detalle_Delivery(
 	subtotal decimal(6,2) as (cant*prec_prod),
     fech_Pedido timestamp default current_timestamp
 );
---------------------Tabla Contactenos ----------------------
+-- ------------------Tabla Contactenos ----------------------
 
 CREATE TABLE contactenos (
  Id_Contactenos int AUTO_INCREMENT,
@@ -794,22 +794,3 @@ create procedure usp_mesasReserva()
 	end $$
 delimiter ;  
 
--- ---------------------------------------
-/*Relaciones
-
-
-alter table delivery
-add constraint pk_IdDelivery primary key(id_del);
-
-alter table delivery
-add constraint fk_IdMotor foreign key(id_Motor) references Motorizado(id_Motor);
-
-alter table detalle_delivery
-add constraint fk_IdDelivery foreign key(id_del) references delivery(id_del);
-
-alter table detalle_delivery
-add constraint fk_DelIdprod foreign key(id_prod) references Producto(id_prod);
-
-*/
-
-call usp_validarIngreso('Mramos','ciber') ;

@@ -21,20 +21,6 @@ insert into tipo_categoria values(null,'Ensaladas');
 insert into tipo_categoria values(null,'Bebidas');
 insert into tipo_categoria values(null,'Complementos');
 insert into tipo_categoria values(null,'Ofertas');
-/*
-insert into mesa values(null, 'Mesa para 2');
-insert into mesa values(null, 'Mesa para 2');
-insert into mesa values(null, 'Mesa para 4');
-insert into mesa values(null, 'Mesa para 4');
-insert into mesa values(null, 'Mesa para 8');
-insert into mesa values(null, 'Mesa para 4');
-insert into mesa values(null, 'Mesa para 4');
-insert into mesa values(null, 'Mesa para 2');
-insert into mesa values(null, 'Mesa para 8');
-insert into mesa values(null, 'Mesa para 16');
-insert into mesa values(null, 'Mesa para 5');
-insert into mesa values(null, 'Mesa para 8');
-*/
 
 call usp_InsertarUsuario(1,'Maveric','Ramos','Pinillos','12345678','123456789','Mramos','ciber');
 call usp_InsertarUsuario(2,'Gianfranco','Poma','Vidal','87654321','123456789','Gpoma','ciber');
@@ -44,14 +30,7 @@ call usp_InsertarUsuario(5,'Cristofer','Montalvo','Montalvo','12345671','1234567
 insert into Motorizado(nom_Motor,apePat_Motor,apeMat_Motor,dni_Motor,nro_brevete,telf_Tra,placaAutomovil,Id_Estado
 ) values('Maveric','Ramos','Pinillos','12345678','12345678','12345679','ASDFE',1);
 
-/*
-call usp_InsertarCliente('Juan','Ramirez','Perez','12345678');
-call usp_InsertarCliente('Ken','Cordova','Rojas','12345678');
-call usp_InsertarCliente('Pablo','Ramirez','Diaz','12345678');
-call usp_InsertarCliente('Jose','Alcorcon','Perez','12345678');
-call usp_InsertarCliente('Jerundio','Guerrero','Mendoza','12345678');
-call usp_InsertarCliente('Carlos','Lobaton','Cuevita','12345678');
-*/
+
 select * from estado;
 select * from delivery;
 select * from detalle_delivery;

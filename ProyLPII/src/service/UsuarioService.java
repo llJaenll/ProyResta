@@ -4,9 +4,7 @@ import java.util.List;
 
 import beans.TipoUsuarioDTO;
 import beans.UsuarioDTO;
-import beans.UsuarioTipoDTO;
 import dao.DAOFactory;
-import interfaces.DetalleDeliveryDAO;
 import interfaces.UsuarioDAO;
 
 public class UsuarioService implements UsuarioDAO{

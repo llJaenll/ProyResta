@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.CategoriaService;
 
 /**
  * Servlet implementation class IrProductos
@@ -20,7 +19,7 @@ public class IrProductos extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String cod=request.getParameter("cod");
+		String cod = request.getParameter("cod");
 	}
 
 }

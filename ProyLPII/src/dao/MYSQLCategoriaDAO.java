@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import beans.CategoriaDTO;
-import beans.ProductoDTO;
 import interfaces.CategoriaDAO;
 import utils.MySQLConexion;
 

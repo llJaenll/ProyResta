@@ -24,20 +24,22 @@ public class ListarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("application/json;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		
+
 		UsuarioService us = new UsuarioService();
 		List<UsuarioDTO> lista = us.listarUsuarioTipo();
-		String datos="";
-		
+		String datos = "";
+
 		com.google.gson.JsonObject gson = new JsonObject();
 		JsonArray array = new JsonArray();
-	
+
 		for (UsuarioDTO usuarioDTO : lista) {
 			JsonObject item = new JsonObject();
 			item.addProperty("nom_Usu", usuarioDTO.getNombre());
@@ -46,18 +48,19 @@ public class ListarUsuario extends HttpServlet {
 			item.addProperty("Id_TipoUsu", usuarioDTO.getTipoU());
 			item.addProperty("usuario", usuarioDTO.getUsuario());
 			item.addProperty("fechIng_Usu", usuarioDTO.getFecha());
-			item.addProperty("acciones", "<a type='button' name='actualizar' id='"+
-							usuarioDTO.getCodigo()+"' href='ActualizarUsuario?id="+usuarioDTO.getCodigo()+"' class='btn btn-info btn-xs actualizar' title='Actualizar'>"
+			item.addProperty("acciones",
+					"<a type='button' name='actualizar' id='" + usuarioDTO.getCodigo() + "' href='ActualizarUsuario?id="
+							+ usuarioDTO.getCodigo() + "' class='btn btn-info btn-xs actualizar' title='Actualizar'>"
 							+ "<span class='fas fa-user-edit'></span></a>&nbsp"
-							+ "<a type='button' name='eliminar' id='"+
-							usuarioDTO.getCodigo()+"' class='btn btn-danger btn-xs eliminar' title='Eliminar'>"
+							+ "<a type='button' name='eliminar' id='" + usuarioDTO.getCodigo()
+							+ "' class='btn btn-danger btn-xs eliminar' title='Eliminar'>"
 							+ "<span class='fas fa-trash-alt'></span></a>");
 			array.add(item);
 		}
-		
+
 		gson.add("datos", array);
 		out.println(gson.toString());
-		
+
 	}
 
 }
